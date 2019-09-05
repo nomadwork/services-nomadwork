@@ -8,6 +8,6 @@ namespace Nomadwork.Infra.Data
         public ApplicationDbContext( DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        public DbSet<Establishment> Establishments { get; set; }
+        public DbSet<Establishment> Establishments{ get; set; }
     }
 }
