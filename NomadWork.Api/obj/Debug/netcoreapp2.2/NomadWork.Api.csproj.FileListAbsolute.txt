@@ -1,0 +1,14 @@
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\bin\Debug\netcoreapp2.2\NomadWork.Api.deps.json
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\bin\Debug\netcoreapp2.2\NomadWork.Api.runtimeconfig.json
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\bin\Debug\netcoreapp2.2\NomadWork.Api.runtimeconfig.dev.json
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\bin\Debug\netcoreapp2.2\NomadWork.Api.dll
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\bin\Debug\netcoreapp2.2\NomadWork.Api.pdb
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.csprojAssemblyReference.cache
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.csproj.CoreCompileInputs.cache
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.RazorAssemblyInfo.cache
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.RazorAssemblyInfo.cs
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.AssemblyInfoInputs.cache
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.AssemblyInfo.cs
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.RazorTargetAssemblyInfo.cache
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.dll
+C:\Users\jerson\Source\Repos\Nomadwork\Api\NomadWork.Api\obj\Debug\netcoreapp2.2\NomadWork.Api.pdb
