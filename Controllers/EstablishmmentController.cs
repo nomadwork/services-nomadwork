@@ -11,7 +11,7 @@ namespace Nomadwork.Controllers
         //ResultListEstablishmmentNameLocationId establishmment;
 
         // GET api/values
-        [HttpGet]
+        [HttpPost]
         [ResponseCache(Duration = 60)]
         public ActionResult<Json> Get(Geolocation geolocation)
         {
