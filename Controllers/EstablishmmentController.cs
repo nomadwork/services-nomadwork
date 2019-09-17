@@ -6,6 +6,7 @@ using Nomadwork.Model_View.Establishmment_List;
 namespace Nomadwork.Controllers
 {
     [Route("api/establishmment")]
+    [ApiController]
     public class EstablishmmentController : ControllerBase
     {
         //ResultListEstablishmmentNameLocationId establishmment;
@@ -13,7 +14,7 @@ namespace Nomadwork.Controllers
         // GET api/values
         [HttpPost]
         [ResponseCache(Duration = 60)]
-        [Authorize]
+        // [Authorize]
         public ActionResult<Json> Get([FromBody]Geolocation geolocation)
         {
             var establishmment = ResultListEstablishmmentNameLocationId.GetInstance();
