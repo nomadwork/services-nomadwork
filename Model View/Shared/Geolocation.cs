@@ -15,9 +15,9 @@ namespace Nomadwork.Model_View
             };
         }
 
-        public decimal Latitude { get; set; }
+        public decimal Latitude { get; set; } = -10.01M;
 
-        public decimal Longitude { get; set; }
+        public decimal Longitude { get; set; } = 10.01M;
     }
 
 }

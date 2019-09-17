@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Model_View;
 using Nomadwork.Model_View.Establishmment_List;
 
 namespace Nomadwork.Controllers
 {
-    [Route("api/v0/[controller]")]
+    [Route("api/establishmment")]
     [ApiController]
     public class EstablishmmentController : ControllerBase
     {
@@ -13,7 +14,8 @@ namespace Nomadwork.Controllers
         // GET api/values
         [HttpPost]
         [ResponseCache(Duration = 60)]
-        public ActionResult<Json> Get(Geolocation geolocation)
+        [Authorize]
+        public ActionResult<Json> Get([FromBody]Geolocation geolocation)
         {
             var establishmment = ResultListEstablishmmentNameLocationId.GetInstance();
 
@@ -60,7 +62,7 @@ namespace Nomadwork.Controllers
 
         public enum Quantity
         {
-            Nome = 0,
+            None = 0,
             Has = 1,
             Little = 2,
             Much = 3,
