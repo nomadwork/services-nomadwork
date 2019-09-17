@@ -6,7 +6,6 @@ using Nomadwork.Model_View.Establishmment_List;
 namespace Nomadwork.Controllers
 {
     [Route("api/establishmment")]
-    [ApiController]
     public class EstablishmmentController : ControllerBase
     {
         //ResultListEstablishmmentNameLocationId establishmment;
