@@ -10,15 +10,13 @@ namespace Nomadwork.Model_View
         }
 
         public static Schedule Create(string open, string close)
+        => new Schedule
         {
-            return new Schedule
-            {
-                _open = open,
-                _close = close
-            };
-        }
+            _open = open,
+            _close = close
+        };
 
-        public string Open { get { return _open; } }
-        public string Close { get { return _close; } }
+        public string Open { get => _open; }
+        public string Close { get => _close; }
     }
 }

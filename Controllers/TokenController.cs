@@ -26,8 +26,9 @@ namespace Nomadwork.Controllers
 
             if (true){
 
-                var claims = new[]{
-                    new Claim(ClaimTypes.Name,request.email),
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.Name,request.Email),
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_confguration["SecurityKey"]));
