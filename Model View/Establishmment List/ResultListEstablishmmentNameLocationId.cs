@@ -4,24 +4,27 @@ namespace Nomadwork.Model_View.Establishmment_List
 {
     public class ResultListEstablishmmentNameLocationId
     {
-        public IEnumerable<EstablishmmentNameLocationId> Establishmments { get => _establishmments; }
-        private List<EstablishmmentNameLocationId> _establishmments;
+        public List<EstablishmmentNameLocationId> Establishmments { get; }
+
 
         private ResultListEstablishmmentNameLocationId()
-        {
-            _establishmments = new List<EstablishmmentNameLocationId>();
-        }
+            => Establishmments = new List<EstablishmmentNameLocationId>();
+        
+
         public static ResultListEstablishmmentNameLocationId GetInstance()
             => new ResultListEstablishmmentNameLocationId();
 
-        private void AddEstaBlishment(EstablishmmentNameLocationId establishmment)
-           => this._establishmments.Add(establishmment);
 
-        public void AddEstaBlishment(string id, string name, decimal latitude, decimal longitude)
-        {
-            var establishmment = EstablishmmentNameLocationId.Create(id, name, latitude, longitude);
+        public void AddEstaBlishment(EstablishmmentNameLocationId establishmment)
+           => this.Establishmments.Add(establishmment);
 
-            AddEstaBlishment(establishmment);
-        }
+
+        public void AddEstaBlishment(List<EstablishmmentNameLocationId> establishmments)
+           => this.Establishmments.AddRange(establishmments);
+
+
+        public void AddEstaBlishment(string id, string name, decimal latitude, decimal longitude,string completeAddress,List<string> url)
+            => AddEstaBlishment(EstablishmmentNameLocationId.Create(id, name, latitude, longitude,completeAddress, url));
+
     }
 }
