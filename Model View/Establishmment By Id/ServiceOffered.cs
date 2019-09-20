@@ -2,41 +2,35 @@ namespace Nomadwork.Model_View
 {
     public class ServiceOffered
     {
-        private Quantity _quantity;
+        public Quantity Quantity { get; private set; }
 
-        private Quality _quality;
+        public Quality Quality { get; private set; }
 
-        private Service _service;
+        public Service Service { get; private set; }
 
 
         private ServiceOffered() { }
 
         public static ServiceOffered Internet(Quality quality)
-                => new ServiceOffered
-                {
-                    _service = Service.Internet,
-                    _quantity = Quantity.Has,
-                    _quality = quality
-                };
+            => new ServiceOffered
+            {
+                Service = Service.Internet,
+                Quantity = Quantity.Has,
+                Quality = quality
+            };
 
         public static ServiceOffered Noise(Quantity quantity)
-                => new ServiceOffered
-                {
-                    _service = Service.Noise,
-                    _quantity = quantity
-                };
+            => new ServiceOffered
+            {
+                Service = Service.Noise,
+                Quantity = quantity
+            };
 
         public static ServiceOffered Energy(Quantity quantity)
-                => new ServiceOffered
-                {
-                    _service = Service.Energy,
-                    _quantity = quantity
-                };
-
-        public Quantity Quantity { get => _quantity; }
-
-        public Quality Quality { get => _quality; }
-
-        public Service Service { get => _service; }
+            => new ServiceOffered
+            {
+                Service = Service.Energy,
+                Quantity = quantity
+            };
     }
 }

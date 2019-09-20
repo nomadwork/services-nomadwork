@@ -5,36 +5,31 @@ namespace Nomadwork.Model_View
 {
     public class EstablishmmentById
     {
-        private string _id;
-        private string _name;
-        private Schedule _schedule;
-        private List<ServiceOffered> _services;
+        private readonly List<ServiceOffered> _services;
 
-        public string Id { get => _id; }
+        public string Id { get; private set; }
 
-        public string Name { get => _name; }
+        public string Name { get; private set; }
 
-        public Schedule Schedule { get => _schedule; }
+        public Schedule Schedule { get; private set; }
 
         public IEnumerable<ServiceOffered> Services { get => _services; }
 
         private EstablishmmentById()
-        {
-            _services = new List<ServiceOffered>();
-        }
+            => _services = new List<ServiceOffered>();
+
 
         public static EstablishmmentById Create(string id, string name, string hourToOpen, string hourToClose)
-        {
-            var schedule = Schedule.Create(hourToOpen, hourToClose);
-            return new EstablishmmentById
+            => new EstablishmmentById
             {
-                _id = id,
-                _name = name,
-                _schedule = schedule
+                Id = id,
+                Name = name,
+                Schedule = Schedule.Create(hourToOpen, hourToClose)
             };
-        }
 
-        public void AddServices(ServiceOffered service) => this._services.Add(service);
+
+        public void AddServices(ServiceOffered service)
+            => this._services.Add(service);
 
     }
 }

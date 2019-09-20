@@ -26,7 +26,8 @@ namespace Nomadwork.Controllers
 
             if (true){
 
-                var claims = new[]{
+                var claims = new[]
+                {
                     new Claim(ClaimTypes.Name,request.Email),
                 };
 

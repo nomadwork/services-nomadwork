@@ -22,4 +22,18 @@ namespace Nomadwork.Model_View
         Energy = 2,
         Noise = 3
     }
+    public enum Wifi
+        {
+            Nome = 0,
+            Low = 1,
+            Medium = 2,
+            High = 3,
+        }
+    public enum Noise
+    {
+            Noiseless = 0,
+            Low = 1,
+            Medium = 2,
+            High = 3,
+    }
 }

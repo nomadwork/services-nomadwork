@@ -1,32 +1,34 @@
+using System.Collections.Generic;
 
 namespace Nomadwork.Model_View.Establishmment_List
 {
     public class EstablishmmentNameLocationId
     {
-        private string _id;
-        private string _name;
-        private Geolocation _geolocation;
+        public string Id { get; private set; }
+        public string Name { get; private set; }
+        public string CompleteAddress { get;private set; }
+        public Geolocation Geolocation { get; private set; }
+        public List<string> UrlPhoto { get; private set; }
 
-        public string Id { get => _id; }
-        public string Name { get => _name; }
+        private EstablishmmentNameLocationId() 
+            => UrlPhoto = new List<string>();
 
-        public Geolocation Geolocation { get => _geolocation; }
+        internal static EstablishmmentNameLocationId Create(string id, string name, decimal latitude, decimal longitude, string completeAddress, List<string> urlsPhoto)
+           => new EstablishmmentNameLocationId
+           {
+               Id = id,
+               Name = name,
+               CompleteAddress = completeAddress,
+               Geolocation = Geolocation.Create(latitude, longitude),
+               UrlPhoto = urlsPhoto
+           };
 
-        private EstablishmmentNameLocationId()
-        {
-        }
+        internal void AddPhoto(string urlPhoto)
+             => UrlPhoto.Add(urlPhoto);
 
-        internal static EstablishmmentNameLocationId Create(string id, string name, decimal latitude, decimal longitude)
-        {
-            var geolocation = Geolocation.Create(latitude, longitude);
-            return new EstablishmmentNameLocationId
-            {
-                _id = id,
-                _name = name,
-                _geolocation = geolocation
-            };
 
-        }
+        internal void AddPhoto(List<string> urlsPhoto)
+            => UrlPhoto.AddRange(urlsPhoto);
 
     }
 
