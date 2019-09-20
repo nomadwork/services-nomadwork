@@ -12,6 +12,11 @@ namespace Nomadwork.Controllers
     {
         ResultListEstablishmmentNameLocationId _establishmment;
 
+        private IEnumerable<EstablishmmentNameLocationId> SelectLocations(Geolocation geolocation)
+            => _establishmment.Establishmments.Where(x => decimal.Round(x.Geolocation.Latitude, 3)
+                                                                        .Equals(decimal.Round(geolocation.Latitude, 3))
+                                                                        || decimal.Round(x.Geolocation.Longitude, 3)
+                                                                                .Equals(decimal.Round(geolocation.Longitude, 3))).ToHashSet().Take(20);
 
         // GET api/values
         [HttpPost]
@@ -24,11 +29,7 @@ namespace Nomadwork.Controllers
 
             CreatedListEstablishmment();
 
-            var list = _establishmment.Establishmments
-                                      .Where(x => decimal.Round(x.Geolocation.Latitude, 3)
-                                                                .Equals(decimal.Round(geolocation.Latitude, 3))
-                                                                || decimal.Round(x.Geolocation.Longitude, 3)
-                                                                        .Equals(decimal.Round(geolocation.Longitude, 3))).ToHashSet().Take(20);
+            var list = SelectLocations(geolocation);
 
             if (list.Count().Equals(0))
             {
@@ -69,22 +70,44 @@ namespace Nomadwork.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Json> Delete(string id)
         {
-            if (_establishmment.Establishmments == null
-            || _establishmment.Establishmments.Count().Equals(0))
-            {
-                return NoContent();
-            }
+            CreatedListEstablishmment();
+
             var elemment = _establishmment.Establishmments.Find(x => x.Id.Equals(id));
+
+            var list = SelectLocations(elemment.Geolocation);
+
+            if (list == null
+            || list.Count().Equals(0))
+            {
+                return NotFound(Json.Create("Não existem estabelecimentos", null));
+            }
 
             if (elemment == null)
             {
-                return NotFound(Json.Create("Não existem estabelecimentos encontrados", null));
+                return NotFound(Json.Create("Não existem estabelecimentos", null));
             }
 
-            _establishmment.Establishmments.Remove(elemment);
+            list.Where(x => !x.Equals(elemment));
 
-            return Ok(Json.Create(string.Format("Elemento de ID{0} e Nome {1}", elemment.Id, elemment.Name), _establishmment.Establishmments));
 
+
+
+            return Json.Create(string.Format("Elemento de ID {0} e de Nome {1} foi removido", elemment.Id, elemment.Name), list.ToHashSet());
+
+        }
+
+
+        [HttpPut]
+        public ActionResult<Json> Put([FromBody] EstablishmmentNameLocationId establishmment)
+        {
+            if (ModelState.IsValid)
+            {
+                _establishmment.Establishmments.Add(establishmment);
+
+            }
+            var list = SelectLocations(establishmment.Geolocation);
+
+            return Json.Create("Não existem estabelecimentos", list);
         }
 
 
