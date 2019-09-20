@@ -14,9 +14,14 @@ namespace Nomadwork.Model_View
         public Schedule Schedule { get; private set; }
 
         public IEnumerable<ServiceOffered> Services { get => _services; }
+        public string CompleteAddress { get; private set; }
+        public List<string> UrlPhoto { get; private set; }
 
         private EstablishmmentById()
-            => _services = new List<ServiceOffered>();
+        {
+            this._services = new List<ServiceOffered>();
+            this.UrlPhoto = new List<string>();
+        }
 
 
         public static EstablishmmentById Create(string id, string name, string hourToOpen, string hourToClose)
@@ -31,5 +36,12 @@ namespace Nomadwork.Model_View
         public void AddServices(ServiceOffered service)
             => this._services.Add(service);
 
+
+        internal void AddPhoto(string urlPhoto)
+             => UrlPhoto.Add(urlPhoto);
+
+
+        internal void AddPhoto(List<string> urlsPhoto)
+            => UrlPhoto.AddRange(urlsPhoto);
     }
 }

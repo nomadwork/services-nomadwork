@@ -9,7 +9,7 @@ namespace Nomadwork.Model_View.Establishmment_List
 
         private ResultListEstablishmmentNameLocationId()
             => Establishmments = new List<EstablishmmentNameLocationId>();
-        
+
 
         public static ResultListEstablishmmentNameLocationId GetInstance()
             => new ResultListEstablishmmentNameLocationId();
@@ -23,8 +23,8 @@ namespace Nomadwork.Model_View.Establishmment_List
            => this.Establishmments.AddRange(establishmments);
 
 
-        public void AddEstaBlishment(string id, string name, decimal latitude, decimal longitude,string completeAddress,List<string> url)
-            => AddEstaBlishment(EstablishmmentNameLocationId.Create(id, name, latitude, longitude,completeAddress, url));
+        public void AddEstaBlishment(string id, string name, decimal latitude, decimal longitude)
+            => AddEstaBlishment(EstablishmmentNameLocationId.Create(id, name, latitude, longitude));
 
     }
 }
