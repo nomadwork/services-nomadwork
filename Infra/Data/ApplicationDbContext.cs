@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Nomadwork.Infra.Models;
+using services_nomadwork.Infra.Model;
 
 namespace Nomadwork.Infra.Data
 {
@@ -8,6 +8,6 @@ namespace Nomadwork.Infra.Data
         public ApplicationDbContext( DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        // public DbSet<Establishment> Establishments{ get; set; }
+        public DbSet<Establishment> Establishments{ get; set; }
     }
 }
