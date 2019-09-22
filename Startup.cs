@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Nomadwork.Infra.Data;
+using Nomadwork.Infra.Data.Contexts;
 
 namespace Nomadwork
 {
@@ -27,12 +27,13 @@ namespace Nomadwork
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddResponseCompression();
-            services.AddDbContext<ApplicationDbContext>(options =>
-                                                   options.UseMySql(
+            services.AddDbContext<NomadworkDbContext>(options =>
+                                                   options.UseMySQL(
                                                    Configuration.GetConnectionString("DbConnectionLocal")));
-            
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options => {
+            .AddJwtBearer(options =>
+            {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,

@@ -1,36 +1,69 @@
-using Nomadwork.Model_View;
-using services_nomadwork.Domain.Shared;
-using services_nomadwork.Infra.Model;
+using Nomadwork.Domain.Shared;
+using Nomadwork.Domain.Location;
 
-namespace services_nomadwork.Domain.Business
+namespace Nomadwork.Domain.Business
 {
-    public class Establishments : AEntite
+    public class Establishments : ADommain
     {
-        protected Establishments(string name,Address address, Wifi wifi,bool power, Noise noise, string timeopen, string timeclose, string email, float phone)
+        private Establishments(string name, string email, string phone, string timeOpen, string timeClose)
         {
-            
-            Name = name;
-            Address = address;
-            Wifi = wifi;
-            Power = power;
-            Noise = noise;
-            Timeopen = timeopen;
-            Timeclose = timeclose;
-            
+            if (CheckEntryOk(new string[] { name, timeOpen, timeClose, email, phone }))
+            {
+                Name = name;
+                Timeopen = timeOpen;
+                Timeclose = timeClose;
+                Phone = phone;
+            }
         }
-        public string Name  { get; private set; }
-        public Address Address { get; private set; }
-        public Wifi Wifi { get; private set; }
-        public bool Power { get; private set; }
-        public Noise Noise { get; private set; }
+
+        public string Name { get; private set; }
         public string Timeopen { get; private set; }
         public string Timeclose { get; private set; }
         public string Email { get; private set; }
-        public float Phone { get; private set; }
+        public string Phone { get; private set; }
+        public Address Address { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="phone"></param>
+        /// <param name="timeOpen"></param>
+        /// <param name="timeClose"></param>
+        /// <returns>**Retorna um novo objeto** ***Establishmment***</returns>
+        public static Establishments Create(string name, string email, string phone, string timeOpen, string timeClose)
+            => new Establishments(name, email, phone, timeOpen, timeClose);
+
+        public void SetAddress(Address address)
+            => this.Address = address;
+
+
+
+        // TODO: descrever toda a regra de negócio de Establissment
         protected override bool CheckEntryOk(string[] args)
         {
-            throw new System.NotImplementedException();
+            var ok = true;
+            var name = args[0];
+            var timeOpen = args[1];
+            var timeClose = args[2];
+            var email = args[3];
+            var phone = args[4];
+
+            if (string.IsNullOrEmpty(name))
+            {
+                AddErro("Nome pode ser vazio");
+                ok = false;
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                AddErro("Nome pode ser vazio");
+                ok = false;
+            }
+            return ok;
+
         }
+
     }
 }

@@ -17,6 +17,7 @@ namespace Nomadwork.Model_View
         public string CompleteAddress { get; private set; }
         public List<string> UrlPhoto { get; private set; }
 
+
         private EstablishmmentById()
         {
             this._services = new List<ServiceOffered>();
