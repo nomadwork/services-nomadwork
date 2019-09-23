@@ -14,7 +14,8 @@ namespace Nomadwork.Infra.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Nomadwork.Infra.Data.Model_Data.AddressModelData", b =>
                 {
@@ -27,11 +28,13 @@ namespace Nomadwork.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
+                    b.Property<DateTime>("LastUpdate");
+
                     b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(8,8)");
+                        .HasColumnType("decimal(12,9)");
 
                     b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(8,8)");
+                        .HasColumnType("decimal(12,9)");
 
                     b.Property<string>("Number")
                         .IsRequired()
@@ -43,7 +46,7 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Zipcode")
                         .HasColumnType("varchar(15)");
@@ -51,6 +54,30 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("Nomadwork.Infra.Data.Model_Data.Characteristic", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<long?>("EstablishmentModelDataId");
+
+                    b.Property<DateTime>("LastUpdate");
+
+                    b.Property<int>("Quality");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("Service");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EstablishmentModelDataId");
+
+                    b.ToTable("Characteristic");
                 });
 
             modelBuilder.Entity("Nomadwork.Infra.Data.Model_Data.EstablishmentModelData", b =>
@@ -65,13 +92,13 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("varchar(200)");
 
+                    b.Property<DateTime>("LastUpdate");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
                         .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("TimeClose");
@@ -94,6 +121,8 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<long?>("EstablishmentModelDataId");
 
+                    b.Property<DateTime>("LastUpdate");
+
                     b.Property<string>("UrlPhoto")
                         .IsRequired();
 
@@ -102,6 +131,13 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.HasIndex("EstablishmentModelDataId");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("Nomadwork.Infra.Data.Model_Data.Characteristic", b =>
+                {
+                    b.HasOne("Nomadwork.Infra.Data.Model_Data.EstablishmentModelData")
+                        .WithMany("Characteristics")
+                        .HasForeignKey("EstablishmentModelDataId");
                 });
 
             modelBuilder.Entity("Nomadwork.Infra.Data.Model_Data.EstablishmentModelData", b =>

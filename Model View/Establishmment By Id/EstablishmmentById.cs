@@ -1,4 +1,4 @@
-
+using Nomadwork.Shared;
 using System.Collections.Generic;
 
 namespace Nomadwork.Model_View
@@ -25,11 +25,12 @@ namespace Nomadwork.Model_View
         }
 
 
-        public static EstablishmmentById Create(string id, string name, string hourToOpen, string hourToClose)
+        public static EstablishmmentById Create(string id, string name, string adress,string hourToOpen, string hourToClose)
             => new EstablishmmentById
             {
                 Id = id,
                 Name = name,
+                CompleteAddress = adress,
                 Schedule = Schedule.Create(hourToOpen, hourToClose)
             };
 
@@ -41,8 +42,5 @@ namespace Nomadwork.Model_View
         internal void AddPhoto(string urlPhoto)
              => UrlPhoto.Add(urlPhoto);
 
-
-        internal void AddPhoto(List<string> urlsPhoto)
-            => UrlPhoto.AddRange(urlsPhoto);
     }
 }

@@ -28,8 +28,8 @@ namespace Nomadwork
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddResponseCompression();
             services.AddDbContext<NomadworkDbContext>(options =>
-                                                   options.UseMySQL(
-                                                   Configuration.GetConnectionString("DbConnectionLocal")));
+                                                   options.UseMySql(
+                                                   Configuration.GetConnectionString("DbProduction")));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

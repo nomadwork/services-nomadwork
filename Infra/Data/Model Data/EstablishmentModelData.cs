@@ -16,9 +16,8 @@ namespace Nomadwork.Infra.Data.Model_Data
         public string Email { get; set; }
 
 
-
         [Column(TypeName = "varchar(20)")]
-        public float Phone { get; set; }
+        public string Phone { get; set; }
 
 
         public DateTime TimeOpen { get; set; }
@@ -27,6 +26,9 @@ namespace Nomadwork.Infra.Data.Model_Data
 
 
         public List<Photo> Photos { get; set; }
+
+         [Required]
+        public List<Characteristic> Characteristics { get; set; }
 
 
         [Required]

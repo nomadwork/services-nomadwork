@@ -10,7 +10,7 @@ namespace Nomadwork.Infra.Data.Model_Data
         public string Zipcode { get; set; }
 
 
-        [Required, Column(TypeName = "varchar(100)")]
+        [Required, Column(TypeName = "varchar(200)")]
         public string Street { get; set; }
 
 
@@ -26,11 +26,11 @@ namespace Nomadwork.Infra.Data.Model_Data
         public string State { get; set; }
 
 
-        [Required, Column(TypeName = "decimal(8,8)")]
+        [Required, Column(TypeName = "decimal(12,9)")]
         public decimal Latitude { get; set; }
 
 
-        [Required, Column(TypeName = "decimal(8,8)")]
+        [Required, Column(TypeName = "decimal(12,9)")]
         public decimal Longitude { get; set; }
 
     }

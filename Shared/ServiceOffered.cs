@@ -1,4 +1,5 @@
-namespace Nomadwork.Model_View
+
+namespace Nomadwork.Shared
 {
     public class ServiceOffered
     {

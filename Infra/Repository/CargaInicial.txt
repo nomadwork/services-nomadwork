@@ -1,0 +1,490 @@
+﻿Lala Café & Kitchen Affective|R. Amélia, 470 - Graças, Recife|52011-050|-8.044724M|-34.89951M
+Cafeteria Santa Clara|R. das Graças, 262 - Graças, Recife|52011-200|-8.048518M|-34.90128M
+Cafecafe Rosa e Silva|R. Ricardo Hardman, 22 - Graças, Recife|52050-200|-8.036883M|-34.90136M
+O Pátio Café & Cozinha|Av. Rui Barbosa, 141 - Graças, Recife|52011-040|-8.050605M|-34.89782M
+Tokyo's Café|Av. Dr. Malaquias, 79 - Graças, Recife|52050-060|-8.03856M|-34.90098M
+Massala Café|R. Joaquim Nabuco, 636 - Graças, Recife|50010-480|-8.052685M|-34.9021M
+Café Tão - Cafeteria|Av. Santos Dumont, 345 - Aflitos, Recife|52050-050|-8.037976M|-34.89872M
+Santo Doce|R. Doze de Outubro, 15 - Graças, Recife|52050-320|-8.042632M|-34.89888M
+Na Venda Chocolates e Café|R. Amélia, 373 - Loja 2 - Graças, Recife|52011-050|-8.045255M|-34.89859M
+Boleria das Marias|R. Antônio Novais - Graças, Recife|52050-280|-8.044424M|-34.90045M
+Coffee Shop São Braz Espinheiro|R. Dr. Vicente Meira, 231 - Espinheiro, Recife|52020-090|-8.043962M|-34.89506M
+Café com Dengo|R. Teles Júnior, 489 - Rosarinho, Recife|52050-040|-8.036499M|-34.89936M
+Clandestino Café|R. Antônio Célso Uchôa Cavalcante - Jaqueira, Recife|50050-290|-8.041836M|-34.90436M
+São Braz Coffee Shopp (Graças)|R. das Pernambucanas, 265 - Graças, Recife|52011-010|-8.05098M|-34.9013M
+Porto do Cafe|Av. Conselheiro Rosa e Silva, 1460 - Graças, Recife|52020-220|-8.038705M|-34.89961M
+Ernest Café Bistrô|R. do Espinheiro, 280 - Espinheiro, Recife|52020-025|-8.045808M|-34.89501M
+Café & Letras Bistrô|Av. Rui Barbosa, 715 - Graças, Recife|52011-040|-8.047022M|-34.90115M
+Deltaexpresso - Recife Antigo|Av. Marquês de Olinda, 302 - Recife|50030-000|-8.063602M|-34.8743M
+Antigo Café|Av. Marquês de Olinda, 274 - Recife|50030-220|-8.063572M|-34.87398M
+Deltaexpresso - Cais do Imperador Recife - PE|Av. Martins de Barros, 252 - Santo Antônio, Recife|50010-230|-8.065261M|-34.87605M
+Café Liberal 1817|Av. Marquês de Olinda, 174 - Recife|50030-230|-8.063368M|-34.87314M
+Malakoff Café Gourmet|Av. Eng. Abdias de Carvalho, 1142 - Prado, Recife|50720-190|-8.062251M|-34.91116M
+Café São Braz|Av. Alfredo Lisboa, s/n - Recife|50030-150|-8.063902M|-34.87152M
+Malakoff Café - Paço do Frevo|Praça do Arsenal da Marinha, sn - Recife|50030-360|-8.061395M|-34.87147M
+Borsoi Café|Condomínio Edifício California - R. Artur Muniz, 82 - Boa Viagem, Recife|51111-190|-8.104526M|-34.8876M
+Café mais Prosa|galeria chalé, R. Barão de Itamaracá, 284 - 4 - Espinheiro, Recife|52020-015|-8.043752M|-34.89312M
+Harina Café|R. França Pereira, 137 - Boa Viagem, Recife|51111-150|-8.106516M|-34.88892M
+Castigliani Cafés Especiais|Estr. do Encanamento, 323 - loja 3 - Parnamirim, Recife|52060-210|-8.032309M|-34.91328M
+Brigadeiro Café|R. Carlos Pereira Falcão, 93 - Loja 02-B - Boa Viagem, Recife|51021-350|-8.126335M|-34.89906M
+Aloha Café & Açaí|R. Barão de Souza Leão, n°75 - loja 03 - Boa Viagem, Recife|51030-300|-8.132398M|-34.90084M
+Mon Cher Café Et Patisserie|R. Afonso Pena, 96 - Santo Amaro, Recife|50050-130|-8.054641M|-34.88812M
+Café do brejo Recife|R. Cap. Lima, 20 - Santo Amaro, Recife|50040-080|-8.054573M|-34.87712M
+São Braz Coffee Shop|R. Maria Carolina, 315 - Boa Viagem, Recife|51020-220|-8.114546M|-34.89605M
+Boil Coffee Shop|Rua Dr. Luiz Inácio Pessoa de Melo, 350 - Boa Viagem, Recife|51030-320|-8.139731M|-34.90783M
+Deltaexpresso|R. Serinhaém, 146 - Boa Viagem, Recife|51021-200|-8.122516M|-34.89806M
+Ferreiro Café|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.119221M|-34.90543M
+D'Vino Caffè|R. Padre Giordano, 310 - Boa Viagem, Recife|51021-490|-8.128268M|-34.90581M
+Mascate Café e Negócios|R. Barão de Souza Leão, 401 - Boa Viagem, Recife|51030-300|-8.131693M|-34.90369M
+Aroma Café Bistrô|Av. Conselheiro Aguiar, 1472 - Boa Viagem, Recife|51011-050|-8.103164M|-34.88814M
+Malik Café & Cozinha|R. Dona Benvinda de Farias, 477 - Boa Viagem, Recife|51020-140|-8.11013M|-34.89336M
+São Braz|Loja 5/6, R. Carlos Pereira Falcão, 136 - Boa Viagem, Recife|51021-350|-8.125978M|-34.89936M
+Coffee Made the Grain|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-280|-8.119376M|-34.90453M
+Vicalli|R. Maria Carolina, 574 - Boa Viagem, Recife|51020-221|-8.113158M|-34.89824M
+Coffeetown Shopping Recife|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-280|-8.1186M|-34.90581M
+Grão Espresso Cafeteria - Boa Viagem - EXTRA|Av. Eng. Domingos Ferreira, 1818 - Boa Viagem, Recife|51111-000|-8.104602M|-34.88993M
+The American Coffee And Cake, Co.|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-280|-8.119011M|-34.90459M
+ELLA CAFÉ|R. Carlos Pereira Falcão, 322 - Boa Viagem, Recife|51021-350|-8.125395M|-34.90114M
+Beiju Gourmet Tapiocaria e Café|Av. Conselheiro Aguiar, 3655 - Boa Viagem, Recife|51020-000|-8.120687M|-34.89707M
+Bem Casado Doceria e Cafeteria|Jardim II, R. Itabuna, 41 - Jardim Brasil, Olinda - PE||-8.005432M|-34.87138M
+ZOCO|Av. Gov. Carlos de Lima Cavalcante, 1828 - Casa Caiada, Olinda|53130-530|-7.98918M|-34.8405M
+Olinda Café & Cervejaria|R. Tertuliano Francisco Feitosa, 2-92 - Casa Caiada, Olinda|53130-330|-7.992218M|-34.83916M
+Estação café|R. Prudente de Morais, 440 - Carmo, Olinda|53020-140|-8.01479M|-34.85257M
+Barrio Café e Bar|Av. Joaquim Nabuco, 5 - Varadouro, Olinda|53020-310|-8.019438M|-34.85394M
+Bike Fit Café|R. do Amparo - Amparo, Olinda|53025-080|-8.01316M|-34.85316M
+Olinda Coffee Place|Rua Santa Catarina 112 Jardim Brasil 1, Olinda|53230-251|-8.010003M|-34.862M
+Bem Me Quer - Doceria e Cafeteria|Rua Pará, 104 B - Jard Brasil 1, Olinda - PE||-8.009336M|-34.86551M
+Café da Praça|Galeria Praça 12 de Março - Av. Getúlio Vargas, 275 - Bairro Novo, Olinda|53030-010|-8.009341M|-34.8425M
+Mr Black Café|Patteo Olinda Shopping - R. Eduardo de Morais - Casa Caiada, Olinda|53130-635|-7.994318M|-34.84059M
+Estação Quatro Cantos - Galeria & Café|R. Prudente de Morais, 440 - Carmo, Olinda|53020-140|-8.01479M|-34.85257M
+São Braz Patteo Olinda|R. Carmelita Muniz de Araújo, S/N - Casa Caiada, Olinda|53130-150|-7.993604M|-34.84119M
+Deltaexpresso Shopping Patteo Olinda|Rua Eduardo de Morais, 310, Loja 3109, Segundo Piso - Casa Caiada, Olinda|53130-635|-7.994425M|-34.84159M
+ATELIÊ CAFÉ OLINDA|R. de São Bento, 90 - Varadouro, Olinda|53120-080|-8.018591M|-34.85209M
+Patty Cafeteria|R. Prof. Marculino Botelho, 374 - Bairro Novo, Olinda|53130-150|-7.992062M|-34.84174M
+PUA doceria experimental|R. de São Bento, 179 - Varadouro, Olinda|53020-080|-8.017757M|-34.85233M
+Adupé Café e Arte|R. de São Francisco, 26 - Carmo, Olinda|53180-510|-8.016447M|-34.84832M
+Xêro Café e Arte|R. Cel. João Ribeiro, 53 - Bairro Novo, Olinda|53030-040|-8.00645M|-34.84352M
+Cheirin Bão Empório Mineiro|Rua Eduardo de Morais, 310, Loja 3061, Segundo Piso - Casa Caiada, Olinda|53130-635|-7.994202M|-34.84079M
+Pixel Café|R. Carlos Pessoa Monteiro, 228 - Casa Caiada, Olinda|53130-350|-7.990481M|-34.84073M
+Delta Cafe|Delta Expresso - Av. Conselheiro Rosa e Silva, 1086 - Lloja 2 - Aflitos, Recife|52020-220|-8.041888M|-34.89769M
+Empório 48 Padaria, Café e Restaurante|R. Quarenta e Oito, 785 - Encruzilhada, Recife|52050-380|-8.039669M|-34.89484M
+Vivart Moda Café|Loja 106-Empresarial Phoenix, Av. João de Barros, 1527 - Espinheiro, Recife|52021-180|-8.041386M|-34.89183M
+GrãoCheff|R. da Hora, 497 - Espinheiro, Recife|52020-015|-8.045614M|-34.89385M
+Café Malungo|Av. João de Barros, 1527 - Espinheiro, Recife|52021-180|-8.041367M|-34.8918M
+Café 285-Fusion|R. da Hora, 285 - Espinheiro, Recife|52020-010|-8.04395M|-34.89281M
+Livraria Jaqueira|R. Antenor Navarro, 138 - Jaqueira, Recife|52050-080|-8.037203M|-34.90275M
+Seven Wonders Café|Av. República do Líbano, 251 - Pina, Recife|51110-160|-8.086055M|-34.89508M
+Cafeteria Santa Clara Boa Viagem|Av. Boa Viagem, 480 - Boa Viagem, Recife|51011-000|-8.095984M|-34.88336M
+Delta espresso|Av. República do Líbano, 251 - 1164 - Pina, Recife|51110-160|-8.086466M|-34.89408M
+Botteghe, Pina - Recife|Av. Eng. Domingos Ferreira, 500 - Boa Viagem, Recife|51011-051|-8.094522M|-34.88556M
+Grão Espresso|Av. República do Líbano, 251 - Pina, Recife|51110-160|-8.085907M|-34.89441M
+Coffe Shop São Braz|Shopping RioMar, Av. República Árabe Unida, 251 - 01 - Pina, Recife|51110-160|-8.085704M|-34.89541M
+ItCoffee|Av. Antônio de Goes, 275 - Pina, Recife|51110-000|-8.088682M|-34.88413M
+Havanna café|Rio Mar Avenida República do Líbano, 251 LOJA 213 QUIOSQUE Q218 PISO L2 - Pina, Recife|51110-131|-8.086499M|-34.89296M
+Café Anna Corina|Av. República do Líbano, 251 - Pina, Recife|51110-160|-8.085634M|-34.89521M
+Sweets Café Shopping RioMar|Av. República do Líbano, 251 - Pina, Recife|51110-160|-8.08649M|-34.89408M
+Deltaexpresso - Franquias|Av. Mal. Mascarenhas de Morais, 2555 - Imbiribeira, Recife|51150-001|-8.098561M|-34.91027M
+Café KM|Av. Conselheiro Aguiar, 1360 - Boa Viagem, Recife|51111-010|-8.102391M|-34.88778M
+Cheirin Bão Recife|Av. Conselheiro Aguiar, 2205 - Boa Viagem, Recife|51111-011|-8.109073M|-34.89013M
+Restaurante e Café Bella Apetite|R. da Feira, 762 - Centro, Paulista|53401-300|-7.941731M|-34.8838M
+Simone Barros Doceria|Rua Poeta João Neves, 49-67 - Janga, Paulista|53437-490|-7.929568M|-34.82343M
+Bella Doce Café|Nobre, Paulista - State of Pernambuco||-7.93797M|-34.87791M
+Garagem Tapiocaria Café|R. Santa Maria da Boa Vista, 18 - Arthur Lundgren I', Paulista|53416-010|-7.930711M|-34.89311M
+Almoço Caseiro & Café Da Manhã|Av. Brasil - Maranguape I, Paulista - PE||-7.948746M|-34.85358M
+Cafeteria Cafe & Cultura|Av. Duque de Caxias, Abreu e Lima - PE||-7.903203M|-34.88889M
+Espaço Oxente Delivery|R. 165, loja 06 - Caetés I, Abreu e Lima|53000-000|-7.918035M|-34.92089M
+Mix Açaiteria|Caetés I, Abreu e Lima - State of Pernambuco|53530-398|-7.921555M|-34.93102M
+Coffee Shop Sao Braz Paulista|R. do Nobre, 19 - Nobre, Paulista - PE||-7.938363M|-34.87776M
+Restaurante Catarinense|Av. Duque de Caxias, 667 - Timbó, Abreu e Lima|53520-010|-7.917175M|-34.89745M
+Maricota Burgueria e Pizzaria|Av. Rui Barbosa, 298 - Caetés Velho, Abreu e Lima|53560-070|-7.907345M|-34.90442M
+Box China|Rod. Gov. Mário Covas, 16 - Centro, Abreu e Lima|53525-600|-7.906571M|-34.9025M
+Bruna Pizzaria|R. Cento e Quarenta, 5 A - Caetés I, Abreu e Lima|53530-222|-7.918146M|-34.92503M
+Fred's Pizza|R. Henrique Dias, 777 - Alto São Miguel, Abreu e Lima|53565-350|-7.899764M|-34.90744M
+Paula Cestas Finas|R. Campo, 23 - Fosfato, Abreu e Lima|53580-000|-7.900295M|-34.90047M
+Tacafome|R. Cap. José Primo, 130 - Jardim Caetés, Abreu e Lima|53560-120|-7.904745M|-34.90266M
+Panlanches|Av. Duque de Caxias, 353 - Timbó, Abreu e Lima|53520-010|-7.90939M|-34.9015M
+Marrom Glacê|R. Pedro Saviano Filho, 109 - Timbó, Abreu e Lima|53520-240|-7.910046M|-34.90207M
+Crock Coffee Shop|R. Araxá, 1301 - Nossa Sra. do Ó, Paulista|53431-830|-7.902477M|-34.83892M
+A Moenda|Avenida Barão de Vera Cruz, 2073 - Km 24 - Cruz de Rebouças, Igarassu|53635-015|-7.884429M|-34.90423M
+Boi & Brasa|Avenida Brasil, 1645 - Desterro, Abreu e Lima|53570-165|-7.893645M|-34.90377M
+Bolos e Tentações Doceria|R. Sessenta e Três - Jardim Paulista Baixo, Paulista|53409-100|-7.948228M|-34.89653M
+Maria Lanches|Av. Asa Branca, 148 - Rio Doce, Paulista|53070-191|-7.95932M|-34.84252M
+Cafeteria Maia|SHOPPING SÍTIO TRINDADE - Estrada do Encanamento, 480 - Casa Forte., Recife|52070-000|-8.031242M|-34.91466M
+Lanchonete e Caldo de Cana Cana Caiana|R. Padre Lemos, 244 - Casa Amarela, Recife|52070-200|-8.024597M|-34.91762M
+Silva Café & Comedoria|Estr. do Arraial, 3706 - Casa Amarela, Recife|52070-230|-8.026896M|-34.91538M
+Cordel Specialty Coffees|R. do Marques - Parnamirim, Recife|52060-280|-8.032734M|-34.91314M
+Padaria|R. Clodomiro Selva, 219 - Casa Amarela, Recife|52070-470|-8.024577M|-34.92383M
+Café Praliné|R. Guimarães Peixoto, 080 - Tamarineira, Recife|51011-000|-8.029235M|-34.90714M
+Versado Coffee Store|Estr. do Encanamento, 480 - Loja 3 - Casa Amarela, Recife|52051-360|-8.031461M|-34.91473M
+Tea with Cheetah|Av. Dezessete de Agosto, 2133 - Poço da Panela, Recife|50061-540|-8.030849M|-34.92473M
+Senhora Torta Café & Patisserie|Estrada das Ubaias, 611 - Casa Forte, Recife|52061-080|-8.033312M|-34.92036M
+Ripe Café|R. Alfredo Coutinho, 95 - Poço da Panela, Recife|52061-130|-8.03024M|-34.92258M
+Cafeteria Santa Clara Parnamirim|R. Condado, 92 - Parnamirim, Recife|52060-080|-8.03345M|-34.90873M
+VERO Caffè e Vino|Rua Doutor João Santos Filho, 255 Piso L4 - 212 - Casa Forte, Recife|52060-615|-8.036775M|-34.91248M
+COFFEE SHOP SAO BRAZ|L1 - SS43, R. Dr. João Santos Filho, 255 - Parnamirim, Recife|52060-615|-8.036872M|-34.9129M
+Grão Espresso Casa Forte|Praça Jorn. Francisco Pessoa de Queirós Jr, 23 - Loja 16 - Santana, Recife|52060-412|-8.038702M|-34.9126M
+Sweets Café Big Bompreço Casa Forte|Praça Jorn. Francisco Pessoa de Queiroz - 23 Loja CF, 35 - Casa Forte, Recife|52060-412|-8.037002M|-34.91388M
+Cafeteria Santa Clara Setúbal|R. Mario Souto Maior, 71 - Boa Viagem, Recife|51030-310|-8.141145M|-34.90603M
+Boleria of Marias|R. Baltazar Passos, 480 - 4/5 - Boa Viagem, Recife|51130-290|-8.142879M|-34.90903M
+Sabor Da Casa Café - Praça De Boa Viagem|Rua Dr. Nilo Dornelas Câmara, 119 - Boa Viagem, Recife|51021-400|-8.131652M|-34.9011M
+Route Açaí Service|R. Prof. Augusto Lins e Silva, 816 - Boa Viagem, Recife|51030-030|-8.14486M|-34.90789M
+Comedoria Recife|Condomínio do Edifício Barão de Souza Leão - R. Barão de Souza Leão, 1000 - Loja 04 - Boa Viagem, Recife|51050-000|-8.132392M|-34.90895M
+Café Marita Recife Pernambuco|Rua Desembargador João Paes, 527 - Boa Viagem, Recife|51021-360|-8.126099M|-34.90325M
+Amitié Café e Delícias|Av. Eng. Domingos Ferreira, 4371 - Boa Viagem, Recife|51021-380|-8.127103M|-34.90082M
+Aconchego da Leitura Livraria & Cafeteria|R. Barão de Souza Leão, 72 - Boa Viagem, Recife|51030-300|-8.132257M|-34.90063M
+Fridda Café Boa Viagem|R. Dom José Lopes, 600 - Loja 01 - Boa Viagem, Recife|51021-370|-8.126699M|-34.90457M
+OnTime Café & Conveniência|Av. Conselheiro Rosa e Silva, 2000 - Tamarineira, Recife|52050-020|-8.034911M|-34.90219M
+Emporio Jaqueira|R. Dr. José Maria, 1163 - Tamarineira, Recife|52041-800|-8.034864M|-34.90178M
+Mr. Fit Jaqueira|405 lj 7 - R. Dep. Pedro Pires Ferreira - Graças, Recife|52050-060|-8.038531M|-34.90462M
+Simone Barros - Doceria|Rua do Chacon, 64 - Poço da Panela, Recife|52061-390|-8.037902M|-34.91965M
+Pellicano Caffè|Praça de Casa Forte, 465 - Casa Forte, Recife|52061-420|-8.034803M|-34.91891M
+À Emporter|R. Antônio Vitrúvio, 50 - Poço da Panela, Recife|52061-210|-8.035784M|-34.92516M
+Fabbrique Pastificio|Estr. Real do Poço, s/n - Poço da Panela, Recife|52060-590|-8.035534M|-34.92095M
+Confeitaria Moinho do Tâmega|Av. Dezessete de Agosto, 1465 - 6 - Poço da Panela, Recife|52060-485|-8.035447M|-34.92083M
+EVS_CAXANGA|salaA, Av. Caxangá, 3967 - Madalena, Recife - PE||-8.039735M|-34.94099M
+Adon Cafeteria|R. Bom Pastor, 47 - Iputinga, Recife|50670-260|-8.041351M|-34.93845M
+A Vida é Bela Café|R. Francisco Lacerda, 394 - Várzea, Recife|50741-150|-8.050359M|-34.95858M
+Carinho de Vó - Cafés e Mimos|R. Abatia, 65 - Várzea, Recife|50740-330|-8.042353M|-34.94764M
+Cafeteria|R. José Bonifácio - Torre, Recife|52171-011|-8.040175M|-34.91038M
+Câmarà Gourmet Food Truck|Av General Newton Cavalcante N ° 463 - Vila da Inabi, Camaragibe|54753-220|-8.015656M|-34.97222M
+Molita Coffee|Estrada de Aldeia km 9,5 lojas 10 e 11 - Aldeia dos Camarás, Camaragibe|54783-010|-7.96273M|-35.00882M
+PORTO PRIMO - Delicatessen e Restaurante|Rua Francisco Felino de Aldeia, Km 9.8, S7N - Aldeia dos Camarás, Camaragibe|54786-550|-7.962263M|-35.00879M
+Villa Engenho - Hamburguers Artesanais e Comida Regional|R. Vila Nova, 122 - Centro, Camaragibe|54759-100|-8.019618M|-34.98299M
+Brennand Café|Várzea, Recife - State of Pernambuco||-8.053739M|-34.97415M
+Amai café|R. Amaro Gomes Poroca, 154 - loja a - Várzea, Recife|50741-530|-8.049188M|-34.95609M
+Empório Doce - Cafeteria e Tapiocaria|Av. Cláudio Alves de Souza, 99 - Parque Capibaribe, São Lourenço da Mata|54720-225|-8.004967M|-35.03911M
+AMA - Cafeteria e Tabacaria|R. Acdo. Hélio Ramos, 88 - Várzea, Recife|50740-530|-8.048812M|-34.95451M
+Dunamis Coffee|R. Joao Lopes - Curado IV, Jaboatão dos Guararapes|54270-060|-8.06882M|-34.99434M
+Padaria Guarany|-265,, R. Padre Batalha, 165, Goiana|55900-000|-7.560016M|-34.99522M
+Roma Cafe e Bistro|R. Gal Joaquim Barbosa Cordeiro de Farias, 195 - Centro, Goiana|55900-000|-7.558396M|-34.9991M
+Matsu|R. da Conceição, 29 - Centro, Goiana|55900-000|-7.559977M|-34.9973M
+Kelly Restaurante|R. Dois, 42 - COHAB, Igarassu|53620-526|-7.844324M|-34.90763M
+Mr. Mix Milk Shakes|R. Joaquim Nabuco, nº 241 - Loja B - Centro, Igarassu|53610-070|-7.829645M|-34.90935M
+Delicias da Roça|BR-101 - Vila Rural, Igarassu - PE||-7.809979M|-34.92136M
+Big Lanches|R. Joaquim Nabuco, 15 - Centro, Igarassu|53610-070|-7.828657M|-34.90919M
+Churrascaria e Pizzaria Caminho da Ilha|Rod. PE-35, 02 - Km 02 - Sítio dos Marcos, Igarassu|53615-000|-7.820293M|-34.91113M
+Restaurante China 25|R. Luciana Paiva de Souza, 25 - Cruz de Rebouças, Igarassu|53635-170|-7.87391M|-34.90715M
+Cabidela do Pavão|Rod. Gov. Mário Covas, 405d - Centro, Igarassu|53640-000|-7.821255M|-34.91699M
+Atacadão - Igarassu|Rodovia Br-101 Norte, Km 47 - Cruz de Rebouças, Igarassu|53610-000|-7.879015M|-34.9042M
+Atacadão - Recife|Avenida Barão de Vera Cruz, s/n - em frente à UPA - Cruz de Rebouças - Inhama, Igarassu|53625-815|-7.879467M|-34.90471M
+Atacadão - Recife - Atacado|Avenida Barão de Vera Cruz, S/N em frente à UPA - Cruz de Rebouças - Inhama, Igarassu|53625-815|-7.881941M|-34.90169M
+Açaí e lanchonete Da Tia Kall|rua:Dolores brederodes Ferreira, 17D - Centro, Igarassu|53610-794|-7.832208M|-34.90021M
+Coin's Coffee|R. Esperança, 458 - Porto de Galinhas, Ipojuca|55590-000|-8.506809M|-35.00085M
+Sabor da Casa Café- Bolo de Rolo|Galeria Paraoby, R. Bejupira, 115 - Loja 12 - Porto de Galinhas, Ipojuca|55590-000|-8.50589M|-35.00298M
+Maraca's Coffee Bar|R. Principal de Maracaípe - Porto de Galinhas, Ipojuca|55590-000|-8.525516M|-35.00813M
+Restaurante Pitanga Sabores da Terra|R. Esperança, 130 - Porto de Galinhas, Ipojuca|55590-000|-8.504601M|-35.00398M
+Cafe Gastro|R. Esperança, 1 - Porto de Galinhas, Ipojuca|55590-000|-8.504819M|-35.00216M
+Tasco Coffee Drinks|R. de Muro Alto - Porto de Galinhas, Ipojuca|55590-000|-8.447265M|-34.98566M
+Mandacaru Cafe Arte Net|R. dos Navegantes, 85 - Porto de Galinhas, Ipojuca|55590-000|-8.506599M|-35.00129M
+Caldeirada da Lidiane|R. J Gonçalves, 93-99 - Espinheiro, Itapissuma|53700-000|-7.773447M|-34.89119M
+Caldeirada da Irene|Praça Agagenon Magalhães, 8 - Espinheiro, Itapissuma|53700-000|-7.773926M|-34.89131M
+Belisco's Café Bistrô|Rua Dez de Janeiro, 102 - Centro, São Lourenço da Mata|54730-235|-7.996756M|-35.03883M
+LOJA ATUAL MÓVEIS e Eletros|Av. Dr. Francisco Correia, 38 - Centro, São Lourenço da Mata|54735-000|-7.99805M|-35.03527M
+Lá padoca|R. Estr. da Luz, 3136 - Santo Aleixo, Jaboatão dos Guararapes|54120-445|-8.093898M|-35.0221M
+Burger Grill|R. Dr. Joaquim Nabuco, 179 - Centro, São Lourenço da Mata|54735-790|-7.99455M|-35.04199M
+Casas Bahia|Av. Dr. Luiz Correia de Araújo, 44 - Centro, São Lourenço da Mata|54735-200|-7.996902M|-35.03659M
+Manacá Grill|Av. Dr. Francisco Correia, 1404 - Centro, São Lourenço da Mata|54730-000|-7.99285M|-35.04396M
+Bar e Restaurante Casa de Farinha|BR-408, 29, São Lourenço da Mata - PE||-8.014157M|-35.04254M
+Maje do Nordeste Ind e Com de Materiais Elétricos|PE-005, 3233 - Tiúma, São Lourenço da Mata|54737-200|-7.980568M|-35.06273M
+Parada do Açaí|R. Olívio Costa, 102 - Centro, São Lourenço da Mata|54735-180|-7.996566M|-35.03721M
+Comedoria Doce Mel|R. Nobre de Lacerda, 310 - Centro, Jaboatão dos Guararapes|54280-674|-8.107499M|-35.01839M
+Eli Pizza e Lanches|R. São Bernardo, 172 B - Capibaribe, São Lourenço da Mata|54705-140|-8.008589M|-35.01483M
+Workspot Coworking|R. do Futuro, 564 - Graças, Recife|52050-005|-8.039973M|-34.90067M
+Workhall Coworking Rosa e Silva|Shopping ETC, Mezanino - Av. Conselheiro Rosa e Silva, 1460 - Aflitos, Recife|52050-245|-8.038548M|-34.89955M
+Escritórios Inteligentes|R. do Cupim, 132 - Graças, Recife|52011-070|-8.046722M|-34.89789M
+Connection Coworking|R. Ana Angélica, 64 - Derby, Recife|52010-230|-8.053383M|-34.90066M
+Espaço Amitié|R. da Amizade, 178 - Graças, Recife|52011-260|-8.049811M|-34.89934M
+Impact Hub Recife|R. Alfândega, 35 - Recife|50030-030|-8.064811M|-34.87383M
+Nós Coworking Recife|R. Alfândega, 35 - Recife|50030-330|-8.064811M|-34.87383M
+Sinspire|Praça do Arsenal - R. da Guia, 237 - Recife|50030-210|-8.060813M|-34.87158M
+Capitania Coworking|R. 1º de Março, 25 - 6º andar - Santo Antônio, Recife|50010-070|-8.064241M|-34.87658M
+SmartOffice - Escritórios Inteligentes / Coworking|R. Bernardo Guimarães, 131 - Boa Vista, Recife|50050-440|-8.055508M|-34.88615M
+Calango Coworking Ltda|Rua Manoel Pereira, 120 - Santo Amaro, Recife|50050-140|-8.053028M|-34.88814M
+Ecowork|Condomínio do Edifício Oceania - Av. Boa Viagem, 560 - Pina, Recife|51011-000|-8.096588M|-34.88337M
+Virtua Centro|R. da Aurora, 295 - Sala 502 - Boa Vista, Recife|50050-901|-8.06114M|-34.88117M
+Estúdio 109 (espaço colaborativo)|R. Marquês do Paraná, 109 - Espinheiro, Recife|52021-050|-8.042038M|-34.88995M
+Impact Hub Casa Forte|R. Jacó Velosino, 145 - Casa Forte, Recife|52061-410|-8.035842M|-34.91895M
+Metropolitan Association of Cyclists of Grande Recife|Av. Norte Miguel Arraes de Alencar, 3003 - Rosarinho, Recife|52041-080|-8.034615M|-34.8961M
+Plexos Escritório Virtual & Coworking|Av. Norte Miguel Arraes de Alencar, 3003 - Rosarinho, Recife|52041-080|-8.034615M|-34.8961M
+ESC Coworking|Av. Herculano Bandeira, 399 - 1º andar - Pina, Recife|51110-131|-8.089393M|-34.88481M
+Jump Brasil|R. do Apolo, 235 - Recife|50030-220|-8.060618M|-34.87209M
+Bunker Coworking|Rua Dr. Luiz Ribeiro Bastos, 51 - Poço da Panela, Recife|52060-490|-8.039195M|-34.91904M
+Impact Hub|129 50030 200, R. Domingos José Martins, 9 - Recife|50030-200|-8.061823M|-34.87155M
+Impact Hub Boa Viagem|R. Ten. João Cícero, 301 - Boa Viagem, Recife|51020-190|-8.113142M|-34.8946M
+Escritório Compartilhado Recife|R. Barão de Souza Leão, 221 - sala 12 e 33 - Boa Viagem, Recife|51030-300|-8.132401M|-34.90204M
+HANGAR C3 Coworking|R. Agenor Lopes, 25 - Sala 1002 - Boa Viagem, Recife|51021-110|-8.12106M|-34.90573M
+Virtua Conselheiro Aguiar|Av. Conselheiro Aguiar, 4599 - Boa Viagem, Recife|51021-020|-8.127557M|-34.89987M
+Central HuB Coworking|Rua Luiz Pimentel, R. Setúbal, 97, Recife|51030-350|-8.137835M|-34.9058M
+Conecte Coworking|Rua Padre Luiz Marques Teixeira, 77 - Boa Viagem, Recife|51021-530|-8.131372M|-34.90649M
+Caixa Postal em Recife|Rua Luiz Pimentel, R. Setúbal, 97, Recife|51030-350|-8.137835M|-34.9058M
+Escritório de Estudo e Caixa Postal|R. Ribeiro de Brito, 901 - sala 701 - Boa Viagem, Recife|51021-310|-8.123167M|-34.90432M
+Vivant Consultórios|Rua visconde de Jequitinhonha, 1144 Salas 707, 708 e 709 - Boa Viagem, Recife|51030-020|-8.131208M|-34.90318M
+Galeria da Beleza|R. Prof. Mário de Castro, 422 - Boa Viagem, Recife|51030-260|-8.135699M|-34.90569M
+Escritório de Estudo|Av. General Mac Arthur, 418 - sala 605 - Boa Viagem, Recife|51160-280|-8.110751M|-34.90427M
+Grupo Executivo Digital - GED|Rua Dr. Luiz Correia de Oliveira, 111-B - Imbiribeira, Recife|51030-205|-8.127211M|-34.91174M
+Hub 4Design|R. Joaquim Carneiro da Silva, n.53 - Pina, Recife|51011-490|-8.099373M|-34.88737M
+Virtua Pina|R. Alexandrino Martins Rodrigues, 97 - Pina, Recife|51011-540|-8.100657M|-34.88847M
+Virtua Excelsior|R. Ernesto de Paula Santos, Nº 187 - Boa Viagem, Recife|51021-330|-8.125329M|-34.89901M
+PORTAL - PONTE|R. José da Silva Lucena, 241 - Imbiribeira, Recife|51150-430|-8.11487M|-34.90718M
+Renor Office Escritório Virtual Boa Viagem|1, R. Ernesto de Paula Santos, 960 - Boa Viagem, Recife|51021-330|-8.123886M|-34.90501M
+Regus|R. Padre Carapuceiro, 858 - Boa Viagem, Recife|51020-280|-8.116292M|-34.90261M
+IWI Coworking|Av. Gov. Carlos de Lima Cavalcante, 1710 - Casa Caiada, Olinda|53545-130|-7.989985M|-34.84111M
+Espaço Marfim|R. Marfim, 14 - Jardim Atlântico, Olinda|53060-280|-7.974934M|-34.84773M
+Mente Fértil Colab|R. Henrique Dias, 88 - Varadouro, Olinda|53020-100|-8.017833M|-34.8536M
+Casa Colonial|R. do Sol, 195 - Carmo, Olinda|53120-010|-8.015604M|-34.84677M
+Coworking em Recife|Av. João de Barros, 1261 - Espinheiro, Recife|52021-180|-8.043546M|-34.89062M
+Espaço Tamarineira|Estr. Velha de Água Fria, 715 - Tamarineira, Recife|52110-120|-8.028323M|-34.89941M
+Collab Hub Recife - Coworking|Rua Conselheiro Portela, 246 - 07 - Espinheiro, Recife|52020-035|-8.043054M|-34.89511M
+Coworking Recife|R. Buenos Aires, 80 - Espinheiro, Recife|52020-180|-8.048147M|-34.89346M
+Empresarial Desembargador Pedro Martiniano Lins|Av. Montevidéu, 172 - Boa Vista, Recife|50050-250|-8.050591M|-34.89328M
+Workhall Coworking Parnamirim|Av. Parnamirim, 416 - Parnamirim, Recife|52060-000|-8.033419M|-34.90972M
+Casa CRIA|Torre, Recife - State of Pernambuco|52171-011|-8.045052M|-34.90681M
+Espaço Mais Recife|R. Gouvêia de Barros, 214 - Santo Amaro, Recife|50100-030|-8.049049M|-34.88866M
+Auditórios Recife|R. Buenos Aires, 80 - Espinheiro, Recife|52020-180|-8.048271M|-34.89354M
+Regus - Recife, JCPM Trade Center -Boa Viagem - Pina|Av. Eng. Antônio de Góes, 60 Edificio JCPM Trade Center, Recife|51010-000|-8.08946M|-34.88199M
+Renor Office Virtual Office & Coworking|Av. República do Líbano, 251 - Sala2801 - Pina, Recife|51110-160|-8.086692M|-34.89317M
+Renor Office Unidade Rio Mar|Av. República do Líbano,, 251 - RIO MAR Trade Center III - Sala 2801 - Pina, Recife|51110-160|-8.087336M|-34.89155M
+ZV Tattoo e Galeria|Av. Herculano Bandeira, 513 - Pina, Recife|51110-130|-8.088754M|-34.88564M
+City Working Recife|Rua Izabel de Souza, 190 A - Imbiribeira, Recife|51200-010|-8.107007M|-34.9126M
+Piratas da Praia Hostel CoWorking - Recife|Av. Conselheiro Aguiar, 2034 - Boa Viagem, Recife|51111-010|-8.107682M|-34.88995M
+be.work escritórios compartilhados|Praça de Casa Forte, 465 - Casa Forte, Recife|52061-420|-8.034803M|-34.91891M
+Beehive Coworking|R. Alfredo Coutinho, 95 - Poço da Panela, Recife|52061-130|-8.03024M|-34.92258M
+Escritório de Empreendedores|R. Dom Barreto, 17 - Sítio histórico, Igarassu|53610-630|-7.833053M|-34.90687M
+Rede 344|Rua Jader Andrade, 344 - Casa Forte, Recife|52061-060|-8.030774M|-34.92119M
+ITs HUB Coworking|R. Alfredo Fernandes, 115 - Casa Forte, Recife|52060-320|-8.035842M|-34.91483M
+Espaço Nabuco|Rua Conselheiro Nabuco, 530 - Casa Amarela, Recife|52070-010|-8.028347M|-34.91811M
+Trinus Office Consultório e Escritório Virtuais|R. Mal. Rondon, 1 - Poço da Panela, Recife|52061-050|-8.029544M|-34.92152M
+Hélio Henriques Empresarial|R. Astério Rufino Alves, 100 - Santana, Recife|52060-470|-8.040311M|-34.91486M
+ClubWork|R. Antônio Viêira, 320/5/E - Madalena, Recife|50710-480|-8.048729M|-34.91211M
+The Lab Recife - Coworking e Espaço Colaborativo|Empresarial Setúbal Center, R. Cap. Zuzinha, 22 - sala 504 - Boa Viagem, Recife|51030-420|-8.132961M|-34.90317M
+Work Madalena|R. Dr. Sábino Pinho, 173 - Madalena, Recife|50610-380|-8.053333M|-34.91317M
+Multioffice - Escritório Virtual|R. Silveira Lôbo, 32 - Casa Forte, Recife|52061-030|-8.03114M|-34.92394M
+Impact Hub Várzea|R. João Francisco Lisboa, 385 - Várzea, Recife|50741-100|-8.050054M|-34.96178M
+Modul Espaço Coworking|R. 18, 282 - St. Oeste, Goiânia - GO|74120-080|-16.68758M|-49.26223M
+BrOffices Virtual Office - NASA Unit - Goiania|Avenida 136, 761 Edifício NASA 11 Andar - St. Sul, Goiânia - GO, |74093-250|-16.6971M|-49.25566M
+Interative Business Center|R. 137, 556 - 1 andar - St. Marista, Goiânia - GO,| 74170-120|-16.69961M|-49.26404M
+RB - Recepção Bulevar|R. Alm. Tamandaré, 200 - Centro, São Lourenço da Mata|54735-420|-7.992005M|-35.04265M
+Mobibrasil|R. Duque de Caxias - Capibaribe, São Lourenço da Mata|54705-210|-8.005413M|-35.01991M
+Blue Horizon site|Penedo, São Lourenço da Mata - State of Pernambuco||-8.036935M|-35.02451M
+Usina Solar de São Lourenço da Mata|Penedo, São Lourenço da Mata - State of Pernambuco|54710-010|-8.040984M|-35.01298M
+Câmara Municipal de São Lourenço da Mata - Casa Jair Pereira de Oliveira|R. Dr. Joaquim Nabuco, 208 - Centro, São Lourenço da Mata|54735-790|-7.994316M|-35.04214M
+Residential Park Capibaribe 2|R. Trinta e Quatro, 326 - Muribara, São Lourenço da Mata|54720-060|-8.011163M|-35.03755M
+Intensivo Preparatórios|1133, 1° andar, Av. Dr. Francisco Correia, PE||-7.99507M|-35.04241M
+Carlos Germano Advogados Associados|R. Dr. Joaquim Nabuco, 111 - Centro, São Lourenço da Mata|54735-790|-7.995433M|-35.04145M
+Espinheiro Shopping|R. Amélia, 114 - Graças, Recife|52011-050|-8.045426M|-34.8962M
+Shopping ETC|Av. Conselheiro Rosa e Silva, 1460 - Aflitos, Recife|52050-020|-8.038522M|-34.89951M
+Galeria Derby Center 2|R. Joaquim Nabuco, 330 - Graças, Recife|52011-000|-8.052187M|-34.89916M
+Galeria Estação Jaqueira|R. Antenor Navarro, 81 - Graças, Recife|52050-080|-8.037597M|-34.90231M
+Galeria Crystal Center|R. Dep. Pedro Pires Ferreira, 405 - Graças, Recife|52050-480|-8.038527M|-34.90444M
+Galeria Rosa e Silva Center|Av. Conselheiro Rosa e Silva, 1308 - Aflitos, Recife|52050-020|-8.037663M|-34.90108M
+Derby Shopping|R. Joaquim Nabuco, 280 - Santana, Recife|50050-290|-8.0523M|-34.89883M
+Mundinho VIP (Casa de festa KIDS e TEEN)|R. Barão de Contendas, 79 - Graças, Recife|52050-330|-8.042006M|-34.89867M
+Park Center|R. do Futuro, 913 - Graças, Recife|52050-010|-8.037673M|-34.90284M
+Galeria Esquina 28|R. Dr. Vicente Meira, 28 - Graças, Recife|52020-140|-8.044681M|-34.89561M
+Graças Center|R. Amélia, 373 - Graças, Recife|52011-050|-8.045115M|-34.89883M
+Galeria Business|Av. Conselheiro Rosa e Silva, 1515 - Aflitos, Recife|52020-220|-8.038738M|-34.90024M
+Galeria Dumont Center|Av. Santos Dumont, 435 - Rosarinho, Recife|52050-052|-8.037229M|-34.89841M
+Shopping Plaza - Casa Forte|R. Dr. João Santos Filho, 255 - Parnamirim, Recife|52171-011|-8.037065M|-34.91253M
+Galeria Mário Melo|R. da Hora, 456 - Espinheiro, Recife|52020-010|-8.045122M|-34.89392M
+MARIPÁ colab|R. do Futuro, 479 - Sala 04 - Graças, Recife|52050-005|-8.040806M|-34.90046M
+Galeria Pão de Açúcar Rosa e Silva|Av. Conselheiro Rosa e Silva, 614 - Graças, Recife|52020-220|-8.046275M|-34.89653M
+Farmashopping|R. Joaquim Nabuco, 280 - lj 1 - Santana, Recife|52011-000|-8.0523M|-34.89883M
+Espaço 46|R. Barão de Itamaracá, 46 - Espinheiro, Recife|52020-070|-8.042923M|-34.89445M
+Galeria João de Deus|R. Regueira Costa, 836 - Rosarinho, Recife|52041-000|-8.035213M|-34.89863M
+hoomi|R. Alfândega, 35 - Recife|50030-030|-8.064829M|-34.87388M
+Shopping Tacaruna|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|50110-000|-8.03751M|-34.87178M
+Shopping Recife|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.119123M|-34.90499M
+RioMar|Av. República do Líbano, 251 - Pina, Recife|51110-131|-8.08572M|-34.89368M
+Fri-Sabor|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|52031-330|-8.037731M|-34.87193M
+Lojas Romanel|R. das Calçadas - São José, Recife|50020-290|-8.06987M|-34.87938M
+Cx. Elet. 24 Horas|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|50110-900|-8.037967M|-34.87187M
+Triton|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|50110-900|-8.037967M|-34.87187M
+Galeria Danielle Center|Estr. de Belém, 1159 - Campo Grande, Recife|52040-170|-8.031901M|-34.88172M
+Mini Carros|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|50110-900|-8.037895M|-34.8719M
+Karina Leão|Av. Gov. Agamenon Magalhães, 153 - Santo Amaro, Recife|50110-900|-8.037967M|-34.87187M
+Rooftop Tacaruna|Av. Gov. Agamenon Magalhães - Santo Amaro, Recife|52031-330|-8.037402M|-34.87204M
+Largo da Praça do Sebo|R. da Roda, 2-90 - Santo Antônio, Recife|50010-080|-8.063088M|-34.87894M
+Empório Bem me Quer|R. Clube Náutico Capibaribe, 2-72 - Boa Vista, Recife|50060-020|-8.062391M|-34.88239M
+LR bolsas|R. da Penha, 35 - São José, Recife|50020-580|-8.067312M|-34.87803M
+night run - recife etapa rock|Recife, State of Pernambuco|52171-011|-8.054074M|-34.87085M
+Galeria Nossa Senhora de Fátima|R. Jerônimo Viléla, 469 - Campo Grande, Recife|52040-180|-8.028044M|-34.88239M
+Galeria Santa Terezinha|R. Jerônimo Viléla, 478 - Campo Grande, Recife|52040-180|-8.02951M|-34.88195M
+Expresso Cidadão da Boa Vista|R. Corredor do Bpo, 81 edifício garagem, 5 andar, Recife|50050-090|-8.059321M|-34.88198M
+San Paolo|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Praia Sul Shopping|Av. Conselheiro Aguiar, 4880 - Boa Viagem, Recife|51021-020|-8.130069M|-34.90132M
+Galeria Brasil|R. Barão de Souza Leão, 831 - Boa Viagem, Recife|51030-300|-8.132553M|-34.90791M
+Detran|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Red Bake|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Luz E Vida|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Galeria Futura|Galeria, Av. Conselheiro Aguiar, 1205 - Boa Viagem, Recife|51011-031|-8.100957M|-34.88652M
+Galeria San Rafael Center|R. dos Navegantes, 691 - Boa Viagem, Recife|51020-010|-8.126049M|-34.89845M
+Shop's Show|Av. Conselheiro Aguiar, 1555 - Boa Viagem, Recife|51111-100|-8.103976M|-34.88783M
+Patteo Olinda Shopping|R. Carmelita Muniz de Araújo, S/N - Casa Caiada, Olinda|53130-150|-7.993619M|-34.84135M
+Olinda Shopping|Av. Getúlio Vargas, 1605 - Bairro Novo, Olinda|53030-010|-7.997377M|-34.83991M
+Alameda do sol|Av. Pres. Getúlio Vargas, 714 - Bairro Novo, Olinda|53030-010|-8.005593M|-34.84082M
+Galeria Marques de Olinda|Av. Getúlio Vargas, 1038 - Bairro Novo, Olinda|53030-010|-8.002656M|-34.84015M
+Galeria Cordeiro|Av. Pres. Getúlio Vargas, 23 - Bairro Novo, Olinda|53030-010|-8.009984M|-34.84287M
+Centervet Centro de Terapia Veterinaria|Praça Alvorada, 30 - Jardim Brasil II, Olinda|53010-590|-8.00719M|-34.86979M
+WILK DEYVSON TATTOO|Av. Brasil, 200 - Rio Doce, Olinda|53150-470|-7.963887M|-34.8412M
+Patas Love|Av. Antônio da Costa Azevedo, 1032 - Jardim Brasil, Olinda|53300-390|-8.005643M|-34.87112M
+Estofados Brasil MB|Av. Gov. Carlos de Lima Cavalcante, 1094 - Bairro Novo, Olinda|53040-000|-7.995026M|-34.84362M
+Templo Do Corte|Galeria, Rua Conselheiro Portela, 665 - sala 21 - Espinheiro, Recife|52020-035|-8.040083M|-34.89295M
+Squina 48|R. Quarenta e Oito, 873 - Encruzilhada, Recife|52050-380|-8.039042M|-34.89468M
+Galeria Conselheiro Portela Center|Rua Conselheiro Portela, 665 - Aflitos, Recife|52050-390|-8.040121M|-34.89279M
+Galeria 30|R. Carneiro Viléla, 30 - Encruzilhada, Recife|52050-030|-8.039819M|-34.89257M
+Galeria Via Venelli|Av. Santos Dumont, 490 - Rosarinho, Recife|52050-052|-8.036931M|-34.89783M
+Galeria D' Bel|Av. Santos Dumont, 616 - Rosarinho, Recife|52041-062|-8.035889M|-34.89745M
+Galeria Alameda João de barros|Av. João de Barros, 1468 - Espinheiro, Recife|52021-180|-8.041603M|-34.89102M
+Galeria Hora 100|R. da Hora, 100 - Espinheiro, Recife|52020-010|-8.042645M|-34.89184M
+Galeria Hora Center|R. da Hora, 345 - Espinheiro, Recife|52020-010|-8.044709M|-34.89281M
+Gallery Joan of Arc|Av. Herculano Bandeira, 513 - Pina, Recife|51110-131|-8.088727M|-34.88563M
+Grupo JCPM|Av. Antônio de Goes, 60 - 20º - Pina, Recife|51010-000|-8.0895M|-34.88202M
+Rio Mar|Pina, Recife - State of Pernambuco||-8.08564M|-34.89389M
+HR Haluli|Av. Herculano Bandeira, 637 - Pina, Recife|51110-131|-8.08791M|-34.88643M
+Galeria São Mateus|Av. Eng. Domingos Ferreira, 1486 - Boa Viagem, Recife|51111-020|-8.10336M|-34.88913M
+Espaco Ciencia|Pina, Recife - State of Pernambuco|51110-190|-8.086564M|-34.89449M
+Lojas império eletros|Av. República do Líbano - Pina, Recife|51110-160|-8.086513M|-34.89086M
+Nenus hair|Av. Encanta Moça, 604 - Pina, Recife|51011-120|-8.093918M|-34.88688M
+Interagir Assessoria|Av. Antônio de Goes, 60 - Pina, Recife|51011-000|-8.089478M|-34.88194M
+Galeria Centro Sul|Av. Eng. Domingos Ferreira, 1360 - Boa Viagem, Recife|51011-030|-8.10227M|-34.88801M
+Ponto Natural|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Shopping Do Automovel De Pernanbuco|R. Dagoberto Píres, 345 - Brasília Teimosa, Recife|51010-140|-8.086136M|-34.87939M
+Galeria Village Santa Maria|Av. Conselheiro Aguiar, 1560 - Boa Viagem, Recife|51011-031|-8.103767M|-34.88824M
+Galeria Cidade do Porto|Av. Eng. Domingos Ferreira, 1835 - Boa Viagem, Recife|51111-020|-8.105554M|-34.88942M
+Spaço K|Av. Eng. Domingos Ferreira - Boa Viagem, Recife|51020-030|-8.111149M|-34.89277M
+Paulista North Way Shopping|PE-015, 242 - Centro, Paulista|53401-445|-7.938289M|-34.8778M
+Shopping Norte Janga|Av. Dr. Cláudio José Gueiros Leite, 2491 - Janga, Paulista|53437-000|-7.935512M|-34.82546M
+Shopping Janga|R. Dr. Luís Inácio de Andrade Lima, 457 - Janga, Paulista|53435-455|-7.919427M|-34.82522M
+Morana Paulista|R. do Nobre, 19 - Nobre, Paulista - PE||-7.938401M|-34.87785M
+3marias Paulista|R. do Nobre, 2-40 - Nobre, Paulista - PE||-7.938026M|-34.87789M
+PVC liner Brazil|R. Paulista, 03 - Arthur Lundgren II, Paulista|53416-420|-7.931213M|-34.88797M
+Hering Store Paulista North Way Shopping|Rodovia PE-15, Km 16.5, nº 242 - Centro, Paulista|53401-445|-7.938374M|-34.8774M
+Portal Surf Av Brasil|Av. Brasil, 193 - Jardim Marangua Paulista|53442-030|-7.952684M|-34.85125M
+Ambiannce Noivas|Av. Brasil, 70 - Maranguape I, Paulista|53441-600|-7.94383M|-34.86295M
+Pet Shopping|Galeria Avenida Brasil - Av. Brasil, 670 - Maranguape I, Paulista|53441-600|-7.952872M|-34.85133M
+Pet Brasil|R. Belém de Maria, 80 - Loja A - Artur Lundgren I, Paulista|53417-350|-7.931423M|-34.89429M
+Estofados E Capotaria Brasil|Av. Dr. Cláudio José Gueiros Leite, 3491 - Janga, Paulista|53433-260|-7.927115M|-34.82234M
+Goodyear do Brasil Produtos Borracha|Rodovia Variante PE - s/n qd B lt 3|53400-000|-7.934422M|-34.86872M
+Shopping Guararapes|Av. Barreto de Menezes, 800 - Piedade, Jaboatão dos Guararapes|54410-100|-8.168619M|-34.91953M
+Banco do Brasil|Shopping Guararapes, Av. Barreto de Menezes, 800 - Piedade, Jaboatão dos Guararapes|54410-100|-8.16933M|-34.9193M
+Abreu|Planalto, Abreu e Lima - State of Pernambuco|53550-661|-7.909597M|-34.91386M
+Galeria Topázio|R. Ananias Lacerda de Andrade, 68 - Planalto, Abreu e Lima|53550-540|-7.906236M|-34.90908M
+Adaptação de veículo para deficientes físicos ABDF|R. do Entroncamento - Arthur Lundgren II, Paulista|53416-800|-7.928199M|-34.89743M
+Arthur Shopping Paulista|S/N, R. Dr. José Mariano - Artur Lundgren I, PE||-7.931464M|-34.89334M
+KITANDA ANDRÉ|Rua Dr. Augusto Vaz de Oliveira, 3 - Cruz de Rebouças, Igarassu|53635-140|-7.87217M|-34.90659M
+Albuquerque Pneus - Abreu e Lima|Av. Brasil, 93 - Centro, Abreu e Lima|53525-790|-7.912411M|-34.90089M
+Shopping Caruaru|Av. D, 149 - Caetés I, Abreu e Lima|53540-005|-7.91826M|-34.92137M
+Au Au Pet Shop|R. Quarenta e Um, 06 - Caetés III, Abreu e Lima|53520-670|-7.915479M|-34.9076M
+Sex shop Amor & Sexo|Centro, Abreu e Lima - State of Pernambuco|53520-200|-7.90943M|-34.90218M
+Estrela Pet-AquitemPE|R. Cento e Trinta, 05 - Caetés I, Abreu e Lima|53530-150|-7.894669M|-34.90188M
+Zeca's Sorvetes|Av. Gov. Nilo Coelho, s/n, Abreu e Lima - PE||-7.92366M|-34.90496M
+Chuva De Flor|Av. Duque de Caxias, 323 - Timbó, Abreu e Lima|53525-790|-7.909636M|-34.90149M
+Tattooaria 21|Av. Brasil, 76B - Centro, Abreu e Lima|53520-790|-7.9097M|-34.90189M
+Pernambuco Motos Abreu e Lima|Av. Duque de Caxias, 335 - Jardim Caetés, Abreu e Lima|53510-050|-7.909755M|-34.90147M
+Fenea|PE-015, 904 - Nobre, Paulista - PE||-7.938967M|-34.87763M
+Belynha Sex Shop|Rua 148 Número 265 - Caetés I, Abreu e Lima|53530-380|-7.92108M|-34.92765M
+Ana Clara Almeiida|R. Quarenta e Quatro, 36 - Caetés III, Abreu e Lima|53545-090|-7.914828M|-34.90767M
+Galeria Ferraz de Abreu|R. Paula Batista, 767 - Casa Amarela, Recife|52070-070|-8.029111M|-34.91711M
+Galeria Via Apia|Rua da Harmonia, 310 - Casa Amarela, Recife|52051-390|-8.026336M|-34.91357M
+Ótica Garcia's|Av. Norte Miguel Arraes de Alencar, 5709 - Casa Amarela, Recife|52070-660|-8.021842M|-34.91631M
+Lee7|Av. Norte Miguel Arraes de Alencar, 6935 - Alto do Mandu, Recife|52071-470|-8.019701M|-34.92714M
+Multi Center Parnamirim|Rua Desembargador Góis Cavalcante, 316 - Tamarineira, Recife|52060-140|-8.031656M|-34.90955M
+Galeria Casa Grande|Estr. do Arraial, 2541 - Tamarineira, Recife|52051-380|-8.031154M|-34.90579M
+Grupo Best do Brasil|R. Evaristo da Veiga, 217 - Casa Amarela, Recife|52070-100|-8.029228M|-34.91502M
+Galeria Parnamirim Center|Av. Parnamirim, 448 - Paranamirim, Recife|52060-000|-8.033188M|-34.90992M
+Via Roma Center|R. Padre Roma, 639 - 104 - Parnamirim, Recife|52060-090|-8.032699M|-34.90995M
+NC Comércio e Importação|Estrada das Ubaias, 758 - Casa Forte, Recife|52061-080|-8.033247M|-34.92176M
+Empresarial Casa Forte|52061-540, Av. Dezessete de Agosto, 733 - Casa Forte, Recife|52061-540|-8.033789M|-34.92176M
+Doutor Scholl|R. João Tude de Melo, 77 - Parnamirim, Recife|52060-010|-8.035558M|-34.90852M
+Cris Zedarque- Amo Natura|R. Carlos Lamarca, 08 - Qda 22 - Macaxeira, Recife|52090-725|-8.016407M|-34.92779M
+Edifício Garagem - Shopping Plaza|R. Dr. João Santos Filho, 290 - Parnamirim, Recife|52171-011|-8.036491M|-34.91276M
+Galeria Record|R. Padre Oliveira, 273 - Bomba do Hemetério, Recife|52080-100|-8.019986M|-34.90688M
+Central da Beleza|R. Padre Lemos, 142 - Casa Amarela, Recife|52070-200|-8.025485M|-34.91756M
+Center Service|Praça Jorn. Francisco Pessoa de Queirós Jr, 23 - Santana, Recife|52060-412|-8.038775M|-34.91281M
+Galeria Jardim|R. Líbia Castro Assis, 59 - Boa Viagem, Recife|51030-410|-8.133835M|-34.90358M
+Acqua Setúbal - Peixes Ornamentais|Rua Cruzeiro do Forte, R. Setúbal, 531, Recife|51030-620|-8.137471M|-34.91272M
+Finesse Center|Av. Vinte de Janeiro, 410 - Setúbal, Recife|51030-160|-8.136852M|-34.91419M
+Galeria Armindo Moura|Av. Armindo Moura, 656 - Piedade, Recife|54400-430|-8.149339M|-34.91284M
+Luxcar Locadora|R. Francisco de Barros Barreto, 70 - Boa Viagem, Recife|51021-550|-8.129465M|-34.90488M
+Galeria Pop Center|R. Camboim, 568 - Setúbal, Recife|51130-110|-8.138179M|-34.91356M
+Candy House|R. Setúbal, 156 - Boa Viagem, Recife|51030-300|-8.132141M|-34.90172M
+Galeria Extra Boa Viagem|Av. Conselheiro Aguiar, 4483 - Boa Viagem, Recife|51021-020|-8.12676M|-34.89948M
+Ibgm|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Pequenos Moleques|R. Padre Carapuceiro, 777 - Boa Viagem, Recife|51020-900|-8.118945M|-34.90483M
+Galeria Pontevedra|R. Barão de Souza Leão, 1241 - Boa Viagem, Recife|51030-300|-8.133013M|-34.91125M
+Piedade Center|Av. Zequinha Barreto, 384 - Piedade, Recife|54400-090|-8.158804M|-34.91264M
+Galeria Boulevard Center|Av. Bernardo Vieira de Melo, 1345 - Piedade, Recife|54400-000|-8.160336M|-34.91223M
+The Garden Open Mall|Av. Bernardo Vieira de Melo, 209 - Piedade, Jaboatão dos Guararapes|54400-000|-8.161009M|-34.91288M
+Galeria Júlia Campos|Av. Beberibe, 1425 - Arruda, Recife|52120-000|-8.02472M|-34.8937M
+Chaveiro Rosa e Silva|Loja 6, Av. Conselheiro Rosa e Silva, 1655 - Graças, Recife|52050-020|-8.037687M|-34.90113M
+Memo Barber|Estr. Real do Poço, 329-293 - Poço da Panela, Recife|52061-200|-8.035612M|-34.92313M
+New Cell-Revenda Oi-Shopping Plaza|R. Dr. João Santos Filho, 255 - Parnamirim, Recife|52060-904|-8.036991M|-34.9125M
+Ipuera Center|R. São Mateus, 950 - Iputinga, Recife|50680-000|-8.033013M|-34.93451M
+Galeria Amanda Maranhão|R. São Mateus, 576 - Iputinga, Recife|50680-000|-8.036575M|-34.93512M
+Capas & Cia|R. Dr. João Santos Filho, 255 - Casa Forte, Recife|52060-615|-8.037207M|-34.91222M
+Torre Empresarial Center II|R. José de Holanda, 440 - Torre, Recife|50710-140|-8.044603M|-34.90837M
+Varejão das Fraldas Cordeiro|R. Gregório Júnior, 88 - Cordeiro, Recife|50720-740|-8.052155M|-34.91936M
+Lilian rose micropigmentacao|Trabalho Shopping RioMar - Av. República do Líbano 251 - Pina, Recife|51110-131|-8.010051M|-34.93461M
+Nai Tiaras|R. Adolfo Caminha - Córrego do Jenipapo, Recife|52091-140|-8.005213M|-34.93589M
+virtual shopping|R. Dilermano Melo do Nascimento - Macaxeira, Recife|52090-655|-8.008421M|-34.92913M
+Condomínio do Edifício Supercenter Caxangá|Av. Caxangá, 5775 - Várzea, Recife|50740-000|-8.031754M|-34.95553M
+Recife|Av. Prof. Moraes Rego, 574 - Iputinga, Recife|50670-420|-8.04372M|-34.94419M
+Jack Alves sobraselhas|R. Dr. Antônio da Rosa Borges, 92 - Brejo de Beberibe, Recife|52191-020|-7.999722M|-34.92179M
+Galeria de Serviços|R. Gen. Polidoro, 841 - Várzea, Recife|50740-050|-8.04455M|-34.94727M
+Building Parking Shopping Boa Vista|R. do Giriquiti, 48 - Boa Vista, Recife|50070-010|-8.059547M|-34.88722M
+Paço Alfândega Shopping|R. Alfândega, 35 - Recife|50030-030|-8.064894M|-34.87381M
+Carrefour|R. José Bonifácio, 1315 - Torre, Recife|50710-000|-8.040445M|-34.91034M
+Atacado dos Presentes|R. José Bonifácio, 961 - Torre, Recife|50710-001|-8.043214M|-34.90848M
+Camará Shopping|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.016256M|-34.97716M
+Boulevard Mall|Estrada de Aldeia, Km 9.8, 8986 - Vera Cruz, Camaragibe|54786-013|-7.962324M|-35.00881M
+Shopping Galeria Camaragibe|Av. Dr. Belmino Correia, 757 - Bairro Novo do Carmelo, Camaragibe|54762-303|-8.021292M|-34.98444M
+Aldeia Shopping|Av. Gen Newton Cavalcante - Tabatinga, Camaragibe - PE||-7.988918M|-34.97245M
+Boss|Rua Manoel Honorato da Costa - Vila da Fabrica, Camaragibe|54759-475|-8.015451M|-34.97878M
+Café do Porto|R. Manoel Hónorato da Costa, 555 - Centro, Camaragibe|54759-475|-8.0162M|-34.97768M
+Galeria Nazaré|R. Hermes Fonseca, 40 - Nazaré, Camaragibe|54753-020|-8.017916M|-34.96335M
+MANICORES CAMARAGIBE - PRODUTOS PARA UNHA EM GEL|Galeria São João, Rua Severino Gomes da Silva, 743 - loja 5 - Novo Centro, Camaragibe|54762-580|-8.023062M|-34.98293M
+Artesanato Camaragibe|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.015054M|-34.97795M
+Micamarí|Avenida Ercina Lapenda - Timbi Camaragibe número, Camaragibe|54765-130|-8.019975M|-34.99177M
+Vila do pé|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.015054M|-34.97795M
+Pizzaria Atlântico|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.015054M|-34.97795M
+Açaí Concept|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.01506M|-34.97796M
+O Boticário|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.016409M|-34.97673M
+AcquaZero|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.015054M|-34.97795M
+Emmanuelle|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-475|-8.015054M|-34.97795M
+Loja Claro|R. Manoel Hónorato da Costa, 555 - Vila da Fabrica, Camaragibe|54759-105|-8.016083M|-34.97797M
+Adonto nil|Av. Dr. Belmiro Gouvêia - Estacao Nova, Camaragibe|54768-000|-8.024127M|-35.00064M
+Sos Cabelos|Av. Dr. Belmino Correia, 3379 - Timbi, Camaragibe|54765-000|-8.023767M|-34.99525M
+Galeria De Aldeia Center|Aldeia dos Camarás, Camaragibe - State of Pernambuco||-7.94704M|-35.02272M
+Diego games|R. São Paulo, 15, Goiana|55900-000|-7.563869M|-35.0141M
+Dani Nails Designer|R. Boa Vista, Goiana|55900-000|-7.569955M|-35.02333M
+Daniele terta Nails Designer|Estr. Boa Vista, Goiana|55900-000|-7.555158M|-35.0103M
+Eletro Shopping|R. da Misericórdia, 80 - Centro, Goiana|55900-000|-7.559423M|-34.99973M
+Albuquerque Pneus - Goiana|Rodovia PE 75 Km 4, 5 - Barro Vermelho, Goiana|55900-000|-7.567303M|-35.00276M
+Comercial Agro-Center Ltda|R. Dr. Manoel Borba, 16 - Vila Jardim Pompeia, Goiana|55900-000|-7.560719M|-34.99889M
+D'AMORE Gelateria e Comedoria|Tv. da Conceição, 82 - Centro, Goiana|55900-000|-7.559929M|-34.99538M
+Shopping Igarassu|PE-035, 482 - Centro, Igarassu|53610-272|-7.827502M|-34.90916M
+Ipojuca Shopping|R. do Comércio, 211 - 263, Ipojuca|55590-000|-8.400183M|-35.06327M
+Shopping do Porto|R. Esperança, S/n - Porto de Galinhas, Ipojuca|55590-000|-8.504943M|-35.0023M
+Express Shopping|Loteamento, R. Merepe III, 5 - s/n, Ipojuca|55590-000|-8.52726M|-35.00761M
+Galeria Do Calçadão|Praça Quatro, 51-189 - Porto de Galinhas, Ipojuca|55590-000|-8.505693M|-35.00248M
+Alto Pinares Paseo De Compras|R. K, 331 - Porto de Galinhas, Ipojuca|55590-000|-8.474026M|-34.99626M
+TIJOLO DE FÁBRICA|Conceição, Itapissuma - State of Pernambuco|53700-000|-7.774061M|-34.89872M
+Gol Rações|R. João Pessoa, 391 - Centro, Itapissuma|53700-000|-7.773464M|-34.89576M
+Varejão dos Presentes|R. Frei Serafim, 109 - Centro, Itapissuma|53700-000|-7.773722M|-34.89701M
+Empório do Tio Paulo II|R. Frei Serafim, 211 - Conceição, Itapissuma|53700-000|-7.773881M|-34.8981M
+Leandro oliveira tattoo|R. Mal. Deodoro da Fonseca, 336a - Várzea, Itapissuma|53700-000|-7.775208M|-34.89694M
+Reserva Shopping|Muribara, São Lourenço da Mata - State of Pernambuco||-8.024772M|-35.03965M
+Pau Brasil Center|R. Alm. Tamandaré, 239 - Centro, São Lourenço da Mata|54735-420|-7.992395M|-35.04196M
+Galeria Bela Vista|Av. Dr. Belmino Correia, 5426 - Capibaribe, São Lourenço da Mata|54705-000|-8.015694M|-35.01563M
+Iklecyo Permutas|R. Clóvis Pessoa de Araújo, 160 - Parque Capibaribe, São Lourenço da Mata|54720-014|-8.015334M|-35.03899M
+Espaço Bia Designer Up|R. Das Flores, 09 - Novo Caiara, São Lourenço da Mata|54730-970|-7.988565M|-35.0479M
+Studio Bia designer up|Av. Dr. Francisco Correia, 1321a - Pixete, São Lourenço da Mata|54730-000|-7.993602M|-35.04347M
+Aldeia Business Park|10049,, Av. Gen Newton Cavalcante, 9805, Camaragibe - PE||-7.95988M|-35.01199M
+Galeria KM 10|Estr. de Aldeia, 10 - Vera Cruz, Camaragibe|54786-013|-7.973925M|-34.99771M
+Shompping Center De Aldeia|Estr. de Aldeia, 341 - Vera Cruz, Camaragibe|54786-550|-7.962247M|-35.00896M
+Conviva - Espaço de Convivência Compartilhado|Estr. de Aldeia, km 9 - 5 - Vera Cruz, Camaragibe|54786-570|-7.963916M|-35.00728M
+H.S Cabral Soluções em Descartáveis.|Av. Oito, 688 - Curado IV, Jaboatão dos Guararapes|54270-070|-8.069612M|-34.99798M
+Pet Planet|Rua Gil Maranhão nº 49 D - Centro, São Lourenço da Mata|54735-340|-7.998133M|-35.04248M
+Mini Shopping da Carne|Av. Dr. Francisco Correia, 502 - Centro, São Lourenço da Mata|54735-000|-7.998016M|-35.0394M
+Sergio P.S.neto|R. Xavier de Brito, 107 - Curado III, Jaboatão dos Guararapes|54220-272|-8.073833M|-35.00139M
+Estetica do Animal Pet Shop|PE-005, 1679 - Centro, São Lourenço da Mata|54735-440|-7.992163M|-35.04547M
