@@ -14,7 +14,7 @@ namespace Nomadwork.Infra.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.AddressModelData", b =>
@@ -115,6 +115,35 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.HasIndex("EstablishmentModelDataId");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.UserModelData", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<string>("Dateborn")
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("LastUpdate");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Nomadwork.Infra.Models.UserLogin", b =>

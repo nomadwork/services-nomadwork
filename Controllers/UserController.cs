@@ -35,14 +35,18 @@ namespace Nomadwork.Controllers
                 }
             }
 
-            
+
             return false;
 
 
         }
 
-
-
-
+        [HttpDelete]
+        public async Task Go()
+        {
+            var repositoy = UserRepository.GetInstance(_context);
+            var userMok = new UserMockup().Init();
+            await repositoy.CreateSingle(userMok);
+        }
     }
 }
