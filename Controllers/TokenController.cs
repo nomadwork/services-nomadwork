@@ -1,5 +1,3 @@
-
-
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -17,14 +15,17 @@ namespace Nomadwork.Controllers
     {
         private readonly IConfiguration _confguration;
 
-        public TokenController (IConfiguration configuration){
+        public TokenController(IConfiguration configuration)
+        {
             _confguration = configuration;
         }
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult RequestToken([FromBody] UserLogin request ){
+        public IActionResult RequestToken([FromBody] UserLogin request)
+        {
 
-            if (true){
+            if (true)
+            {
 
                 var claims = new[]
                 {
@@ -33,10 +34,10 @@ namespace Nomadwork.Controllers
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_confguration["SecurityKey"]));
 
-                var creds =  new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(
-                    issuer: "nomadwork.com.br", 
+                    issuer: "nomadwork.com.br",
                     audience: "nomadwork.com.br",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(30),

@@ -5,11 +5,8 @@ namespace Nomadwork.Infra
 {
     public static class Convert
     {
-
         public static EstablishmentModelData To(EstablishmmentCreate establishmment)
         {
-           
-
             return new EstablishmentModelData
             {
                 Name = establishmment.Name,
@@ -22,8 +19,7 @@ namespace Nomadwork.Infra
                 Plug = establishmment.Plug.Rate,
                 Noise = establishmment.Plug.Rate
             };
-               
-            }
+        }
 
         public static EstablishmmentById To(EstablishmentModelData data)
         {
@@ -31,11 +27,13 @@ namespace Nomadwork.Infra
                                 data.Id.ToString(),
                                 data.Name,
                                 string.Join(", ", data.Address.Street, data.Address.Number, data.Address.State, data.Address.Coutry, data.Address.Zipcode),
+                                data.Email,
+                                data.Phone,
                                 data.TimeOpen,
                                 data.TimeClose);
-           
+
             var desWifi = "";
-           
+
             switch (data.Wifi)
             {
                 case 0:
@@ -50,7 +48,8 @@ namespace Nomadwork.Infra
                 case 3:
                     desWifi = "forte";
                     break;
-                default: desWifi = "";
+                default:
+                    desWifi = "";
                     break;
 
             }
@@ -100,13 +99,13 @@ namespace Nomadwork.Infra
             }
 
 
-            establishmment.SetCharacteristics(Characteristic.Create(data.Wifi,desWifi),
+            establishmment.SetCharacteristics(Characteristic.Create(data.Wifi, desWifi),
                                               Characteristic.Create(data.Noise, desNoise),
                                               Characteristic.Create(data.Plug, desPlug));
             data.Photos.ForEach(x => establishmment.AddPhoto(x.UrlPhoto));
 
             return establishmment;
         }
-        
+
     }
 }
