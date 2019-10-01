@@ -27,8 +27,8 @@ namespace Nomadwork.Infra
                                 data.Id.ToString(),
                                 data.Name,
                                 string.Join(", ", data.Address.Street, data.Address.Number, data.Address.State, data.Address.Coutry, data.Address.Zipcode),
-                                data.Phone,
                                 data.Email,
+                                data.Phone,
                                 data.TimeOpen,
                                 data.TimeClose);
 
