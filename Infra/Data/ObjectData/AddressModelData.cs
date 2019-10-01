@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Nomadwork.Infra.Data.Model_Data
+namespace Nomadwork.Infra.Data.ObjectData
 {
     [Table("Address")]
     public class AddressModelData : AEntity
@@ -10,19 +10,19 @@ namespace Nomadwork.Infra.Data.Model_Data
         public string Zipcode { get; set; }
 
 
-        [Required, Column(TypeName = "varchar(200)")]
+        [ Column(TypeName = "varchar(200)")]
         public string Street { get; set; }
 
 
-        [Required, Column(TypeName = "varchar(10)")]
+        [Column(TypeName = "varchar(10)")]
         public string Number { get; set; }
 
 
-        [Required, Column(TypeName = "varchar(30)")]
+        [ Column(TypeName = "varchar(30)")]
         public string Coutry { get; set; }
 
 
-        [Required, Column(TypeName = "varchar(30)")]
+        [ Column(TypeName = "varchar(30)")]
         public string State { get; set; }
 
 

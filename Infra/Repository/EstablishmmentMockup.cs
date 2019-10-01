@@ -1,9 +1,7 @@
-using Nomadwork.Infra.Data.Model_Data;
-using Nomadwork.Model_View.Establishmment_List;
+using Nomadwork.Infra.Data.ObjectData;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+
 
 namespace Nomadwork.Infra.Repository
 {
@@ -511,33 +509,28 @@ namespace Nomadwork.Infra.Repository
         private EstablishmentModelData Create(string name, string adress, string cep, decimal latitude, decimal longitude)
         {
 
-            var listPhoto = new List<Photo>
+            var listPhoto = new List<PhotoModelData>
             {
-               new Photo{UrlPhoto ="https://vemvoar.voeazul.com.br/wp-content/uploads/2018/08/veja-o-que-fazer-em-recife-a-veneza-brasileira.jpeg" },
+               new PhotoModelData{UrlPhoto ="https://vemvoar.voeazul.com.br/wp-content/uploads/2018/08/veja-o-que-fazer-em-recife-a-veneza-brasileira.jpeg" },
 
-                new Photo {UrlPhoto = "https://static2.oimenu.com.br/data/images/recife-pe.jpg?21052019" },
+                new PhotoModelData {UrlPhoto = "https://static2.oimenu.com.br/data/images/recife-pe.jpg?21052019" },
 
-                 new Photo {UrlPhoto ="https://i1.wp.com/www.vidadeturista.com/wp-content/uploads/2009/03/recife-pe-530x398.jpg?resize=530%2C398"}
+                 new PhotoModelData {UrlPhoto ="https://i1.wp.com/www.vidadeturista.com/wp-content/uploads/2009/03/recife-pe-530x398.jpg?resize=530%2C398"}
             };
 
-            List<Characteristic> listCaractheristics = new List<Characteristic>
-            {
-                new Characteristic { Service = Shared.Service.Internet, Quality = Shared.Quality.Good, Quantity = Shared.Quantity.Has},
 
-                new Characteristic {Service = Shared.Service.Energy, Quality = Shared.Quality.Regular, Quantity = Shared.Quantity.Much },
-
-                new Characteristic{Service = Shared.Service.Noise, Quality = Shared.Quality.Regular, Quantity = Shared.Quantity.Has}
-            };
 
             return new EstablishmentModelData
             {
                 Name = name,
                 Email = "teste@teste.com",
                 Phone = "(081)9999999999",
-                TimeClose = DateTime.Now,
-                TimeOpen = DateTime.Now,
+                TimeClose = "08:00",
+                TimeOpen = "18:00",
                 Photos = listPhoto,
-                Characteristics = listCaractheristics,
+                Wifi = 1,
+                Noise = 2,
+                Plug = 3,
 
                 Address = new AddressModelData
                 {

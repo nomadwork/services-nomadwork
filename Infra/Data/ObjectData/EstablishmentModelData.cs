@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Nomadwork.Infra.Data.Model_Data
+namespace Nomadwork.Infra.Data.ObjectData
 {
     [Table("Establishment")]
     public class EstablishmentModelData : AEntity
@@ -20,15 +19,23 @@ namespace Nomadwork.Infra.Data.Model_Data
         public string Phone { get; set; }
 
 
-        public DateTime TimeOpen { get; set; }
+        [Column(TypeName = "char(5)")]
+        public string TimeOpen { get; set; }
 
-        public DateTime TimeClose { get; set; }
 
+        [Column(TypeName = "char(5)")]
+        public string TimeClose { get; set; }
 
-        public List<Photo> Photos { get; set; }
+        [Required]
+        public short Wifi { get;  set; }
 
-         [Required]
-        public List<Characteristic> Characteristics { get; set; }
+        [Required]
+        public short Noise { get;  set; }
+
+        [Required]
+        public short Plug { get;  set; }
+
+        public List<PhotoModelData> Photos { get; set; }
 
 
         [Required]

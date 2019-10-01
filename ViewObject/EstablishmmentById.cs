@@ -1,11 +1,9 @@
-using Nomadwork.Shared;
 using System.Collections.Generic;
 
-namespace Nomadwork.Model_View
+namespace Nomadwork.ViewObject
 {
     public class EstablishmmentById
     {
-        private readonly List<ServiceOffered> _services;
 
         public string Id { get; private set; }
 
@@ -13,19 +11,22 @@ namespace Nomadwork.Model_View
 
         public Schedule Schedule { get; private set; }
 
-        public IEnumerable<ServiceOffered> Services { get => _services; }
+
         public string CompleteAddress { get; private set; }
         public List<string> UrlPhoto { get; private set; }
+
+        public Characteristic Wifi { get; private set; }
+        public Characteristic Noise { get; private set; }
+        public Characteristic Plug { get; private set; }
 
 
         private EstablishmmentById()
         {
-            this._services = new List<ServiceOffered>();
             this.UrlPhoto = new List<string>();
         }
 
 
-        public static EstablishmmentById Create(string id, string name, string adress,string hourToOpen, string hourToClose)
+        internal static EstablishmmentById Create(string id, string name, string adress, string hourToOpen, string hourToClose)
             => new EstablishmmentById
             {
                 Id = id,
@@ -35,12 +36,15 @@ namespace Nomadwork.Model_View
             };
 
 
-        public void AddServices(ServiceOffered service)
-            => this._services.Add(service);
-
-
         internal void AddPhoto(string urlPhoto)
              => UrlPhoto.Add(urlPhoto);
+
+        internal void SetCharacteristics(Characteristic wifi, Characteristic noise, Characteristic plug)
+        {
+            this.Wifi = wifi;
+            this.Noise = noise;
+            this.Plug = plug;
+        }
 
     }
 }

@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Nomadwork.Infra.Data.Contexts;
-using Nomadwork.Infra.Data.Model_Data;
+using Nomadwork.Infra.Data.ObjectData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Nomadwork.Infra.Repository
 {
@@ -19,7 +21,7 @@ namespace Nomadwork.Infra.Repository
             => new EstablishmmentRepository(context);
 
 
-        public IEnumerable<EstablishmentModelData> GetAllEstablishmentsByLocation(decimal latitude, decimal longitude)
+        public IEnumerable<EstablishmentModelData> GetByLocation(decimal latitude, decimal longitude)
             => _context.Establishments
                        .Include(x => x.Address)
                        .Where(establismment
@@ -32,80 +34,95 @@ namespace Nomadwork.Infra.Repository
 
 
 
-        public EstablishmentModelData GetEstablishmentById(long id)
+        public EstablishmentModelData GetById(long id)
              => _context.Establishments
                                     .Include(x => x.Address)
-                                    .Include(x => x.Characteristics)
                                     .Include(x => x.Photos)
                                     .FirstOrDefault(establisshment => establisshment.Id.Equals(id) && establisshment.Active);
 
 
+        public async Task<string> CreateSingle(EstablishmentModelData establishmentModelData)
+        {
+            try
+            {
+                _context.Establishments.Add(establishmentModelData);
+                await _context.SaveChangesAsync();
+                return string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name);
+            }
+            catch (Exception ex)
+            {
+                return string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
+            }
 
-        //public EstablishmentModelData UpdateEstablishment(EstablishmentModelData establishmentModelData)
-        //{
-        //    _context.Entry(establishmentModelData).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (EstablishmentExists(establishmentModelData.Id))
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return GetEstablishmentById(establishmentModelData.Id);
-
-        //}
+        }
 
 
-        //public async Task CreateEstablishment(List<EstablishmentModelData> establishmentModelData)
-        //{
-        //    try
-        //    {
+        public async Task<string> Update(EstablishmentModelData establishmentModelData)
+        {
+            _context.Entry(establishmentModelData).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                if (Exists(establishmentModelData.Id))
+                {
+                    return string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
+                }
+            }
+
+            return string.Format("Estabelecimento {0} alterado com sucesso!", establishmentModelData.Name);
+
+        }
+
+        public async Task<string> Delete(EstablishmentModelData establishmentModelData)
+        {
+            establishmentModelData.Active = false;
+            _context.Entry(establishmentModelData).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+
+                return string.Format("Erro ao deletar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
+
+            }
+
+            return string.Format("Estabelecimento {0} deletado com sucesso!", establishmentModelData.Name);
+
+        }
+
+       
+
+        private bool Exists(long id)
+        {
+            return _context.Establishments.Any(e => e.Id == id);
+        }
+
+        //mok
+        public async Task CreateMok(List<EstablishmentModelData> establishmentModelData)
+        {
+            try
+            {
 
 
-        //        _context.Establishments.AddRange(establishmentModelData);
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (System.Exception ex)
-        //    {
+                _context.Establishments.AddRange(establishmentModelData);
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception ex)
+            {
 
 
-        //        throw ex;
-        //    }
+                throw ex;
+            }
 
-        //}
-
-
-        //public IEnumerable<EstablishmentModelData> DeleteEstablishment(EstablishmentModelData establishmentModelData)
-        //{
-        //    establishmentModelData.Active = false;
-
-        //    _context.Entry(establishmentModelData).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (EstablishmentExists(establishmentModelData.Id))
-        //        {
-        //            throw;
-        //        }
-        //    }
+        }
 
 
-        //    return GetAllEstablishmentsByLocation(establishmentModelData.Address.Latitude, establishmentModelData.Address.Longitude);
-        //}
-
-        //private bool EstablishmentExists(long id)
-        //{
-        //    return _context.Establishments.Any(e => e.Id == id);
-        //}
     }
 }

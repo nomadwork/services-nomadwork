@@ -14,6 +14,8 @@
     <Compile Remove="Infra\Data\Migrations\20190923001850_TesteLocal1.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

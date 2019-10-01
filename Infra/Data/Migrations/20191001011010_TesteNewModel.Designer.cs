@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nomadwork.Infra.Data.Contexts;
 
 namespace Nomadwork.Infra.Data.Migrations
 {
     [DbContext(typeof(NomadworkDbContext))]
-    partial class NomadworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191001011010_TesteNewModel")]
+    partial class TesteNewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,6 +27,7 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<bool>("Active");
 
                     b.Property<string>("Coutry")
+                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<DateTime>("LastUpdate");
@@ -36,12 +39,15 @@ namespace Nomadwork.Infra.Data.Migrations
                         .HasColumnType("decimal(12,9)");
 
                     b.Property<string>("Number")
+                        .IsRequired()
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("State")
+                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("Street")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Zipcode")

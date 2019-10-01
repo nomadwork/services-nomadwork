@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nomadwork.Infra.Data.Model_Data
+namespace Nomadwork.Infra.Data.ObjectData
 {
     public abstract class AEntity
     {

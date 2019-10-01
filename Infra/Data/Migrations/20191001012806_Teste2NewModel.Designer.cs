@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nomadwork.Infra.Data.Contexts;
 
 namespace Nomadwork.Infra.Data.Migrations
 {
     [DbContext(typeof(NomadworkDbContext))]
-    partial class NomadworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191001012806_Teste2NewModel")]
+    partial class Teste2NewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

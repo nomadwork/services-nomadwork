@@ -1,12 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Nomadwork.Infra.Data.Model_Data
+namespace Nomadwork.Infra.Data.ObjectData
 {
     [Table("Photos")]
-    public class Photo : AEntity
+    public class PhotoModelData : AEntity
     {
         [Required]
         public string UrlPhoto { get; set; }
+
+        public string ExtensionFile { get; set; }
+
+        public string NameFile { get; set; }
     }
 }

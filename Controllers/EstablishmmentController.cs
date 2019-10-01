@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Nomadwork.Domain.Business;
+using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
-using Nomadwork.Model_View;
-using Nomadwork.Model_View.Establishmment_List;
-using Nomadwork.Shared;
+using Nomadwork.ViewObject;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Nomadwork.Controllers
 {
@@ -20,18 +21,18 @@ namespace Nomadwork.Controllers
             _context = context;
         }
 
-
-        // GET api/values
-        [HttpPost]
-        public ActionResult<Json> Post([FromBody]Geolocation geolocation)
+        [HttpGet("{latitude},{longitude}")]
+        public ActionResult<Json> Get(decimal latitude, decimal longitude)
         {
+            var geolocation = Geolocation.Create(latitude, longitude);
+
             if (geolocation.Latitude == 0 && geolocation.Longitude == 0)
             {
                 return NotFound(Json.Create("Geolocalização inválida!", null));
             }
 
             var repositoy = EstablishmmentRepository.GetInstance(_context);
-            var list = repositoy.GetAllEstablishmentsByLocation(geolocation.Latitude, geolocation.Longitude);
+            var list = repositoy.GetByLocation(geolocation.Latitude, geolocation.Longitude);
 
             var listEstablishment = new List<EstablishmmentNameLocationId>();
 
@@ -50,101 +51,55 @@ namespace Nomadwork.Controllers
         }
 
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Json> Get(string id)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
-            var select = repositoy.GetEstablishmentById(long.Parse(id));
 
-            var establishmment = EstablishmmentById.Create(select.Id.ToString()
-                , select.Name
-                , string.Join(", ", select.Address.Street, select.Address.Number, select.Address.State, select.Address.Coutry, select.Address.Zipcode)
-                , select.TimeOpen.ToString("hh:MM")
-                , select.TimeClose.ToString("hh:MM"));
+            var select = repositoy.GetById(long.Parse(id));
 
-            select.Characteristics.ForEach(x =>
-            {
-                switch (x.Service)
-                {
-                    case Service.Internet:
-                        establishmment.AddServices(ServiceOffered.Internet(x.Quality));
-                        break;
-                    case Service.Energy:
-                        establishmment.AddServices(ServiceOffered.Energy(x.Quantity));
-                        break;
-                    case Service.Noise:
-                        establishmment.AddServices(ServiceOffered.Noise(x.Quantity));
-                        break;
-                    default:
-                        break;
-                }
-            });
-
-            select.Photos.ForEach(x => establishmment.AddPhoto(x.UrlPhoto));
+            var establishmment = Convert.To(select);
 
             return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
         }
 
-        //[HttpDelete("{id}")]
-        //public async Task Go()
+
+        [HttpPost]
+        public async Task<ActionResult<Json>> Post([FromBody]EstablishmmentCreate establishmment)
+        {
+            var validate = Establishment.Create(establishmment.Name, establishmment.Email, establishmment.Phone, establishmment.Schedule.Open, establishmment.Schedule.Close,establishmment.Wifi.Rate,establishmment.Noise.Rate,establishmment.Plug.Rate);
+
+            if (validate.Erro)
+            {
+                return BadRequest(Json.Create(string.Join("\n", validate.Erros.ToArray()), establishmment));
+            }
+
+            var repository = EstablishmmentRepository.GetInstance(_context);
+
+            var validateToModel = Convert.To(establishmment);
+
+            var statusSave = await repository.CreateSingle(validateToModel);
+
+            return Ok(Json.Create(statusSave, establishmment));
+        }
+
+        //put e delete
+        //[HttpPut("{id}")]
+        //public ActionResult<Json> Put(string id, [FromBody] EstablishmmentCreate establishmment)
         //{
-        //    var establishments = new EstablishmmentMockup().Init();
-
-        //    var repository = EstablishmmentRepository.GetInstance(_context);
-
-        //    await repository.CreateEstablishment(establishments);
+        //    return Json.Create("Não existem estabelecimentos", establishmment);
         //}
 
 
-        //[HttpPut]
-        //public ActionResult<Json> Put([FromBody] EstablishmmentNameLocationId establishmment)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var repository = EstablishmmentRepository.GetInstance(_context);
-
-        //        var establishmmentModel = new EstablishmentModelData
-        //        {
-        //          Id = establishmment.Id
-        //        }; 
-
-        //    }
-        //    var list = SelectLocations(establishmment.Geolocation);
-
-        //    return Json.Create("Não existem estabelecimentos", list);
-        //}
-
-
-        [Route("so_pra_ver_enum")]
-        [HttpGet]
-        public string Enums()
+        [HttpDelete("{id}")]
+        public async Task Go()
         {
+            var establishments = new EstablishmmentMockup().Init();
 
-            return @"
+            var repository = EstablishmmentRepository.GetInstance(_context);
 
-        public enum Quantity
-        {
-            None = 0,
-            Has = 1,
-            Little = 2,
-            Much = 3,
+            await repository.CreateMok(establishments);
         }
 
-        public enum Quality
-        {
-            Bad = 0,
-            Regular = 1,
-            Good = 2,
-            Great = 3
-
-        }
-        public enum Service
-        {
-            Internet = 1,
-            Energy = 2,
-            Noise = 3
-        }";
-        }
     }
 }

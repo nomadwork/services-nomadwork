@@ -1,4 +1,4 @@
-namespace Nomadwork.Model_View
+namespace Nomadwork.ViewObject
 {
     public class Schedule
     {
@@ -13,7 +13,7 @@ namespace Nomadwork.Model_View
                 Close = close
             };
 
-        public string Open { get; private set; }
-        public string Close { get; private set; }
+        public string Open { get;  set; }
+        public string Close { get;  set; }
     }
 }
