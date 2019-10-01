@@ -119,15 +119,11 @@ namespace Nomadwork.Infra.Repository
         {
             try
             {
-
-
                 _context.Establishments.AddRange(establishmentModelData);
                 await _context.SaveChangesAsync();
             }
             catch (System.Exception ex)
             {
-
-
                 throw ex;
             }
 

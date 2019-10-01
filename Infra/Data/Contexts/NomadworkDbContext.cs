@@ -14,5 +14,7 @@ namespace Nomadwork.Infra.Data.Contexts
         public DbSet<AddressModelData> Address { get; set; }
         public DbSet<PhotoModelData> Photos { get; set; }
         public DbSet<UserLogin> UserLogins { get; set; }
+        public DbSet<UserModelData> Users { get; set; }
+
     }
 }

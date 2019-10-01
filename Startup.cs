@@ -38,7 +38,7 @@ namespace Nomadwork
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    ValidateLifetime = true,
+                    ValidateLifetime = false,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = "nomadwork.com.br",
                     ValidAudience = "nomadwork.com.br",
