@@ -33,6 +33,16 @@ namespace Nomadwork.Infra.Repository
                     .ToList();
 
 
+        public IEnumerable<EstablishmentModelData> GetByFilter(string select)
+            => _context.Establishments
+                        .Include(x => x.Address)
+                        .Where(x => x.Active
+                        && (x.Name.Contains(select)
+                        || x.Address.Street.Contains(select)
+                        || x.Address.Zipcode.StartsWith(select)))
+                        .ToHashSet()
+                        .Take(20)
+                        .ToList();
 
         public EstablishmentModelData GetById(long id)
              => _context.Establishments
@@ -97,7 +107,7 @@ namespace Nomadwork.Infra.Repository
 
         }
 
-       
+
 
         private bool Exists(long id)
         {
