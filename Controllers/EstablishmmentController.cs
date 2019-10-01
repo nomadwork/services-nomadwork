@@ -67,7 +67,7 @@ namespace Nomadwork.Controllers
         [HttpPost]
         public async Task<ActionResult<Json>> Post([FromBody]EstablishmmentCreate establishmment)
         {
-            var validate = Establishment.Create(establishmment.Name, establishmment.Email, establishmment.Phone, establishmment.Schedule.Open, establishmment.Schedule.Close,establishmment.Wifi.Rate,establishmment.Noise.Rate,establishmment.Plug.Rate);
+            var validate = Establishment.Create(establishmment.Name, establishmment.Email, establishmment.Phone, establishmment.Schedule.Open, establishmment.Schedule.Close, establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
 
             if (validate.Erro)
             {
@@ -91,15 +91,15 @@ namespace Nomadwork.Controllers
         //}
 
 
-        [HttpDelete("{id}")]
-        public async Task Go()
-        {
-            var establishments = new EstablishmmentMockup().Init();
+        // [HttpDelete("{id}")]
+        // public async Task Go()
+        // {
+        //     var establishments = new EstablishmmentMockup().Init();
 
-            var repository = EstablishmmentRepository.GetInstance(_context);
+        //     var repository = EstablishmmentRepository.GetInstance(_context);
 
-            await repository.CreateMok(establishments);
-        }
+        //     await repository.CreateMok(establishments);
+        // }
 
     }
 }
