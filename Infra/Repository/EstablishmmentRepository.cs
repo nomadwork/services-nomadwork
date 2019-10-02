@@ -108,9 +108,13 @@ namespace Nomadwork.Infra.Repository
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> dev/user
+=======
+
+>>>>>>> 731b1946b91c1911f7fc169dd9314a869907e4e3
 
         private bool Exists(long id)
         {
