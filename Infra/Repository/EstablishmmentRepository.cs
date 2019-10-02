@@ -107,7 +107,10 @@ namespace Nomadwork.Infra.Repository
 
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev/user
 
         private bool Exists(long id)
         {
@@ -119,15 +122,11 @@ namespace Nomadwork.Infra.Repository
         {
             try
             {
-
-
                 _context.Establishments.AddRange(establishmentModelData);
                 await _context.SaveChangesAsync();
             }
             catch (System.Exception ex)
             {
-
-
                 throw ex;
             }
 
