@@ -501,7 +501,7 @@ namespace Nomadwork.Infra.Repository
  Create("Sergio P.S.neto","R. Xavier de Brito, 107 - Curado III, Jaboatão dos Guararapes","54220-272",-8.073833M,-35.00139M),
  Create("Estetica do Animal Pet Shop","PE-005, 1679 - Centro, São Lourenço da Mata","54735-440",-7.992163M,-35.04547M),
         };
-
+       
 
 
 
@@ -525,8 +525,8 @@ namespace Nomadwork.Infra.Repository
                 Name = name,
                 Email = "teste@teste.com",
                 Phone = "(081)9999999999",
-                TimeClose = "08:00",
-                TimeOpen = "18:00",
+                TimeOpen = "08:00",
+                TimeClose = "18:00",
                 Photos = listPhoto,
                 Wifi = 1,
                 Noise = 2,
