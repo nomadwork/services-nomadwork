@@ -80,11 +80,7 @@ namespace Nomadwork.Controllers
 
                     var tokenUser = new TokenCreateGetUser(tokenFinal, user);
 
-
-
-
                     return Ok(Json.Create("Token Criado.", tokenUser));
-
 
                 }
                 return BadRequest("Credenciais inválidas...");
