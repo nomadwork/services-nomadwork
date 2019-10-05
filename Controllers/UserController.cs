@@ -88,12 +88,12 @@ namespace Nomadwork.Controllers
             return BadRequest("Usuario Não Encontrado...");
         }
 
-        //[HttpDelete]
-        //public async Task Go()
-        //{
-        //    var repositoy = UserRepository.GetInstance(_context);
-        //    var userMok = new UserMockup().Init();
-        //    await repositoy.CreateSingle(userMok);
-        //}
+        [HttpDelete]
+        public async Task Go()
+        {
+            var repositoy = UserRepository.GetInstance(_context);
+            var userMok = new UserMockup().Init();
+            await repositoy.CreateSingle(userMok);
+        }
     }
 }
