@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nomadwork.Domain.Business;
-using Nomadwork.Domain.Location;
 using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
-using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.Repository;
 using Nomadwork.ViewObject;
 using System.Linq;
@@ -22,6 +19,14 @@ namespace Nomadwork.Controllers
             _context = context;
         }
 
+        [HttpGet("/sugestions")]
+        public ActionResult<Json> GetAll()
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+            var list = repositoy.GetAll();
+            return Ok(Json.Create("Todas as sugestões", list));
+
+        }
         [HttpGet("{latitude},{longitude}")]
         public ActionResult<Json> Get(decimal latitude, decimal longitude)
         {

@@ -85,7 +85,7 @@ namespace Nomadwork.Infra.Repository
             }
 
         }
-            
+
         public async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
         {
             try
