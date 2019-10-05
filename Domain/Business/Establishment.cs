@@ -1,7 +1,7 @@
 using Nomadwork.Domain.Shared;
 using Nomadwork.Domain.Location;
-using System.Linq;
 using System;
+using System.Linq;
 
 namespace Nomadwork.Domain.Business
 {
@@ -24,7 +24,6 @@ namespace Nomadwork.Domain.Business
             }
         }
 
-       
 
         public string Name { get; private set; }
         public DateTime Timeopen { get; private set; }
@@ -48,8 +47,10 @@ namespace Nomadwork.Domain.Business
         public static Establishmment Create(string name, string email, string phone, DateTime timeOpen, DateTime timeClose, short wifi, short noise, short plug)
             => new Establishmment(name, email, phone, timeOpen, timeClose, wifi,  noise,  plug);
 
+
         public void SetAddress(Address address)
             => this.Address = address;
+
 
         private bool CheckEntryOkSchedule(DateTime timeOpen, DateTime timeClose)
         { var ok = true;
@@ -72,6 +73,7 @@ namespace Nomadwork.Domain.Business
 
             return ok;
         }
+
 
         private bool CheckEntryOkSchedule(DateTime time, string type)
         {
@@ -103,7 +105,8 @@ namespace Nomadwork.Domain.Business
             }
             return ok;
         }
-            
+           
+        
         private bool CheckEntryOkCharacteristic(short wifi, short noise, short plug)
         {
             var ok = true;
@@ -125,6 +128,7 @@ namespace Nomadwork.Domain.Business
            
             return ok;
         }
+
 
         private bool CheckEntryOkName(string name)
         {
@@ -185,6 +189,7 @@ namespace Nomadwork.Domain.Business
 
             return ok;
         }
+
 
         private bool CheckEntryOkPhone(string phone)
         {
