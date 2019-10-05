@@ -21,19 +21,19 @@ namespace Nomadwork.Infra.Repository
             => new EstablishmmentRepository(context);
 
 
-        public IEnumerable<EstablishmentModelData> GetByLocation(decimal latitude, decimal longitude)
+        public IEnumerable<EstablishmmentModelData> GetByLocation(decimal latitude, decimal longitude)
             => _context.Establishments
                        .Include(x => x.Address)
                        .Where(establismment
-                => (decimal.Round(establismment.Address.Latitude, 3).Equals(decimal.Round(latitude, 3))
-                    || decimal.Round(establismment.Address.Longitude, 3).Equals(decimal.Round(longitude, 3)))
+                => (establismment.Address.LatitudePrecision.Equals(decimal.Round(latitude, 2))
+                    && establismment.Address.LongitudePricision.Equals(decimal.Round(longitude, 2)))
                      && establismment.Active)
                     .ToHashSet()
                     .Take(20)
                     .ToList();
 
 
-        public IEnumerable<EstablishmentModelData> GetByFilter(string select)
+        public IEnumerable<EstablishmmentModelData> GetByFilter(string select)
             => _context.Establishments
                         .Include(x => x.Address)
                         .Where(x => x.Active
@@ -44,69 +44,86 @@ namespace Nomadwork.Infra.Repository
                         .Take(20)
                         .ToList();
 
-        public EstablishmentModelData GetById(long id)
+
+        public EstablishmmentModelData GetById(long id)
              => _context.Establishments
                                     .Include(x => x.Address)
                                     .Include(x => x.Photos)
                                     .FirstOrDefault(establisshment => establisshment.Id.Equals(id) && establisshment.Active);
 
 
-        public async Task<string> CreateSingle(EstablishmentModelData establishmentModelData)
+        public struct ReturnRepository
+        {
+            public static ReturnRepository Create(bool erro, string description)
+            => new ReturnRepository(erro, description);
+
+            private ReturnRepository(bool erro, string description)
+            {
+                Erro = erro;
+                Description = description;
+            }
+
+            public bool Erro { get; private set; }
+            public string Description { get; set; }
+
+        }
+
+        public async Task<ReturnRepository> CreateSingle(EstablishmmentModelData establishmentModelData)
         {
             try
             {
                 _context.Establishments.Add(establishmentModelData);
                 await _context.SaveChangesAsync();
-                return string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name);
+                return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
             }
             catch (Exception ex)
             {
-                return string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
+                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
+            }
+
+        }
+            
+        public async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
+        {
+            try
+            {
+                _context.EstablishmentSugestions.Add(establishmentModelData);
+                await _context.SaveChangesAsync();
+                return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
+            }
+            catch (Exception ex)
+            {
+                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
             }
 
         }
 
-
-        public async Task<string> Update(EstablishmentModelData establishmentModelData)
+        public async Task<ReturnRepository> Update(EstablishmmentModelData establishmentModelData)
         {
-            _context.Entry(establishmentModelData).State = EntityState.Modified;
-
             try
             {
+                _context.Entry(establishmentModelData).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
             {
                 if (Exists(establishmentModelData.Id))
                 {
-                    return string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
+                    return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message));
                 }
             }
 
-            return string.Format("Estabelecimento {0} alterado com sucesso!", establishmentModelData.Name);
+            return ReturnRepository.Create(false, string.Format("Estabelecimento {0} alterado com sucesso!", establishmentModelData.Name));
 
         }
 
-        public async Task<string> Delete(EstablishmentModelData establishmentModelData)
+
+        public async Task<ReturnRepository> Delete(EstablishmmentModelData establishmentModelData)
         {
             establishmentModelData.Active = false;
-            _context.Entry(establishmentModelData).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-
-                return string.Format("Erro ao deletar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message);
-
-            }
-
-            return string.Format("Estabelecimento {0} deletado com sucesso!", establishmentModelData.Name);
-
+            return await Update(establishmentModelData);
         }
-
 
 
         private bool Exists(long id)
@@ -115,7 +132,7 @@ namespace Nomadwork.Infra.Repository
         }
 
         //mok
-        public async Task CreateMok(List<EstablishmentModelData> establishmentModelData)
+        public async Task CreateMok(List<EstablishmmentModelData> establishmentModelData)
         {
             try
             {

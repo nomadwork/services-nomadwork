@@ -33,5 +33,13 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required, Column(TypeName = "decimal(12,9)")]
         public decimal Longitude { get; set; }
 
+
+        [Required, Column(TypeName = "decimal(4,2)")]
+        public decimal LatitudePrecision { get; set; }
+
+
+        [Required, Column(TypeName = "decimal(4,2)")]
+        public decimal LongitudePricision { get; set; }
+
     }
 }

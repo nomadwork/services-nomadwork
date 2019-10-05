@@ -14,8 +14,22 @@
     <Compile Remove="Infra\Data\Migrations\20190923001850_TesteLocal1.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20190923003017_TesteProduction1.cs" />
+    <Compile Remove="Infra\Data\Migrations\20190923003017_TesteProduction1.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.cs" />
     <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001011010_TesteNewModel.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001011010_TesteNewModel.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001012806_Teste2NewModel.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001012806_Teste2NewModel.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001232215_WithLogin.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191001232215_WithLogin.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005135627_TesteLocation2.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005135627_TesteLocation2.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005210550_TesteLocation2.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005210550_TesteLocation2.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

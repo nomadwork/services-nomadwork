@@ -1,13 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nomadwork.Domain.Business;
-using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
-using Nomadwork.ViewObject;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Nomadwork.Controllers
 {
@@ -41,12 +35,12 @@ namespace Nomadwork.Controllers
 
         }
 
-        [HttpDelete]
-        public async Task Go()
-        {
-            var repositoy = UserRepository.GetInstance(_context);
-            var userMok = new UserMockup().Init();
-            await repositoy.CreateSingle(userMok);
-        }
+        //[HttpDelete]
+        //public async Task Go()
+        //{
+        //    var repositoy = UserRepository.GetInstance(_context);
+        //    var userMok = new UserMockup().Init();
+        //    await repositoy.CreateSingle(userMok);
+        //}
     }
 }
