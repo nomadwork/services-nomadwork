@@ -51,6 +51,9 @@ namespace Nomadwork.Infra.Repository
                                     .Include(x => x.Photos)
                                     .FirstOrDefault(establisshment => establisshment.Id.Equals(id) && establisshment.Active);
 
+        public IEnumerable<EstablishmmentSugestionModelData> GetAll()
+            => _context.EstablishmentSugestions.ToList();
+
 
         public struct ReturnRepository
         {
@@ -82,7 +85,7 @@ namespace Nomadwork.Infra.Repository
             }
 
         }
-            
+
         public async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
         {
             try
