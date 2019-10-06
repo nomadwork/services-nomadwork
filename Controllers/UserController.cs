@@ -1,21 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using System.Text.RegularExpressions;
-=======
 using Microsoft.Extensions.Configuration;
-using Nomadwork.Infra.Data.Contexts;
-using Nomadwork.Infra.Repository;
 using Nomadwork.ViewObject;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Nomadwork.Infra.Data.ObjectData;
->>>>>>> 9ecc39dc9a9a9e38e125982986c0c3e404f5216b
+
 
 namespace Nomadwork.Controllers
 {
@@ -52,7 +47,7 @@ namespace Nomadwork.Controllers
 
         }
 
-<<<<<<< HEAD
+
         // [HttpDelete]
         // public async Task Go()
         // {
@@ -60,7 +55,7 @@ namespace Nomadwork.Controllers
         //     var userMok = new UserMockup().Init();
         //     await repositoy.CreateSingle(userMok);
         // }
-=======
+
         [HttpPost("login")]
         public ActionResult<Json> RequestToken([FromBody] UserModelData request)
         {
@@ -110,6 +105,6 @@ namespace Nomadwork.Controllers
             var userMok = new UserMockup().Init();
             await repositoy.CreateSingle(userMok);
         }
->>>>>>> 9ecc39dc9a9a9e38e125982986c0c3e404f5216b
+
     }
 }
