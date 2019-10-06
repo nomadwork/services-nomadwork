@@ -29,7 +29,7 @@ namespace Nomadwork
             services.AddResponseCompression();
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
-                                                   Configuration.GetConnectionString("DbConnectionLocal")));
+                                                   Configuration.GetConnectionString("DbProduction")));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

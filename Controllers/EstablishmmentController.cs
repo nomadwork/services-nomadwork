@@ -18,15 +18,8 @@ namespace Nomadwork.Controllers
         {
             _context = context;
         }
+      
 
-        [HttpGet("/sugestions")]
-        public ActionResult<Json> GetAll()
-        {
-            var repositoy = EstablishmmentRepository.GetInstance(_context);
-            var list = repositoy.GetAll();
-            return Ok(Json.Create("Todas as sugestões", list));
-
-        }
         [HttpGet("{latitude},{longitude}")]
         public ActionResult<Json> Get(decimal latitude, decimal longitude)
         {
@@ -49,10 +42,33 @@ namespace Nomadwork.Controllers
 
             return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), listEstablishment));
         }
+            
+      
+
+        [HttpGet("{id}")]
+        public ActionResult<Json> Get(string id)
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+
+            var select = repositoy.GetById(long.Parse(id));
+
+            var establishmment = Convert.To(select);
+
+            return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
+        }
 
 
-        [HttpGet("{id:long}")]
-        public ActionResult<Json> Get(long id)
+        [HttpGet("v1")]
+        public ActionResult<Json> GetAll()
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+            var list = repositoy.GetAll();
+            return Ok(Json.Create("Todas as sugestões", list));
+
+        }
+
+        [HttpGet("v1/{id:long}")]
+        public ActionResult<Json> Get2(long id)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
 
@@ -63,8 +79,8 @@ namespace Nomadwork.Controllers
             return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
         }
 
-        [HttpGet("{term}")]
-        public ActionResult<Json> Get(string term)
+        [HttpGet("v1/{term}")]
+        public ActionResult<Json> Get2(string term)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
             var list = repositoy.GetByFilter(term);
@@ -112,15 +128,15 @@ namespace Nomadwork.Controllers
         //}
 
 
-        //[HttpDelete("{id}")]
-        //public async Task Go()
-        //{
-        //    var establishments = new EstablishmmentMockup().Init();
+        [HttpDelete("{id}")]
+        public async Task Go()
+        {
+            var establishments = new EstablishmmentMockup().Init();
 
-        //    var repository = EstablishmmentRepository.GetInstance(_context);
+            var repository = EstablishmmentRepository.GetInstance(_context);
 
-        //    await repository.CreateMok(establishments);
-        //}
+            await repository.CreateMok(establishments);
+        }
 
     }
 }
