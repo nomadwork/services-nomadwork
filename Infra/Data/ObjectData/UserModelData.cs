@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Infra.Data.ObjectData
 {
@@ -15,7 +16,11 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required, Column(TypeName = "varchar(100)")]
         public string Password { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string Dateborn { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime Dateborn { get; set; }
+
+        [Column(TypeName = "int")]
+        public Gender Gender { get; set; }
+
     }
 }
