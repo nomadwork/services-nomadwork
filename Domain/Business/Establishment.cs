@@ -235,15 +235,15 @@ namespace Nomadwork.Domain.Business
                 ok = false;
             }
 
-            if (!CheckEntryOkEmail(email))
-            {
-                ok = false;
-            }
+            //if (!CheckEntryOkEmail(email))
+            //{
+            //    ok = false;
+            //}
 
-            if (!CheckEntryOkPhone(phone))
-            {
-                ok = false;
-            }
+            //if (!CheckEntryOkPhone(phone))
+            //{
+            //    ok = false;
+            //}
 
             return ok;
         }

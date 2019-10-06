@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Nomadwork.Infra.Data.ObjectData;
-using Nomadwork.Infra.Models;
 
 namespace Nomadwork.Infra.Data.Contexts
 {
