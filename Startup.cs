@@ -29,15 +29,14 @@ namespace Nomadwork
             services.AddResponseCompression();
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
-                                                   Configuration.GetConnectionString("DbProduction")));
+                                                   Configuration.GetConnectionString("DbConnectionLocal")));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
+            .AddJwtBearer(options => {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
                     ValidateLifetime = false,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = "nomadwork.com.br",
@@ -61,7 +60,10 @@ namespace Nomadwork
                 };
             });
 
-            services.AddSwaggerGen(x =>
+            
+        
+
+        services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new OpenApiInfo
                 {
