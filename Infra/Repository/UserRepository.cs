@@ -20,7 +20,8 @@ namespace Nomadwork.Infra.Repository
 
         public UserModelData GetByEmail(string email)
              => _context.Users.FirstOrDefault(user => user.Email.Equals(email) && user.Active);
-
+        public UserModelData GetUser(string email, string password)
+            => _context.Users.FirstOrDefault(x => x.Email.Equals(email) && x.Password.Equals(password) && x.Active);
 
         public async Task<string> CreateSingle(UserModelData user)
         {

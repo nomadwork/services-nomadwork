@@ -169,5 +169,18 @@ namespace Nomadwork.Infra
             return establishmment;
         }
 
+        public static UserModelDataToUser To(UserModelData userData) {
+
+            return new UserModelDataToUser {
+            
+                Name = userData.Name,
+                Email = userData.Email,
+                Dateborn = userData.Dateborn,
+                Gender = userData.Gender
+                
+            };
+
+        }
+
     }
 }

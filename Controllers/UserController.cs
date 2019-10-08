@@ -1,8 +1,16 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Nomadwork.Controllers.ViewObject;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
+using Nomadwork.Infra.Token;
+using Nomadwork.ViewObject;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -11,9 +19,9 @@ using System.Threading.Tasks;
 namespace Nomadwork.Controllers
 {
     [Route("api/user")]
-    //[Authorize()]
+    [Authorize("Bearer")]
+    [ApiController]
 
-    
     public class UserController : ControllerBase
     {
         private readonly NomadworkDbContext _context;
@@ -45,13 +53,81 @@ namespace Nomadwork.Controllers
 
         }
 
-        [HttpGet("a")]
-        public string Gets()
+
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public object Post([FromBody] UserToSelect userSend,[FromServices]SigningConfigurations signingConfigurations,[FromServices]TokenConfiguration tokenConfigurations)
         {
-            return "i";
+            bool credenciaisValidas = false;
+            var UserGet = UserRepository.GetInstance(_context).GetUser(userSend.Email, userSend.Password);
+            if (userSend != null && !string.IsNullOrEmpty(userSend.Email) && !string.IsNullOrEmpty(userSend.Password))
+            {
+                
+                //var UserGet = userRepositry.GetUser(userSend.Email, userSend.Password);
+                credenciaisValidas = (UserGet != null && UserGet.Id != 0);
+            }
 
+            if (credenciaisValidas)
+            {
+                ClaimsIdentity identity = new ClaimsIdentity(
+                    new GenericIdentity(userSend.Email, "Login"),
+                    new[] {
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
+                        new Claim(JwtRegisteredClaimNames.UniqueName, userSend.Email)
+                    }
+                );
 
+                DateTime dataCriacao = DateTime.Now;
+                DateTime dataExpiracao = dataCriacao +
+                    TimeSpan.FromSeconds(tokenConfigurations.Seconds);
+
+                var handler = new JwtSecurityTokenHandler();
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    Issuer = tokenConfigurations.Issuer,
+                    Audience = tokenConfigurations.Audience,
+                    SigningCredentials = signingConfigurations.SigningCredentials,
+                    Subject = identity,
+                    NotBefore = dataCriacao,
+                    Expires = dataExpiracao
+                });
+                var token = handler.WriteToken(securityToken);
+                var userFinal = new UserModelDataToUser
+                {
+
+                    Name = UserGet.Name,
+                    Email = UserGet.Email,
+                    Dateborn = UserGet.Dateborn,
+                    Gender = UserGet.Gender
+
+                };
+
+                var tokenFinal = new TokenCreateGetUser(new
+                {
+                    authenticated = true,
+                    created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
+                    expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
+                    accessToken = token,
+
+                }, userFinal);
+
+                return Ok(Json.Create("Token Criado.", tokenFinal));
+                
+            }
+            else
+            {
+                return new
+                {
+                    authenticated = false,
+                    message = "Falha ao autenticar"
+                };
+            }
         }
+
+
+
+
         [HttpDelete]
         public async Task Go()
         {
