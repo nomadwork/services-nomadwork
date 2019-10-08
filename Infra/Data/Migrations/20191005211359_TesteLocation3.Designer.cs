@@ -9,14 +9,14 @@ using Nomadwork.Infra.Data.Contexts;
 namespace Nomadwork.Infra.Data.Migrations
 {
     [DbContext(typeof(NomadworkDbContext))]
-    [Migration("20191001011010_TesteNewModel")]
-    partial class TesteNewModel
+    [Migration("20191005211359_TesteLocation3")]
+    partial class TesteLocation3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.AddressModelData", b =>
@@ -27,7 +27,6 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<bool>("Active");
 
                     b.Property<string>("Coutry")
-                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<DateTime>("LastUpdate");
@@ -35,19 +34,22 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<decimal>("Latitude")
                         .HasColumnType("decimal(12,9)");
 
+                    b.Property<decimal>("LatitudePrecision")
+                        .HasColumnType("decimal(4,2)");
+
                     b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(12,9)");
 
+                    b.Property<decimal>("LongitudePricision")
+                        .HasColumnType("decimal(4,2)");
+
                     b.Property<string>("Number")
-                        .IsRequired()
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("State")
-                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("Street")
-                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Zipcode")
@@ -58,7 +60,7 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData", b =>
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -98,6 +100,48 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Establishment");
                 });
 
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentSugestionModelData", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("LastUpdate");
+
+                    b.Property<decimal>("Latitude")
+                        .HasColumnType("decimal(12,9)");
+
+                    b.Property<decimal>("Longitude")
+                        .HasColumnType("decimal(12,9)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<short>("Noise");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<short>("Plug");
+
+                    b.Property<DateTime>("TimeClose")
+                        .HasColumnType("Date");
+
+                    b.Property<DateTime>("TimeOpen")
+                        .HasColumnType("Date");
+
+                    b.Property<short>("Wifi");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Establishimment_Sugestions");
+                });
+
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.PhotoModelData", b =>
                 {
                     b.Property<long>("Id")
@@ -105,7 +149,7 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<long?>("EstablishmentModelDataId");
+                    b.Property<long?>("EstablishmmentModelDataId");
 
                     b.Property<string>("ExtensionFile");
 
@@ -118,30 +162,41 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EstablishmentModelDataId");
+                    b.HasIndex("EstablishmmentModelDataId");
 
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Models.UserLogin", b =>
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.UserModelData", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Dateborn")
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<DateTime>("LastUpdate");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserLogins");
+                    b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData", b =>
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
                 {
                     b.HasOne("Nomadwork.Infra.Data.ObjectData.AddressModelData", "Address")
                         .WithMany()
@@ -151,9 +206,9 @@ namespace Nomadwork.Infra.Data.Migrations
 
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.PhotoModelData", b =>
                 {
-                    b.HasOne("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData")
+                    b.HasOne("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData")
                         .WithMany("Photos")
-                        .HasForeignKey("EstablishmentModelDataId");
+                        .HasForeignKey("EstablishmmentModelDataId");
                 });
 #pragma warning restore 612, 618
         }

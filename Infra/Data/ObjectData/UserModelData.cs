@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static Nomadwork.ViewObject.Shared.Enum;
+
 
 namespace Nomadwork.Infra.Data.ObjectData
 {
@@ -21,6 +20,5 @@ namespace Nomadwork.Infra.Data.ObjectData
 
         [Column(TypeName = "int")]
         public Gender Gender { get; set; }
-
     }
 }

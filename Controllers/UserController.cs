@@ -1,9 +1,3 @@
-﻿
-
-
-
-
-
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +5,7 @@ using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 
 
 namespace Nomadwork.Controllers
@@ -25,7 +20,9 @@ namespace Nomadwork.Controllers
 
         public UserController(NomadworkDbContext context)
         {
-            _context = context;  
+
+            _context = context;
+
         }
         [HttpGet("{email}")]
         public bool Get(string email)
@@ -47,6 +44,7 @@ namespace Nomadwork.Controllers
 
 
         }
+
         [HttpGet("a")]
         public string Gets()
         {
@@ -61,5 +59,6 @@ namespace Nomadwork.Controllers
             var userMok = new UserMockup().Init();
             await repositoy.CreateSingle(userMok);
         }
+
     }
 }

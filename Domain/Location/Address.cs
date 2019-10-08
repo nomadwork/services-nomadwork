@@ -35,7 +35,7 @@ namespace Nomadwork.Domain.Location
         /// <param name="coutry">País referente ao endereço. Ex: Brasil</param>
         /// <param name="state">Estado referente ao endereço. Ex: PE</param>
         /// <returns>Retorna um novo Address Sem Geolocalização</returns>
-        public static Address Create(string street, string number, string zipCode, string coutry, string state)
+        private static Address Create(string street, string number, string zipCode, string coutry, string state)
             => new Address(street, number, zipCode, coutry, state);
 
 
@@ -52,7 +52,7 @@ namespace Nomadwork.Domain.Location
         /// <returns>Retorna um novo Address Com Geolocalização</returns>
         public static Address Create(string street, string number, string zipCode, string coutry, string state, decimal latitude, decimal longitude)
         {
-            var address = Create(street, number, zipCode, coutry, state, latitude, longitude);
+            var address = Create(street, number, zipCode, coutry, state);
             address.SetGeolocation(latitude, longitude);
             return address;
         }
@@ -109,14 +109,12 @@ namespace Nomadwork.Domain.Location
         /// <returns>**Retorna ***true*** caso a Geolocalização atenda a regra de negócio</returns>
         private bool CheckEntryOk(decimal latitude, decimal longitude)
         {
-            // TODO : descrever toda a regra de negócio de Geolocalização 
             var ok = true;
             if (latitude == 0 || longitude == 0)
             {
                 AddErro("Os valores de Latitude e Longitude devem ser maiores que zero!");
                 ok = false;
             }
-
 
             return ok;
         }

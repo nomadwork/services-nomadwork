@@ -1,27 +1,89 @@
-﻿using Nomadwork.Infra.Data.ObjectData;
+﻿using Nomadwork.Domain.Business;
+using Nomadwork.Domain.Location;
+using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nomadwork.Infra
 {
     public static class Convert
     {
-        public static EstablishmentModelData To(EstablishmmentCreate establishmment)
+        //public static EstablishmentModelData To(Establishment establishmment)
+        //{
+        //    return new EstablishmentModelData
+        //    {
+        //        Name = establishmment.Name,
+        //        Phone = establishmment.Phone,
+        //        Email = establishmment.Email,
+        //        Address = new AddressModelData
+        //        {
+        //            Latitude = establishmment.Address.Latitude,
+        //            Longitude = establishmment.Address.Longitude,
+        //            LatitudePrecision = decimal.Round(establishmment.Address.Latitude, 2),
+        //            LongitudePricision = decimal.Round(establishmment.Address.Longitude, 2)
+        //        },
+        //        TimeOpen = establishmment.Timeopen,
+        //        TimeClose =establishmment.Timeclose,
+        //        Wifi = establishmment.Wifi,
+        //        Plug = establishmment.Plug,
+        //        Noise = establishmment.Plug
+        //    };
+        //}
+
+        public static EstablishmmentSugestionModelData To(Establishmment establishmment)
         {
-            return new EstablishmentModelData
+            return new EstablishmmentSugestionModelData
             {
                 Name = establishmment.Name,
                 Phone = establishmment.Phone,
                 Email = establishmment.Email,
-                Address = new AddressModelData { Latitude = establishmment.Latitude, Longitude = establishmment.Longitude },
-                TimeOpen = establishmment.Schedule.Open,
-                TimeClose = establishmment.Schedule.Close,
-                Wifi = establishmment.Wifi.Rate,
-                Plug = establishmment.Plug.Rate,
-                Noise = establishmment.Plug.Rate
+                Latitude = establishmment.Address.Latitude,
+                Longitude = establishmment.Address.Longitude,
+                TimeOpen = establishmment.Timeopen,
+                TimeClose = establishmment.Timeclose,
+                Wifi = establishmment.Wifi,
+                Plug = establishmment.Plug,
+                Noise = establishmment.Plug
             };
         }
 
-        public static EstablishmmentById To(EstablishmentModelData data)
+
+        public static IEnumerable<EstablishmmentNameLocationId> To(IEnumerable<EstablishmmentModelData> list)
+        {
+            var listEstablishment = new List<EstablishmmentNameLocationId>();
+            list.ToList().ForEach(x =>
+            {
+                listEstablishment.Add(EstablishmmentNameLocationId.Create(x.Id.ToString(), x.Name, x.Address.Latitude, x.Address.Longitude));
+
+            });
+
+            return listEstablishment;
+        }
+
+        public static Establishmment To(EstablishmmentCreate establishmment)
+        {
+            var validate = Establishmment.Create(establishmment.Name.Trim(), establishmment.Email.Trim(), establishmment.Phone.Trim(), ConvertSchedule(establishmment.Schedule.Open), ConvertSchedule(establishmment.Schedule.Close), establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
+
+            var addres = Address.Create("Sem endereço", "Sem número", "SemCEP", "Sem Local", "SU", establishmment.Latitude, establishmment.Longitude);
+
+            validate.SetAddress(addres);
+
+            return validate;
+        }
+
+        private static DateTime ConvertSchedule(string time)
+        {
+            var data = time.Split(':');
+            var hour = int.Parse(data[0]);
+            var minute = int.Parse(data[1]);
+
+            return new DateTime(2000, 1, 1, hour, minute, 0);
+        }
+
+
+        public static EstablishmmentById To(EstablishmmentModelData data)
         {
             var establishmment = EstablishmmentById.Create(
                                 data.Id.ToString(),

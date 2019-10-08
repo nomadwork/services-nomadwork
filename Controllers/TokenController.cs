@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+
 using Nomadwork.Infra.Repository;
 using Nomadwork.ViewObject;
 using System.Text.RegularExpressions;

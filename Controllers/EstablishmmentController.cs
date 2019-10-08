@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nomadwork.Domain.Business;
 using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using Nomadwork.ViewObject;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +18,7 @@ namespace Nomadwork.Controllers
         {
             _context = context;
         }
+      
 
         [HttpGet("{latitude},{longitude}")]
         public ActionResult<Json> Get(decimal latitude, decimal longitude)
@@ -34,22 +33,17 @@ namespace Nomadwork.Controllers
             var repositoy = EstablishmmentRepository.GetInstance(_context);
             var list = repositoy.GetByLocation(geolocation.Latitude, geolocation.Longitude);
 
-            var listEstablishment = new List<EstablishmmentNameLocationId>();
-
-
-            list.ToList().ForEach(x =>
-            {
-                listEstablishment.Add(EstablishmmentNameLocationId.Create(x.Id.ToString(), x.Name, x.Address.Latitude, x.Address.Longitude));
-            });
+            var listEstablishment = Convert.To(list);
 
             if (list.Count().Equals(0))
             {
-                return NotFound(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count), null));
+                return NotFound(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), null));
             }
 
-            return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count), listEstablishment));
+            return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), listEstablishment));
         }
-
+            
+      
 
         [HttpGet("{id}")]
         public ActionResult<Json> Get(string id)
@@ -64,23 +58,66 @@ namespace Nomadwork.Controllers
         }
 
 
+        [HttpGet("v1")]
+        public ActionResult<Json> GetAll()
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+            var list = repositoy.GetAll();
+            return Ok(Json.Create("Todas as sugestões", list));
+
+        }
+
+        [HttpGet("v1/{id:long}")]
+        public ActionResult<Json> Get2(long id)
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+
+            var select = repositoy.GetById(id);
+
+            var establishmment = Convert.To(select);
+
+            return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
+        }
+
+        [HttpGet("v1/{term}")]
+        public ActionResult<Json> Get2(string term)
+        {
+            var repositoy = EstablishmmentRepository.GetInstance(_context);
+            var list = repositoy.GetByFilter(term);
+
+            var listEstablishment = Convert.To(list);
+
+            if (list.Count().Equals(0))
+            {
+                return NotFound(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), null));
+            }
+
+            return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), listEstablishment));
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<Json>> Post([FromBody]EstablishmmentCreate establishmment)
         {
-            var validate = Establishment.Create(establishmment.Name, establishmment.Email, establishmment.Phone, establishmment.Schedule.Open, establishmment.Schedule.Close, establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
+            var establishmmentValidate = Convert.To(establishmment);
 
-            if (validate.Erro)
+            if (establishmmentValidate.Erro)
             {
-                return BadRequest(Json.Create(string.Join("\n", validate.Erros.ToArray()), establishmment));
+                return BadRequest(Json.Create(string.Join("\n", establishmmentValidate.Erros.ToArray()), establishmment));
             }
 
             var repository = EstablishmmentRepository.GetInstance(_context);
 
-            var validateToModel = Convert.To(establishmment);
+            var establishmmentSugestion = Convert.To(establishmmentValidate);
 
-            var statusSave = await repository.CreateSingle(validateToModel);
+            var statusSave = await repository.CreateSingle(establishmmentSugestion);
 
-            return Ok(Json.Create(statusSave, establishmment));
+            if (statusSave.Erro)
+            {
+                return BadRequest(Json.Create(statusSave.Description, establishmment));
+            }
+
+            return Ok(Json.Create(statusSave.Description, establishmment));
         }
 
         //put e delete
@@ -91,15 +128,15 @@ namespace Nomadwork.Controllers
         //}
 
 
-        // [HttpDelete("{id}")]
-        // public async Task Go()
-        // {
-        //     var establishments = new EstablishmmentMockup().Init();
+        [HttpDelete("{id}")]
+        public async Task Go()
+        {
+            var establishments = new EstablishmmentMockup().Init();
 
-        //     var repository = EstablishmmentRepository.GetInstance(_context);
+            var repository = EstablishmmentRepository.GetInstance(_context);
 
-        //     await repository.CreateMok(establishments);
-        // }
+            await repository.CreateMok(establishments);
+        }
 
     }
 }

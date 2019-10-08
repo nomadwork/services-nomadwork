@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Nomadwork.Infra.Data.ObjectData;
-using Nomadwork.Infra.Models;
 
 namespace Nomadwork.Infra.Data.Contexts
 {
@@ -10,10 +9,10 @@ namespace Nomadwork.Infra.Data.Contexts
         {
         }
 
-        public DbSet<EstablishmentModelData> Establishments { get; set; }
+        public DbSet<EstablishmmentModelData> Establishments { get; set; }
+        public DbSet<EstablishmmentSugestionModelData> EstablishmentSugestions { get; set; }
         public DbSet<AddressModelData> Address { get; set; }
         public DbSet<PhotoModelData> Photos { get; set; }
-        public DbSet<UserLogin> UserLogins { get; set; }
         public DbSet<UserModelData> Users { get; set; }
 
     }
