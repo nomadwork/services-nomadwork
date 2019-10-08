@@ -15,7 +15,10 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required, Column(TypeName = "varchar(100)")]
         public string Password { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string Dateborn { get; set; }
+        [Column(TypeName = "Date")]
+        public DateTime Dateborn { get; set; }
+
+        [Column(TypeName = "int")]
+        public Gender Gender { get; set; }
     }
 }

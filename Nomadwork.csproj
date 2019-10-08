@@ -1,3 +1,4 @@
+
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -14,22 +15,8 @@
     <Compile Remove="Infra\Data\Migrations\20190923001850_TesteLocal1.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.cs" />
     <Compile Remove="Infra\Data\Migrations\20190923002410_TesteLocal1.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20190923003017_TesteProduction1.cs" />
-    <Compile Remove="Infra\Data\Migrations\20190923003017_TesteProduction1.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.cs" />
     <Compile Remove="Infra\Data\Migrations\20191001003645_TesteNewModel.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001011010_TesteNewModel.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001011010_TesteNewModel.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001012806_Teste2NewModel.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001012806_Teste2NewModel.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001232215_WithLogin.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191001232215_WithLogin.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005135627_TesteLocation2.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005135627_TesteLocation2.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005210550_TesteLocation2.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005210550_TesteLocation2.Designer.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.cs" />
-    <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +24,10 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils" Version="2.2.3" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
@@ -50,3 +41,4 @@
 
 
 </Project>
+

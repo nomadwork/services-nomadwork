@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nomadwork.Infra.Data.Contexts;
 
 namespace Nomadwork.Infra.Data.Migrations
 {
     [DbContext(typeof(NomadworkDbContext))]
-    partial class NomadworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191005202928_UserFix")]
+    partial class UserFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,14 +34,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<decimal>("Latitude")
                         .HasColumnType("decimal(12,9)");
 
-                    b.Property<decimal>("LatitudePrecision")
-                        .HasColumnType("decimal(4,2)");
-
                     b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(12,9)");
-
-                    b.Property<decimal>("LongitudePricision")
-                        .HasColumnType("decimal(4,2)");
 
                     b.Property<string>("Number")
                         .HasColumnType("varchar(10)");
@@ -58,7 +54,7 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -98,48 +94,6 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Establishment");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentSugestionModelData", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Active");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<DateTime>("LastUpdate");
-
-                    b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(12,9)");
-
-                    b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(12,9)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<short>("Noise");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<short>("Plug");
-
-                    b.Property<DateTime>("TimeClose")
-                        .HasColumnType("Date");
-
-                    b.Property<DateTime>("TimeOpen")
-                        .HasColumnType("Date");
-
-                    b.Property<short>("Wifi");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Establishimment_Sugestions");
-                });
-
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.PhotoModelData", b =>
                 {
                     b.Property<long>("Id")
@@ -147,7 +101,7 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<long?>("EstablishmmentModelDataId");
+                    b.Property<long?>("EstablishmentModelDataId");
 
                     b.Property<string>("ExtensionFile");
 
@@ -160,7 +114,7 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EstablishmmentModelDataId");
+                    b.HasIndex("EstablishmentModelDataId");
 
                     b.ToTable("Photos");
                 });
@@ -197,7 +151,25 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
+            modelBuilder.Entity("Nomadwork.Infra.Models.UserLogin", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<string>("Email");
+
+                    b.Property<DateTime>("LastUpdate");
+
+                    b.Property<string>("Password");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLogins");
+                });
+
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData", b =>
                 {
                     b.HasOne("Nomadwork.Infra.Data.ObjectData.AddressModelData", "Address")
                         .WithMany()
@@ -207,9 +179,9 @@ namespace Nomadwork.Infra.Data.Migrations
 
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.PhotoModelData", b =>
                 {
-                    b.HasOne("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData")
+                    b.HasOne("Nomadwork.Infra.Data.ObjectData.EstablishmentModelData")
                         .WithMany("Photos")
-                        .HasForeignKey("EstablishmmentModelDataId");
+                        .HasForeignKey("EstablishmentModelDataId");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,18 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+
 
 namespace Nomadwork.Controllers
 {
     [Route("api/user")]
-    public class UserController
+    //[Authorize()]
+
+    
+    public class UserController : ControllerBase
     {
         private readonly NomadworkDbContext _context;
 
         public UserController(NomadworkDbContext context)
         {
+
             _context = context;
+
         }
         [HttpGet("{email}")]
         public bool Get(string email)
@@ -35,12 +45,20 @@ namespace Nomadwork.Controllers
 
         }
 
-        //[HttpDelete]
-        //public async Task Go()
-        //{
-        //    var repositoy = UserRepository.GetInstance(_context);
-        //    var userMok = new UserMockup().Init();
-        //    await repositoy.CreateSingle(userMok);
-        //}
+        [HttpGet("a")]
+        public string Gets()
+        {
+            return "i";
+
+
+        }
+        [HttpDelete]
+        public async Task Go()
+        {
+            var repositoy = UserRepository.GetInstance(_context);
+            var userMok = new UserMockup().Init();
+            await repositoy.CreateSingle(userMok);
+        }
+
     }
 }

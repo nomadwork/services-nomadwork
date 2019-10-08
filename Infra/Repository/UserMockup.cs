@@ -8,6 +8,7 @@ namespace Nomadwork.Infra.Repository
 {
     public class UserMockup
     {
+        
         public UserModelData Init()
             => Create("Caio", "caio@gmail.com.br", "1234", "05/29/2015");
 
