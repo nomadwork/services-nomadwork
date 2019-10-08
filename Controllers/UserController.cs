@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Nomadwork.Controllers.ViewObject;
 using Nomadwork.Infra.Data.Contexts;
+using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.Repository;
 using Nomadwork.Infra.Token;
 using Nomadwork.ViewObject;
@@ -13,8 +14,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
-
+using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Controllers
 {
@@ -57,10 +57,11 @@ namespace Nomadwork.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public object Post([FromBody] UserToSelect userSend,[FromServices]SigningConfigurations signingConfigurations,[FromServices]TokenConfiguration tokenConfigurations)
+        public object PostLogin([FromBody] UserToSelect userSend,[FromServices]SigningConfigurations signingConfigurations,[FromServices]TokenConfiguration tokenConfigurations)
         {
-            bool credenciaisValidas = false;
+
             var UserGet = UserRepository.GetInstance(_context).GetUser(userSend.Email, userSend.Password);
+            bool credenciaisValidas = false;
             if (userSend != null && !string.IsNullOrEmpty(userSend.Email) && !string.IsNullOrEmpty(userSend.Password))
             {
                 
@@ -124,6 +125,76 @@ namespace Nomadwork.Controllers
                 };
             }
         }
+
+        [AllowAnonymous]
+        [HttpPost("create")]
+        public async Task<object> PostCreateAsync([FromBody] UserCreateToUserModelData userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
+        {
+
+            
+            var repositoy = UserRepository.GetInstance(_context);
+            var userCreate =  await repositoy.CreateUser(userSend);
+
+            if (userCreate.status) {
+
+                ClaimsIdentity identity = new ClaimsIdentity(
+                        new GenericIdentity(userSend.Email, "Login"),
+                        new[] {
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
+                        new Claim(JwtRegisteredClaimNames.UniqueName, userSend.Email)
+                        }
+                    );
+
+                    DateTime dataCriacao = DateTime.Now;
+                DateTime dataExpiracao = dataCriacao +
+                        TimeSpan.FromSeconds(tokenConfigurations.Seconds);
+
+                    var handler = new JwtSecurityTokenHandler();
+                    var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                    {
+                        Issuer = tokenConfigurations.Issuer,
+                        Audience = tokenConfigurations.Audience,
+                        SigningCredentials = signingConfigurations.SigningCredentials,
+                        Subject = identity,
+                        NotBefore = dataCriacao,
+                        Expires = dataExpiracao
+                    });
+                    var token = handler.WriteToken(securityToken);
+                    var UserGet = UserRepository.GetInstance(_context).GetByEmail(userSend.Email);
+                    var userFinal = new UserModelDataToUser
+                    {
+
+                        Name = UserGet.Name,
+                        Email = UserGet.Email,
+                        Dateborn = UserGet.Dateborn,
+                        Gender = UserGet.Gender
+
+                    };
+
+                    var tokenFinal = new TokenCreateGetUser(new
+                    {
+                        authenticated = true,
+                        created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
+                        expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
+                        accessToken = token,
+
+                    }, userFinal);
+
+                    return Ok(Json.Create("Token Criado.", tokenFinal));
+
+                }
+            return new
+            {
+                authenticated = false,
+                message = "Falha ao autenticar"
+            };
+        }
+        
+                
+            
+
+        
+    
 
 
 
