@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Infra.Data.ObjectData
 {
