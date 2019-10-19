@@ -2,6 +2,7 @@
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static Nomadwork.ViewObject.Shared.Enum;
@@ -25,6 +26,32 @@ namespace Nomadwork.Infra.Repository
         public UserModelData GetUser(string email, string password)
             => _context.Users.FirstOrDefault(x => x.Email.Equals(email) && x.Password.Equals(password) && x.Active);
 
+        public async Task<UserCreateResponse> CreateMultipl(List<UserModelData> users)
+        {
+            try
+            {
+                _context.Users.AddRange(users);
+                await _context.SaveChangesAsync();
+
+                return new UserCreateResponse
+                {
+                    status = true,
+                    mensage = "Usuários salvo com sucesso!"
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new UserCreateResponse
+                {
+                    status = false,
+                    mensage = string.Format("Erro ao salvar usuario!\n Analise o erro: {0}", ex.Message)
+                };
+            }
+
+        }
+
+
         public async Task<UserCreateResponse> CreateSingle(UserModelData user)
         {
             try
@@ -34,22 +61,22 @@ namespace Nomadwork.Infra.Repository
                 return new UserCreateResponse
                 {
                     status = true,
-                    mensage = "Usuário {0} salvo com sucesso!" + user.Email
+                    mensage = string.Format("Usuário {0} salvo com sucesso!", user.Email)
                 };
-                         
+
             }
             catch (Exception ex)
             {
                 return new UserCreateResponse
                 {
                     status = false,
-                    mensage = "Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}"+
-                    user.Email +
-                    ex.Message
+                    mensage = string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", user.Email, ex.Message)
                 };
             }
 
         }
+
+
         public async Task<UserCreateResponse> CreateUser(UserCreateToUserModelData userSend)
         {
             try
@@ -91,7 +118,7 @@ namespace Nomadwork.Infra.Repository
                 return new UserCreateResponse
                 {
                     status = true,
-                    mensage = "Usuário {0} salvo com sucesso!" + userConvert.Email
+                    mensage = string.Format("Usuário {0} salvo com sucesso!", userConvert.Email)
                 };
 
             }
@@ -100,9 +127,7 @@ namespace Nomadwork.Infra.Repository
                 return new UserCreateResponse
                 {
                     status = false,
-                    mensage = "Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}" +
-                    userSend.Email +
-                    ex.Message
+                    mensage = string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", userSend.Email, ex.Message)
                 };
             }
 

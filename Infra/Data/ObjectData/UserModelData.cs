@@ -19,7 +19,7 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Column(TypeName = "Date")]
         public DateTime Dateborn { get; set; }
 
-        [Column(TypeName = "int")]
+       // [Column(TypeName = "int")]
         public Gender Gender { get; set; }
     }
 }

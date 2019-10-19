@@ -30,6 +30,8 @@
     <Compile Remove="Infra\Data\Migrations\20191005210550_TesteLocation2.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.cs" />
     <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191019154714_Login.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191019154714_Login.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

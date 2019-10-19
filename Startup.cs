@@ -67,7 +67,7 @@ namespace Nomadwork
                 // Tempo de tolerância para a expiração de um token (utilizado
                 // caso haja problemas de sincronismo de horário entre diferentes
                 // computadores envolvidos no processo de comunicação)
-                paramsValidation.ClockSkew = TimeSpan.Zero;
+                paramsValidation.ClockSkew = TimeSpan.FromMinutes(60);
             });
 
             // Ativa o uso do token como forma de autorizar o acesso
@@ -79,27 +79,11 @@ namespace Nomadwork
                     .RequireAuthenticatedUser().Build());
             });
 
-
-
-
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    // Title = "Excel to JSON",
-                    // Description = "Transforme suas planilhas em objeto json de forma simples",
-                    // TermsOfService = new Uri(@"https://github.com/jersonb/ExcelToJson"),
-                    // Contact = new OpenApiContact
-                    // {
-                    //     Name = "Jerson Brito",
-                    //     Email = "jersonlbrito@hotmail.com",
-                    //     Url = new Uri(@"https://linkedin.com/in/jersonb"),
-                    // },
-                    // License = new OpenApiLicense
-                    // {
-                    //     Name = "Liberado"
-                    // }
                 });
             });
         }

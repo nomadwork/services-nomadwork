@@ -17,23 +17,22 @@ namespace Nomadwork.Infra.Repository
             _context = context;
         }
 
-        public static EstablishmmentRepository GetInstance(NomadworkDbContext context)
+        internal static EstablishmmentRepository GetInstance(NomadworkDbContext context)
             => new EstablishmmentRepository(context);
 
 
-        public IEnumerable<EstablishmmentModelData> GetByLocation(decimal latitude, decimal longitude)
+        internal IEnumerable<EstablishmmentModelData> GetByLocation(decimal latitude, decimal longitude)
             => _context.Establishments
                        .Include(x => x.Address)
                        .Where(establismment
-                => (establismment.Address.LatitudePrecision.Equals(decimal.Round(latitude, 2))
-                    && establismment.Address.LongitudePricision.Equals(decimal.Round(longitude, 2)))
+                => (establismment.Address.LatitudePrecision.Equals(decimal.Round(latitude, 1))
+                    && establismment.Address.LongitudePricision.Equals(decimal.Round(longitude, 1)))
                      && establismment.Active)
                     .ToHashSet()
                     .Take(20)
                     .ToList();
 
-
-        public IEnumerable<EstablishmmentModelData> GetByFilter(string select)
+        internal IEnumerable<EstablishmmentModelData> GetByFilter(string select)
             => _context.Establishments
                         .Include(x => x.Address)
                         .Where(x => x.Active
@@ -45,33 +44,30 @@ namespace Nomadwork.Infra.Repository
                         .ToList();
 
 
-        public EstablishmmentModelData GetById(long id)
+        internal EstablishmmentModelData GetById(long id)
              => _context.Establishments
                                     .Include(x => x.Address)
                                     .Include(x => x.Photos)
                                     .FirstOrDefault(establisshment => establisshment.Id.Equals(id) && establisshment.Active);
 
-        public IEnumerable<EstablishmmentSugestionModelData> GetAll()
-            => _context.EstablishmentSugestions.ToList();
+        internal IEnumerable<EstablishmmentModelData> GetAll()
+            => _context.Establishments.ToList();
 
 
-        public struct ReturnRepository
+
+        internal void DeleteAll()
         {
-            public static ReturnRepository Create(bool erro, string description)
-            => new ReturnRepository(erro, description);
+            var all = GetAll();
 
-            private ReturnRepository(bool erro, string description)
+            all.ToList().ForEach(async x =>
             {
-                Erro = erro;
-                Description = description;
-            }
-
-            public bool Erro { get; private set; }
-            public string Description { get; set; }
+                await Delete(x);
+            });
 
         }
 
-        public async Task<ReturnRepository> CreateSingle(EstablishmmentModelData establishmentModelData)
+
+        internal async Task<ReturnRepository> CreateSingle(EstablishmmentModelData establishmentModelData)
         {
             try
             {
@@ -86,7 +82,7 @@ namespace Nomadwork.Infra.Repository
 
         }
 
-        public async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
+        internal async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
         {
             try
             {
@@ -101,7 +97,7 @@ namespace Nomadwork.Infra.Repository
 
         }
 
-        public async Task<ReturnRepository> Update(EstablishmmentModelData establishmentModelData)
+        internal async Task<ReturnRepository> Update(EstablishmmentModelData establishmentModelData)
         {
             try
             {
@@ -121,7 +117,7 @@ namespace Nomadwork.Infra.Repository
         }
 
 
-        public async Task<ReturnRepository> Delete(EstablishmmentModelData establishmentModelData)
+        internal async Task<ReturnRepository> Delete(EstablishmmentModelData establishmentModelData)
         {
             establishmentModelData.Active = false;
 
@@ -135,20 +131,37 @@ namespace Nomadwork.Infra.Repository
         }
 
         //mok
-        public async Task CreateMok(List<EstablishmmentModelData> establishmentModelData)
+        internal async Task<ReturnRepository> CreateMok(List<EstablishmmentModelData> establishmentModelData)
         {
             try
             {
                 _context.Establishments.AddRange(establishmentModelData);
                 await _context.SaveChangesAsync();
+                return ReturnRepository.Create(false, "Estabelecimentos salvo com sucesso!");
+
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                throw ex;
+                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento ! Analise o erro: {0} ", ex.InnerException));
             }
 
         }
 
+    }
+
+    internal struct ReturnRepository
+    {
+        public static ReturnRepository Create(bool erro, string description)
+        => new ReturnRepository(erro, description);
+
+        private ReturnRepository(bool erro, string description)
+        {
+            Erro = erro;
+            Description = description;
+        }
+
+        public bool Erro { get; private set; }
+        public string Description { get; set; }
 
     }
 }

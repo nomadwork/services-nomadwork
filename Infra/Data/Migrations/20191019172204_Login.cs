@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Nomadwork.Infra.Data.Migrations
 {
-    public partial class TesteLocation3 : Migration
+    public partial class Login : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,8 +23,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     State = table.Column<string>(type: "varchar(30)", nullable: true),
                     Latitude = table.Column<decimal>(type: "decimal(12,9)", nullable: false),
                     Longitude = table.Column<decimal>(type: "decimal(12,9)", nullable: false),
-                    LatitudePrecision = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    LongitudePricision = table.Column<decimal>(type: "decimal(4,2)", nullable: false)
+                    LatitudePrecision = table.Column<decimal>(type: "decimal(3,1)", nullable: false),
+                    LongitudePricision = table.Column<decimal>(type: "decimal(3,1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,8 +42,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     Name = table.Column<string>(type: "varchar(100)", nullable: false),
                     Email = table.Column<string>(type: "varchar(200)", nullable: true),
                     Phone = table.Column<string>(type: "varchar(20)", nullable: true),
-                    TimeOpen = table.Column<DateTime>(type: "Time", nullable: false),
-                    TimeClose = table.Column<DateTime>(type: "Time", nullable: false),
+                    TimeOpen = table.Column<DateTime>(nullable: false),
+                    TimeClose = table.Column<DateTime>(nullable: false),
                     Wifi = table.Column<short>(nullable: false),
                     Noise = table.Column<short>(nullable: false),
                     Plug = table.Column<short>(nullable: false),
@@ -66,7 +66,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     Name = table.Column<string>(type: "varchar(50)", nullable: false),
                     Email = table.Column<string>(type: "varchar(50)", nullable: false),
                     Password = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Dateborn = table.Column<string>(type: "varchar(10)", nullable: true)
+                    Dateborn = table.Column<DateTime>(type: "Date", nullable: false),
+                    Gender = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

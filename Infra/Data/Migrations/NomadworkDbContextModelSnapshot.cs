@@ -33,13 +33,13 @@ namespace Nomadwork.Infra.Data.Migrations
                         .HasColumnType("decimal(12,9)");
 
                     b.Property<decimal>("LatitudePrecision")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(3,1)");
 
                     b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(12,9)");
 
                     b.Property<decimal>("LongitudePricision")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(3,1)");
 
                     b.Property<string>("Number")
                         .HasColumnType("varchar(10)");
@@ -127,11 +127,9 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<short>("Plug");
 
-                    b.Property<DateTime>("TimeClose")
-                        .HasColumnType("Date");
+                    b.Property<DateTime>("TimeClose");
 
-                    b.Property<DateTime>("TimeOpen")
-                        .HasColumnType("Date");
+                    b.Property<DateTime>("TimeOpen");
 
                     b.Property<short>("Wifi");
 
@@ -179,8 +177,7 @@ namespace Nomadwork.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
+                    b.Property<int>("Gender");
 
                     b.Property<DateTime>("LastUpdate");
 

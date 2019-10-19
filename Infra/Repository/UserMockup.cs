@@ -1,19 +1,25 @@
 ﻿using Nomadwork.Infra.Data.ObjectData;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Infra.Repository
 {
     public class UserMockup
     {
+        private UserMockup()
+        {
+        }
 
-        public UserModelData Init()
-            => Create("Caio", "caio@gmail.com.br", "1234", new DateTime(2019, 12, 31), Gender.Male);
+        public static List<UserModelData> Init()
+            => new List<UserModelData> 
+            { 
+                Create("Caio", "caio@gmail.com.br", "1234", new DateTime(2019, 12, 31), Gender.Male),
+                Create("Nomad Work", "nomadwork@gmail.com", "12345678", new DateTime(2019, 12, 31), Gender.Male),
+                Create("Jerson Brito", "jerson@gmail.com", "12345", new DateTime(1987, 07, 09), Gender.Male),
+            };
 
-        private UserModelData Create(string name, string email, string password, DateTime dateborn, Gender gender)
+        private static UserModelData Create(string name, string email, string password, DateTime dateborn, Gender gender)
         {
             return new UserModelData
             {

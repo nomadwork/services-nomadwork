@@ -530,8 +530,8 @@ namespace Nomadwork.Infra.Repository
                     Number = "",
                     Latitude = latitude,
                     Longitude = longitude,
-                    LatitudePrecision = decimal.Round(latitude, 2),
-                    LongitudePricision = decimal.Round(longitude, 2),
+                    LatitudePrecision = decimal.Round(latitude, 1),
+                    LongitudePricision = decimal.Round(longitude, 1),
                     Coutry = "Brasil",
                     State = "PE",
                     Zipcode = cep

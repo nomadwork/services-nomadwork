@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
@@ -10,6 +11,7 @@ namespace Nomadwork.Controllers
 {
     [Route("api/establishmment")]
     [ApiController]
+    [Authorize("Bearer")]
     public class EstablishmmentController : ControllerBase
     {
         private readonly NomadworkDbContext _context;
@@ -67,6 +69,7 @@ namespace Nomadwork.Controllers
 
         }
 
+
         [HttpGet("v1/{id:long}")]
         public ActionResult<Json> Get2(long id)
         {
@@ -78,6 +81,7 @@ namespace Nomadwork.Controllers
 
             return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
         }
+
 
         [HttpGet("v1/{term}")]
         public ActionResult<Json> Get2(string term)
@@ -128,15 +132,7 @@ namespace Nomadwork.Controllers
         //}
 
 
-        [HttpDelete("{id}")]
-        public async Task Go()
-        {
-            var establishments = new EstablishmmentMockup().Init();
-
-            var repository = EstablishmmentRepository.GetInstance(_context);
-
-            await repository.CreateMok(establishments);
-        }
+       
 
     }
 }
