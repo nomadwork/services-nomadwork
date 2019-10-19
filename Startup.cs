@@ -33,7 +33,7 @@ namespace Nomadwork
             services.AddResponseCompression();
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
-                                                   Configuration.GetConnectionString("DbConnectionLocal")));
+                                                   Configuration.GetConnectionString("DbConnectionProd")));
 
             services.AddScoped<UserModelData>();
             services.AddScoped<EstablishmmentModelData>();
