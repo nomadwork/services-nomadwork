@@ -33,6 +33,7 @@ namespace Nomadwork.Controllers
         }
 
         [HttpGet("{email}")]
+        [AllowAnonymous]
         public bool Get(string email)
         {
             Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
