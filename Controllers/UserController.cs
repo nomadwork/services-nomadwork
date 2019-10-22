@@ -34,7 +34,7 @@ namespace Nomadwork.Controllers
 
         [HttpGet("{email}")]
         [AllowAnonymous]
-        public bool Get(string email)
+        public ActionResult<Json> Get(string email)
         {
             Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
 
@@ -44,12 +44,12 @@ namespace Nomadwork.Controllers
                 var user = repositoy.GetByEmail(email);
                 if (user != null)
                 {
-                    return true;
+                    return Ok(Json.Create("TRUE", 200, true));
                 }
             }
 
 
-            return false;
+            return NotFound(Json.Create("FALSE", 404, false));
 
 
         }
@@ -58,7 +58,7 @@ namespace Nomadwork.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public object PostLogin([FromBody] UserToSelect userSend,[FromServices]SigningConfigurations signingConfigurations,[FromServices]TokenConfiguration tokenConfigurations)
+        public ActionResult<Json> PostLogin([FromBody] UserToSelect userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
         {
 
             var UserGet = UserRepository.GetInstance(_context).GetUser(userSend.Email, userSend.Password);
@@ -108,33 +108,38 @@ namespace Nomadwork.Controllers
                     authenticated = true,
                     created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
                     expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    accessToken =string.Format("{0} {1}", "Bearer", token)
+                    accessToken = string.Format("{0} {1}", "Bearer", token)
 
                 }, userFinal);
 
-                return Ok(Json.Create("Token Criado.", tokenFinal));
-                
+                return Ok(Json.Create("Token Criado.", 200, tokenFinal));
+
             }
             else
             {
-                return new
-                {
-                    authenticated = false,
-                    message = "Falha ao autenticar"
-                };
+
+                return NotFound(Json.Create("Falha ao autenticar", 404, false));
+
             }
         }
 
         [AllowAnonymous]
         [HttpPost("create")]
-        public async Task<object> PostCreateAsync([FromBody] UserCreateToUserModelData userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
+        public async Task<ActionResult<Json>> PostCreateAsync([FromBody] UserCreateToUserModelData userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
         {
-
-            
+            if (userSend.Password.Length < 5
+                || !userSend.Email.Contains("@"))
+            {
+                return BadRequest(Json.Create("Falha ao criar usuário", 500, userSend));
+            }
             var repositoy = UserRepository.GetInstance(_context);
-            var userCreate =  await repositoy.CreateUser(userSend);
 
-            if (userCreate.status) {
+
+
+            var userCreate = await repositoy.CreateUser(userSend);
+
+            if (userCreate.status)
+            {
 
                 ClaimsIdentity identity = new ClaimsIdentity(
                         new GenericIdentity(userSend.Email, "Login"),
@@ -144,52 +149,53 @@ namespace Nomadwork.Controllers
                         }
                     );
 
-                    DateTime dataCriacao = DateTime.Now;
+                DateTime dataCriacao = DateTime.Now;
                 DateTime dataExpiracao = dataCriacao +
                         TimeSpan.FromSeconds(tokenConfigurations.Seconds);
 
-                    var handler = new JwtSecurityTokenHandler();
-                    var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-                    {
-                        Issuer = tokenConfigurations.Issuer,
-                        Audience = tokenConfigurations.Audience,
-                        SigningCredentials = signingConfigurations.SigningCredentials,
-                        Subject = identity,
-                        NotBefore = dataCriacao,
-                        Expires = dataExpiracao
-                    });
-                    var token = handler.WriteToken(securityToken);
-                    var UserGet = UserRepository.GetInstance(_context).GetByEmail(userSend.Email);
-                    var userFinal = new UserModelDataToUser
-                    {
+                var handler = new JwtSecurityTokenHandler();
 
-                        Name = UserGet.Name,
-                        Email = UserGet.Email,
-                        Dateborn = UserGet.Dateborn,
-                        Gender = UserGet.Gender
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    Issuer = tokenConfigurations.Issuer,
+                    Audience = tokenConfigurations.Audience,
+                    SigningCredentials = signingConfigurations.SigningCredentials,
+                    Subject = identity,
+                    NotBefore = dataCriacao,
+                    Expires = dataExpiracao
+                });
 
-                    };
+                var token = handler.WriteToken(securityToken);
 
-                    var tokenFinal = new TokenCreateGetUser(new
-                    {
-                        authenticated = true,
-                        created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
-                        expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
-                        accessToken = token,
+                var UserGet = UserRepository.GetInstance(_context).GetByEmail(userSend.Email);
+                var userFinal = new UserModelDataToUser
+                {
 
-                    }, userFinal);
+                    Name = UserGet.Name,
+                    Email = UserGet.Email,
+                    Dateborn = UserGet.Dateborn,
+                    Gender = UserGet.Gender
 
-                    return Ok(Json.Create("Token Criado.", tokenFinal));
+                };
 
-                }
-            return new
-            {
-                authenticated = false,
-                message = "Falha ao autenticar"
-            };
+                var tokenFinal = new TokenCreateGetUser(new
+                {
+                    authenticated = true,
+                    created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
+                    expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
+                    accessToken = token,
+
+                }, userFinal);
+
+                return Ok(Json.Create("Token Criado.", 200, tokenFinal));
+
+            }
+
+            return BadRequest(Json.Create("Falha ao criar usuário", 500, userSend));
+
         }
 
 
-       
+
     }
 }
