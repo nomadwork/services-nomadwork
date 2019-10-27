@@ -13,7 +13,7 @@ namespace Nomadwork.Infra.Converts
             return new DateTime(year, month, day);
         }
         public static DateTime ToBr(this DateTime date)
-            => TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+            => date;//TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
 
         public static DateTime ToSchedule(this string time)

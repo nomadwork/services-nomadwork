@@ -71,7 +71,7 @@ namespace Nomadwork
                 // Tempo de tolerância para a expiração de um token (utilizado
                 // caso haja problemas de sincronismo de horário entre diferentes
                 // computadores envolvidos no processo de comunicação)
-                paramsValidation.ClockSkew = TimeSpan.FromMinutes(60);
+                paramsValidation.ClockSkew = TimeSpan.FromMinutes(1);
             });
 
             // Ativa o uso do token como forma de autorizar o acesso
@@ -93,7 +93,7 @@ namespace Nomadwork
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
