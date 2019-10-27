@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Data.ObjectData;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -66,21 +65,6 @@ namespace Nomadwork.Infra.Repository
 
         }
 
-
-        internal async Task<ReturnRepository> CreateSingle(EstablishmmentModelData establishmentModelData)
-        {
-            try
-            {
-                _context.Establishments.Add(establishmentModelData);
-                await _context.SaveChangesAsync();
-                return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
-            }
-            catch (DbUpdateException ex)
-            {
-                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
-            }
-
-        }
 
         internal async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
         {
@@ -149,5 +133,5 @@ namespace Nomadwork.Infra.Repository
 
     }
 
- 
+
 }

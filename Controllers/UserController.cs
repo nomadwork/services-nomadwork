@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Controllers.ViewObject;
-using Nomadwork.Infra;
+using Nomadwork.Infra.Converts;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using Nomadwork.Infra.TokenGenerate;
-using Nomadwork.Validate;
 using Nomadwork.ViewObject;
 using System.Threading.Tasks;
 

@@ -1,4 +1,4 @@
-﻿using Nomadwork.Infra;
+﻿using Nomadwork.Infra.Converts;
 using System;
 
 namespace Nomadwork.ViewObject.User
@@ -14,14 +14,14 @@ namespace Nomadwork.ViewObject.User
             AccessToken = accessToken;
         }
 
-      
+
         public bool Authenticated { get; private set; }
-        public string Created { get;private set; }
-        public string Expiration { get;private set; }
-        public string AccessToken { get;private set; }
+        public string Created { get; private set; }
+        public string Expiration { get; private set; }
+        public string AccessToken { get; private set; }
 
 
-        public static Token Create( int expirationInSeconds, string accessToken)
+        public static Token Create(int expirationInSeconds, string accessToken)
           => new Token(true, expirationInSeconds, accessToken);
 
     }

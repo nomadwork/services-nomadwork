@@ -58,29 +58,12 @@ namespace Nomadwork.Controllers
             if (select != null)
             {
 
-                return Json.Ok("OBS:Por favor teste a rota v1{id}, Estabelecimento Selecionado", select.ToEstablishmmentById());
+                return Json.Ok("OBS:Por favor teste a rota api/establishmment/v1{id}, Estabelecimento Selecionado", select.ToEstablishmmentById());
             }
 
-            return Json.NotFound("OBS:Por favor teste a rota v1{id}, Não existe estabelecimento com este Id", select);
+            return Json.NotFound("OBS:Por favor teste a rota api/establishmment/v1{id}, Não existe estabelecimento com este Id", select);
 
         }
-
-
-        //[HttpGet("v1")]
-        //public Json GetAll()
-        //{
-        //    var repositoy = EstablishmmentRepository.GetInstance(_context);
-        //    var list = repositoy.GetAll();
-
-        //    if (list.Any())
-        //    {
-        //        return Json.Ok("Todas as sugestões deste usuário", list);
-        //    }
-
-        //    return Json.NotFound("Nenhuma sugestão feita", list);
-
-        //}
-
 
         [HttpGet("v1/{id:long}")]
         public Json Get2(long id)

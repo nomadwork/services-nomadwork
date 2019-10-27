@@ -1,6 +1,6 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Nomadwork.Domain.Business;
+﻿using Nomadwork.Domain.Business;
 using Nomadwork.Domain.Location;
+using Nomadwork.Infra.Converts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
 using Nomadwork.ViewObject.Shared;
@@ -10,30 +10,8 @@ using System.Linq;
 
 namespace Nomadwork.Infra
 {
-    public static class Convert
+    public static class ConvertEstablishmment
     {
-        //public static EstablishmentModelData To(Establishment establishmment)
-        //{
-        //    return new EstablishmentModelData
-        //    {
-        //        Name = establishmment.Name,
-        //        Phone = establishmment.Phone,
-        //        Email = establishmment.Email,
-        //        Address = new AddressModelData
-        //        {
-        //            Latitude = establishmment.Address.Latitude,
-        //            Longitude = establishmment.Address.Longitude,
-        //            LatitudePrecision = decimal.Round(establishmment.Address.Latitude, 2),
-        //            LongitudePricision = decimal.Round(establishmment.Address.Longitude, 2)
-        //        },
-        //        TimeOpen = establishmment.Timeopen,
-        //        TimeClose =establishmment.Timeclose,
-        //        Wifi = establishmment.Wifi,
-        //        Plug = establishmment.Plug,
-        //        Noise = establishmment.Plug
-        //    };
-        //}
-
         public static EstablishmmentSugestionModelData ToEstablishmmentSugestion(this Establishmment establishmment)
         {
             return new EstablishmmentSugestionModelData
@@ -75,19 +53,7 @@ namespace Nomadwork.Infra
             return validate;
         }
 
-        public static DateTime ToBr(this DateTime date)
-           => TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
-
-
-        private static DateTime ToSchedule(this string time)
-        {
-            var data = time.Split(':');
-            var hour = int.Parse(data[0]);
-            var minute = int.Parse(data[1]);
-
-            return new DateTime(2000, 1, 1, hour, minute, 0).ToBr();
-        }
-
+       
 
         public static EstablishmmentById ToEstablishmmentById(this EstablishmmentModelData data)
         {
@@ -175,68 +141,6 @@ namespace Nomadwork.Infra
             return establishmment;
         }
 
-        public static UserToDisplay ToUser(this UserModelData userData) {
-
-            return new UserToDisplay {
-            
-                Name = userData.Name,
-                Email = userData.Email,
-                Dateborn = userData.Dateborn,
-                Gender = userData.Gender
-            };
-
-        }
-
-        public static UserToDisplay ToDisplay(this UserModelData user)
-            => new UserToDisplay
-            {
-                Name = user.Name,
-                Email = user.Email,
-                Dateborn = user.Dateborn,
-                Gender = user.Gender
-            };
-
-        public static UserModelData ToUser(this UserToCreate userToCreate)
-            => new UserModelData
-            {
-                Name = userToCreate.Name,
-                Email = userToCreate.Email,
-                Password = userToCreate.Password,
-                Dateborn = userToCreate.Dateborn.ToDate(),
-                Gender = userToCreate.Gender.ToGender()
-            };
-
-
-
-    public static DateTime ToDate(this string date) 
-        {
-            var split = date.Split('/');
-            var day = int.Parse(split[0]);
-            var month = int.Parse(split[1]);
-            var year = int.Parse(split[2]);
-            return new DateTime(year, month, day);
-        }
-
-        public static Gender ToGender(this int id) 
-        {
-            Gender gender;
-            switch (id)
-            {
-                case 0:
-                    gender = Gender.Male;
-                    break;
-
-                case 1:
-                    gender = Gender.Female;
-                    break;
-
-                default:
-                    gender = Gender.Others;
-                    break;
-            }
-
-            return gender;
-        }
 
     }
 }

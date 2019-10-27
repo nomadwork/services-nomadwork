@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Nomadwork.Infra.Converts;
 using Nomadwork.ViewObject.User;
 using System;
 using System.IdentityModel.Tokens.Jwt;

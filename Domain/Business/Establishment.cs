@@ -133,7 +133,7 @@ namespace Nomadwork.Domain.Business
         private bool CheckEntryOkName(string name)
         {
             var ok = true;
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 AddErro("Nome pode ser vazio");
                 ok = false;
