@@ -28,8 +28,8 @@ namespace Nomadwork.Infra.TokenGenerate
                 Audience = tokenConfigurations.Audience,
                 SigningCredentials = signingConfigurations.SigningCredentials,
                 Subject = identity,
-                NotBefore = DateTime.Now.ToBr(),
-                Expires = (DateTime.Now.ToBr() + TimeSpan.FromSeconds(tokenConfigurations.Seconds)).ToBr()
+                NotBefore = DateTime.Now.ToUtc(),
+                Expires = (DateTime.Now.ToUtc() + TimeSpan.FromSeconds(tokenConfigurations.Seconds)).ToUtc()
             });
             var token = handler.WriteToken(securityToken);
             return Token.Create(tokenConfigurations.Seconds,token);

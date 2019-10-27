@@ -12,7 +12,7 @@ namespace Nomadwork.Infra.Converts
             var year = int.Parse(split[2]);
             return new DateTime(year, month, day);
         }
-        public static DateTime ToBr(this DateTime date)
+        public static DateTime ToUtc(this DateTime date)
             => date;//TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
 
@@ -22,7 +22,7 @@ namespace Nomadwork.Infra.Converts
             var hour = int.Parse(data[0]);
             var minute = int.Parse(data[1]);
 
-            return new DateTime(2000, 1, 1, hour, minute, 0).ToBr();
+            return new DateTime(2000, 1, 1, hour, minute, 0).ToUtc();
         }
 
     }

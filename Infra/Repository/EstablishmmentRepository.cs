@@ -87,6 +87,7 @@ namespace Nomadwork.Infra.Repository
             {
                 _context.Entry(establishmentModelData).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
+                return ReturnRepository.Create(false, string.Format("Estabelecimento {0} alterado com sucesso!", establishmentModelData.Name));
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -94,9 +95,10 @@ namespace Nomadwork.Infra.Repository
                 {
                     return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", establishmentModelData.Name, ex.Message));
                 }
+                return ReturnRepository.Create(true, string.Format("ERRO: Este Estabelecimento não existe: {0}", ex.Message));
+
             }
 
-            return ReturnRepository.Create(false, string.Format("Estabelecimento {0} alterado com sucesso!", establishmentModelData.Name));
 
         }
 

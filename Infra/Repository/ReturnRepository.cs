@@ -1,4 +1,6 @@
-﻿namespace Nomadwork.Infra.Repository
+﻿using System;
+
+namespace Nomadwork.Infra.Repository
 {
     internal struct ReturnRepository
     {
@@ -15,5 +17,6 @@
         public bool Erro { get; private set; }
         public string Description { get; set; }
 
+      
     }
 }

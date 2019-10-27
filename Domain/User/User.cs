@@ -137,10 +137,10 @@ namespace Nomadwork.Domain.User
                 ok = false;
             }
 
-            if (CheckEntryOkPassword(password))
-            {
-                ok = false;
-            }
+            //if (CheckEntryOkPassword(password))
+            //{
+            //    ok = false;
+            //}
 
           
 

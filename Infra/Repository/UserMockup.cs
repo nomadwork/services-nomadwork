@@ -14,6 +14,9 @@ namespace Nomadwork.Infra.Repository
                 Create("Caio", "caio@gmail.com.br", "1234", new DateTime(2019, 12, 31), Gender.Male),
                 Create("Nomad Work", "nomadwork@gmail.com", "12345678", new DateTime(2019, 12, 31), Gender.Male),
                 Create("Jerson Brito", "jerson@gmail.com", "12345", new DateTime(1987, 07, 09), Gender.Male),
+                Create("Flacio Macedo", "flavio@gmail.com", "123456", new DateTime(1985, 06, 06), Gender.Male),
+                Create("Pedro Chiappeta", "pedro@gmail.com", "123456", new DateTime(1992, 06, 06), Gender.Male),
+                Create("Everton Nascimento", "everton@gmail.com", "123456", new DateTime(1992, 06, 06), Gender.Male),
             };
 
         private static UserModelData Create(string name, string email, string password, DateTime dateborn, Gender gender)

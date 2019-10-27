@@ -1,24 +1,40 @@
-﻿using Nomadwork.Infra.Data.ObjectData;
+﻿using Nomadwork.Domain.User;
+using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
 using Nomadwork.ViewObject.Shared;
-using System;
+using Nomadwork.ViewObject.User;
 
 namespace Nomadwork.Infra.Converts
 {
     public static class ConvertUser
     {
+        public static User ToValidate(this UserToCreate user)
+            => User.Create(user.Name, user.Email, user.Password, user.Dateborn.ToDate(), user.Gender.ToGender());
+
 
         public static UserToDisplay ToDisplay(this UserModelData user)
             => new UserToDisplay
             {
+                Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
                 Dateborn = user.Dateborn,
                 Gender = user.Gender
             };
 
+        public static UserModelData ToUserData(this UserToUpdate user)
+            => new UserModelData
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Gender = user.Gender.ToGender()
+            };
 
-        public static UserModelData ToUser(this UserToCreate userToCreate)
+        public static User ToValidate(this UserToUpdate user)
+            => User.Create(user.Name,user.Email,null,user.Dateborn.ToDate(),user.Gender.ToGender());
+
+        public static UserModelData ToUserData(this UserToCreate userToCreate)
             => new UserModelData
             {
                 Name = userToCreate.Name,
@@ -29,7 +45,7 @@ namespace Nomadwork.Infra.Converts
             };
 
 
-       
+
         public static Gender ToGender(this int id)
         {
             Gender gender;

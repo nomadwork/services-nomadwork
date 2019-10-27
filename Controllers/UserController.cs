@@ -6,6 +6,7 @@ using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using Nomadwork.Infra.TokenGenerate;
 using Nomadwork.ViewObject;
+using Nomadwork.ViewObject.User;
 using System.Threading.Tasks;
 
 namespace Nomadwork.Controllers
@@ -91,9 +92,22 @@ namespace Nomadwork.Controllers
         [AllowAnonymous, HttpPost("create")]
         public async Task<Json> PostCreateAsync([FromBody] UserToCreate userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
         {
+
             var repositoy = UserRepository.GetInstance(_context);
 
-            var userCreate = await repositoy.Create(userSend.ToUser());
+            if (repositoy.EmailValidation(userSend.Email))
+            {
+                return Json.BadRequest("Este email está sendo utilizado por outro usuário", userSend);
+            }
+
+            var userValidate = userSend.ToValidate();
+
+            if (userValidate.Erro)
+            {
+                return Json.BadRequest("Erro ao validar usuário, verifique os erros",userValidate.Erros);
+            }
+
+            var userCreate = await repositoy.Create(userSend.ToUserData());
 
             if (userCreate.Erro)
             {
@@ -112,6 +126,88 @@ namespace Nomadwork.Controllers
             var userResponse = LoginToResponse.Create(login.User, login.Token);
 
             return Json.Ok("Ususário criado com sucesso!", userResponse);
+
+        }
+
+        [HttpPut("{id:long}")]
+        public async Task<Json> Update(long id,[FromBody] UserToUpdate user) 
+        {
+            if (id <= 0
+                || user == null
+                || !id.Equals(user.Id))
+            {
+                return Json.BadRequest("Este usuáro não é válido!",user);
+            }
+
+            var repository = UserRepository.GetInstance(_context);
+
+            var userToUpdate = repository.GetById(id);
+
+            if (!repository.EmailValidation(user.Email)
+                || userToUpdate == null)
+            {
+
+                return Json.NotFound("Este usuáro não é válido!", user);
+
+            }
+
+            var userValidate = user.ToValidate();
+
+            if (userValidate.Erro)
+            {
+                return Json.BadRequest("Erro ao validar usuário, verifique os erros", userValidate.Erros);
+
+            }
+
+            var resultUpdate = await repository.Update(user.ToUserData());
+
+            if (resultUpdate.Erro)
+            {
+                return Json.BadRequest("Falha ao criar usuário!", resultUpdate.Description);
+            }
+
+            userToUpdate =  repository.GetById(id);
+            return Json.Ok("Usuário alterrado com sucesso!", userToUpdate);
+
+        }
+
+        [HttpDelete("{id:long}")]
+        public async Task<Json> Delete(long id, [FromBody] UserToLogin user) 
+        {
+            if (id <= 0
+              || user == null)
+            {
+                return Json.BadRequest("Este usuáro não é válido!", user);
+            }
+
+            var repository = UserRepository.GetInstance(_context);
+
+            var userToDelete = repository.GetById(id);
+           
+
+            if (!repository.EmailValidation(user.Email)
+                || userToDelete == null)
+            {
+
+                return Json.NotFound("Este usuáro não é válido!", user);
+
+            }
+
+            var result = await repository.Delete(user.Email,user.Password);
+
+            if (result.Erro)
+            {
+                return Json.BadRequest("Falha ao deletar usuário!", result.Description);
+            }
+
+            userToDelete =  repository.GetById(id);
+
+            if (userToDelete.Result.Active)
+            {
+                return Json.BadRequest("Falha ao deletar usuário!", userToDelete);
+            }
+
+            return Json.Ok("Usuário Apagado com sucesso!",null);
 
         }
     }
