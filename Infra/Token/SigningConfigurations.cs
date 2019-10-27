@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 
-namespace Nomadwork.Infra.Token
+namespace Nomadwork.Infra.TokenGenerate
 {
     public class SigningConfigurations
     {

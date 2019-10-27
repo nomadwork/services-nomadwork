@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using static Nomadwork.ViewObject.Shared.Enum;
+﻿using Nomadwork.ViewObject.Shared;
+using System;
 
 namespace Nomadwork.ViewObject
 {
-    public class UserModelDataToUser
+    public class UserToDisplay
     {
         public string Name { get; set; }
 

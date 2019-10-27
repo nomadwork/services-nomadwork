@@ -1,7 +1,9 @@
-﻿using Nomadwork.Domain.Business;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Nomadwork.Domain.Business;
 using Nomadwork.Domain.Location;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
+using Nomadwork.ViewObject.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,7 @@ namespace Nomadwork.Infra
         //    };
         //}
 
-        public static EstablishmmentSugestionModelData To(Establishmment establishmment)
+        public static EstablishmmentSugestionModelData ToEstablishmmentSugestion(this Establishmment establishmment)
         {
             return new EstablishmmentSugestionModelData
             {
@@ -50,7 +52,7 @@ namespace Nomadwork.Infra
         }
 
 
-        public static IEnumerable<EstablishmmentNameLocationId> To(IEnumerable<EstablishmmentModelData> list)
+        public static IEnumerable<EstablishmmentNameLocationId> ToEstablishmmentNameLocationIdList(this IEnumerable<EstablishmmentModelData> list)
         {
             var listEstablishment = new List<EstablishmmentNameLocationId>();
             list.ToList().ForEach(x =>
@@ -62,9 +64,9 @@ namespace Nomadwork.Infra
             return listEstablishment;
         }
 
-        public static Establishmment To(EstablishmmentCreate establishmment)
+        public static Establishmment ToEstablishmment(this EstablishmmentCreate establishmment)
         {
-            var validate = Establishmment.Create(establishmment.Name.Trim(), establishmment.Email.Trim(), establishmment.Phone.Trim(), ConvertSchedule(establishmment.Schedule.Open), ConvertSchedule(establishmment.Schedule.Close), establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
+            var validate = Establishmment.Create(establishmment.Name.Trim(), establishmment.Email.Trim(), establishmment.Phone.Trim(), establishmment.Schedule.Open.ToSchedule(), establishmment.Schedule.Close.ToSchedule(), establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
 
             var addres = Address.Create("Sem endereço", "Sem número", "SemCEP", "Sem Local", "SU", establishmment.Latitude, establishmment.Longitude);
 
@@ -73,17 +75,21 @@ namespace Nomadwork.Infra
             return validate;
         }
 
-        private static DateTime ConvertSchedule(string time)
+        public static DateTime ToBr(this DateTime date)
+           => TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+
+
+        private static DateTime ToSchedule(this string time)
         {
             var data = time.Split(':');
             var hour = int.Parse(data[0]);
             var minute = int.Parse(data[1]);
 
-            return new DateTime(2000, 1, 1, hour, minute, 0);
+            return new DateTime(2000, 1, 1, hour, minute, 0).ToBr();
         }
 
 
-        public static EstablishmmentById To(EstablishmmentModelData data)
+        public static EstablishmmentById ToEstablishmmentById(this EstablishmmentModelData data)
         {
             var establishmment = EstablishmmentById.Create(
                                 data.Id.ToString(),
@@ -169,17 +175,67 @@ namespace Nomadwork.Infra
             return establishmment;
         }
 
-        public static UserModelDataToUser To(UserModelData userData) {
+        public static UserToDisplay ToUser(this UserModelData userData) {
 
-            return new UserModelDataToUser {
+            return new UserToDisplay {
             
                 Name = userData.Name,
                 Email = userData.Email,
                 Dateborn = userData.Dateborn,
                 Gender = userData.Gender
-                
             };
 
+        }
+
+        public static UserToDisplay ToDisplay(this UserModelData user)
+            => new UserToDisplay
+            {
+                Name = user.Name,
+                Email = user.Email,
+                Dateborn = user.Dateborn,
+                Gender = user.Gender
+            };
+
+        public static UserModelData ToUser(this UserToCreate userToCreate)
+            => new UserModelData
+            {
+                Name = userToCreate.Name,
+                Email = userToCreate.Email,
+                Password = userToCreate.Password,
+                Dateborn = userToCreate.Dateborn.ToDate(),
+                Gender = userToCreate.Gender.ToGender()
+            };
+
+
+
+    public static DateTime ToDate(this string date) 
+        {
+            var split = date.Split('/');
+            var day = int.Parse(split[0]);
+            var month = int.Parse(split[1]);
+            var year = int.Parse(split[2]);
+            return new DateTime(year, month, day);
+        }
+
+        public static Gender ToGender(this int id) 
+        {
+            Gender gender;
+            switch (id)
+            {
+                case 0:
+                    gender = Gender.Male;
+                    break;
+
+                case 1:
+                    gender = Gender.Female;
+                    break;
+
+                default:
+                    gender = Gender.Others;
+                    break;
+            }
+
+            return gender;
         }
 
     }

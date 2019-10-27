@@ -4,6 +4,8 @@ namespace Nomadwork.Domain.Shared
 {
     public abstract class ADommain
     {
+        private readonly List<string> _erros = new List<string>();
+
         /// <summary>
         /// **Este Objeto possui erro de validação caso esta propriedade seja:** ***true***
         /// </summary>
@@ -15,7 +17,7 @@ namespace Nomadwork.Domain.Shared
         /// </summary>
         /// <typeparam name="string"></typeparam>
         /// <returns></returns>S
-        public List<string> Erros { get; private set; } = new List<string>();
+        public string Erros { get => string.Join("\nerro: ", _erros); }
 
         /// <summary>
         /// **Adiciona um erro de validação a este objeto.**
@@ -25,7 +27,7 @@ namespace Nomadwork.Domain.Shared
         public void AddErro(string error)
         {
             Erro = true;
-            Erros.Add(error);
+            _erros.Add(error);
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace Nomadwork.Domain.Shared
         public void AddErro(List<string> errors)
         {
             Erro = true;
-            Erros.AddRange(errors);
+            _erros.AddRange(errors);
         }
 
         /// <summary>

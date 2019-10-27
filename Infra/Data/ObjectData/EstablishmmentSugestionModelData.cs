@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Nomadwork.Infra.Data.ObjectData
 {
     [Table("Establishimment_Sugestions")]
-    public class EstablishmmentSugestionModelData  :AEntity
+    public class EstablishmmentSugestionModelData : AEntity
     {
         [Required, Column(TypeName = "varchar(100)")]
         public string Name { get; set; }

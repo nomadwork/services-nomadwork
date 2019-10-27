@@ -20,119 +20,124 @@ namespace Nomadwork.Controllers
         {
             _context = context;
         }
-      
+
 
         [HttpGet("{latitude},{longitude}")]
-        public ActionResult<Json> Get(decimal latitude, decimal longitude)
+        public Json Get(decimal latitude, decimal longitude)
         {
             var geolocation = Geolocation.Create(latitude, longitude);
 
             if (geolocation.Latitude == 0 && geolocation.Longitude == 0)
             {
-                return NotFound(Json.Create("Geolocalização inválida!", null));
+                return Json.NotFound("Geolocalização inválida!", null);
             }
 
             var repositoy = EstablishmmentRepository.GetInstance(_context);
             var list = repositoy.GetByLocation(geolocation.Latitude, geolocation.Longitude);
 
-            var listEstablishment = Convert.To(list);
 
-            if (list.Count().Equals(0))
+            if (list.Any())
             {
-                return NotFound(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), null));
+                return Json.Ok(string.Format("{0} Estabelecimentos encontrados", list.Count()), list.ToEstablishmmentNameLocationIdList());
             }
 
-            return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), listEstablishment));
+            return Json.NotFound("Nenhum Estabelecimento encontrado próximo a você! Que tal fazer uma sugestão de estabelecimento?!", list);
+
         }
-            
-      
+
+
 
         [HttpGet("{id}")]
-        public ActionResult<Json> Get(string id)
+        public Json Get(string id)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
 
             var select = repositoy.GetById(long.Parse(id));
 
-            var establishmment = Convert.To(select);
 
-            return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
-        }
+            if (select != null)
+            {
 
+                return Json.Ok("OBS:Por favor teste a rota v1{id}, Estabelecimento Selecionado", select.ToEstablishmmentById());
+            }
 
-        [HttpGet("v1")]
-        public ActionResult<Json> GetAll()
-        {
-            var repositoy = EstablishmmentRepository.GetInstance(_context);
-            var list = repositoy.GetAll();
-            return Ok(Json.Create("Todas as sugestões", list));
+            return Json.NotFound("OBS:Por favor teste a rota v1{id}, Não existe estabelecimento com este Id", select);
 
         }
+
+
+        //[HttpGet("v1")]
+        //public Json GetAll()
+        //{
+        //    var repositoy = EstablishmmentRepository.GetInstance(_context);
+        //    var list = repositoy.GetAll();
+
+        //    if (list.Any())
+        //    {
+        //        return Json.Ok("Todas as sugestões deste usuário", list);
+        //    }
+
+        //    return Json.NotFound("Nenhuma sugestão feita", list);
+
+        //}
 
 
         [HttpGet("v1/{id:long}")]
-        public ActionResult<Json> Get2(long id)
+        public Json Get2(long id)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
 
             var select = repositoy.GetById(id);
 
-            var establishmment = Convert.To(select);
+            if (select != null)
+            {
+               
+                return Json.Ok("Estabelecimento Selecionado", select.ToEstablishmmentById());
+            }
 
-            return Ok(Json.Create("Estabelecimento Selecionado", establishmment));
+            return Json.NotFound("Não existe estabelecimento com este Id", select);
+
         }
 
 
         [HttpGet("v1/{term}")]
-        public ActionResult<Json> Get2(string term)
+        public Json Get2(string term)
         {
             var repositoy = EstablishmmentRepository.GetInstance(_context);
             var list = repositoy.GetByFilter(term);
 
-            var listEstablishment = Convert.To(list);
-
-            if (list.Count().Equals(0))
-            {
-                return NotFound(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), null));
+            if (list.Any())
+            {              
+                return Json.Ok(string.Format("{0} Estabelecimentos encontrados", list.Count()), list.ToEstablishmmentNameLocationIdList());
             }
 
-            return Ok(Json.Create(string.Format("{0} Estabelecimentos encontrados", listEstablishment.Count()), listEstablishment));
+            return Json.NotFound("Nenhum Estabelecimento encontrados!", list);
+
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<Json>> Post([FromBody]EstablishmmentCreate establishmment)
+        public async Task<Json> Post([FromBody]EstablishmmentCreate establishmment)
         {
-            var establishmmentValidate = Convert.To(establishmment);
+            var establishmmentValidate = establishmment.ToEstablishmment();
 
             if (establishmmentValidate.Erro)
             {
-                return BadRequest(Json.Create(string.Join("\n", establishmmentValidate.Erros.ToArray()), establishmment));
+                return Json.BadRequest(establishmmentValidate.Erros, establishmment);
             }
 
             var repository = EstablishmmentRepository.GetInstance(_context);
 
-            var establishmmentSugestion = Convert.To(establishmmentValidate);
-
-            var statusSave = await repository.CreateSingle(establishmmentSugestion);
+            var statusSave = await repository.CreateSingle(establishmmentValidate.ToEstablishmmentSugestion());
 
             if (statusSave.Erro)
             {
-                return BadRequest(Json.Create(statusSave.Description, establishmment));
+                return Json.BadRequest(statusSave.Description, establishmment);
             }
 
-            return Ok(Json.Create(statusSave.Description, establishmment));
+            return Json.Ok(statusSave.Description, establishmment);
         }
 
-        //put e delete
-        //[HttpPut("{id}")]
-        //public ActionResult<Json> Put(string id, [FromBody] EstablishmmentCreate establishmment)
-        //{
-        //    return Json.Create("Não existem estabelecimentos", establishmment);
-        //}
-
-
-       
 
     }
 }

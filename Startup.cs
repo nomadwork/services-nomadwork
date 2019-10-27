@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Data.ObjectData;
-using Nomadwork.Infra.Token;
+using Nomadwork.Infra.TokenGenerate;
+using System;
 
 namespace Nomadwork
 {
@@ -27,9 +24,13 @@ namespace Nomadwork
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services )
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => 
+            {
+                options.Filters.Add(new CustomAuthorizeFilter(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build()));
+            
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddResponseCompression();
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
@@ -42,9 +43,11 @@ namespace Nomadwork
             services.AddSingleton(signingConfigurations);
 
             var tokenConfigurations = new TokenConfiguration();
+
             new ConfigureFromConfigurationOptions<TokenConfiguration>(
                 Configuration.GetSection("TokenConfigurations"))
                     .Configure(tokenConfigurations);
+
             services.AddSingleton(tokenConfigurations);
 
             services.AddAuthentication(authOptions =>
@@ -58,6 +61,7 @@ namespace Nomadwork
                 paramsValidation.ValidAudience = tokenConfigurations.Audience;
                 paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
 
+             
                 // Valida a assinatura de um token recebido
                 paramsValidation.ValidateIssuerSigningKey = true;
 
@@ -74,7 +78,7 @@ namespace Nomadwork
             // a recursos deste projeto
             services.AddAuthorization(auth =>
             {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder() 
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
                     .RequireAuthenticatedUser().Build());
             });

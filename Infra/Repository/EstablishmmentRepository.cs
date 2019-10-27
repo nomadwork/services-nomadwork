@@ -75,7 +75,7 @@ namespace Nomadwork.Infra.Repository
                 await _context.SaveChangesAsync();
                 return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
                 return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
             }
@@ -90,7 +90,7 @@ namespace Nomadwork.Infra.Repository
                 await _context.SaveChangesAsync();
                 return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
                 return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
             }
@@ -140,7 +140,7 @@ namespace Nomadwork.Infra.Repository
                 return ReturnRepository.Create(false, "Estabelecimentos salvo com sucesso!");
 
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
                 return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento ! Analise o erro: {0} ", ex.InnerException));
             }
@@ -149,19 +149,5 @@ namespace Nomadwork.Infra.Repository
 
     }
 
-    internal struct ReturnRepository
-    {
-        public static ReturnRepository Create(bool erro, string description)
-        => new ReturnRepository(erro, description);
-
-        private ReturnRepository(bool erro, string description)
-        {
-            Erro = erro;
-            Description = description;
-        }
-
-        public bool Erro { get; private set; }
-        public string Description { get; set; }
-
-    }
+ 
 }

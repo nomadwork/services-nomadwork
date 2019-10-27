@@ -1,11 +1,10 @@
-﻿using Nomadwork.Infra.Data.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Infra.Repository
 {
@@ -18,120 +17,78 @@ namespace Nomadwork.Infra.Repository
             _context = context;
         }
 
-        public static UserRepository GetInstance(NomadworkDbContext context)
+        internal static UserRepository GetInstance(NomadworkDbContext context)
             => new UserRepository(context);
 
-        public UserModelData GetByEmail(string email)
-             => _context.Users.FirstOrDefault(user => user.Email.Equals(email) && user.Active);
-        public UserModelData GetUser(string email, string password)
-            => _context.Users.FirstOrDefault(x => x.Email.Equals(email) && x.Password.Equals(password) && x.Active);
 
-        public async Task<UserCreateResponse> CreateMultipl(List<UserModelData> users)
+        internal UserModelData GetByEmail(string email)
+             => _context.Users.FirstOrDefault(user => user.Email.Equals(email) && user.Active);
+
+
+        internal bool EmailValidation(string email)
+             => _context.Users.Any(user => user.Email.Equals(email) && user.Active);
+
+
+        internal async Task<UserModelData> GetUserLogin(string email, string password)
+            => await _context.Users.FirstOrDefaultAsync(x => x.Email.Equals(email) && x.Password.Equals(password) && x.Active);
+
+
+        internal async Task<ReturnRepository> CreateMultiple(List<UserModelData> users)
         {
             try
             {
                 _context.Users.AddRange(users);
                 await _context.SaveChangesAsync();
 
-                return new UserCreateResponse
-                {
-                    status = true,
-                    mensage = "Usuários salvo com sucesso!"
-                };
+                return ReturnRepository.Create(false, "Usuários salvo com sucesso!");
 
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
-                return new UserCreateResponse
-                {
-                    status = false,
-                    mensage = string.Format("Erro ao salvar usuario!\n Analise o erro: {0}", ex.Message)
-                };
+                return ReturnRepository.Create(true, string.Format("Erro ao salvar usuario! Analise o erro: {0}", ex.Message));
             }
 
         }
 
 
-        public async Task<UserCreateResponse> CreateSingle(UserModelData user)
+        internal async Task<ReturnRepository> Create(UserModelData user)
         {
             try
             {
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
-                return new UserCreateResponse
-                {
-                    status = true,
-                    mensage = string.Format("Usuário {0} salvo com sucesso!", user.Email)
-                };
+
+                return ReturnRepository.Create(false, string.Format("Usuário {0} salvo com sucesso!", user.Email));
 
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
-                return new UserCreateResponse
-                {
-                    status = false,
-                    mensage = string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", user.Email, ex.Message)
-                };
+                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", user.Email, ex.Message));
+
             }
 
         }
 
 
-        public async Task<UserCreateResponse> CreateUser(UserCreateToUserModelData userSend)
-        {
-            try
-            {
-                var date = userSend.Dateborn;
-                var split = date.Split('/');
-                var day = int.Parse(split[0]);
-                var month = int.Parse(split[1]);
-                var year = int.Parse(split[2]);
-                var myDate = new DateTime(year, month, day);
+        //internal async Task<ReturnRepository> CreateUser(UserToCreate userToCreate)
+        //{
 
-                var gender = Gender.Others;
-                switch (userSend.Gender)
-                {
-                    case 0:
-                        gender = Gender.Male;
-                        break;
-                    case 1:
-                        gender = Gender.Female;
-                        break;
-                    case 2:
-                        gender = Gender.Others;
-                        break;
-                }
+        //    try
+        //    {
+        //        _context.Users.Add(userToCreate.ToUser());
+        //        await _context.SaveChangesAsync();
+
+        //        return ReturnRepository.Create(false, string.Format("Usuário {0} salvo com sucesso!", userToCreate.Email));
 
 
+        //    }
+        //    catch (DbUpdateException ex)
+        //    {
+        //        return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", userToCreate.Email, ex.Message));
 
-                var userConvert = new UserModelData
-                {
-                    Name = userSend.Name,
-                    Email = userSend.Email,
-                    Password = userSend.Password,
-                    Dateborn = myDate,
-                    Gender = gender
+        //    }
 
-                };
-                _context.Users.Add(userConvert);
-                await _context.SaveChangesAsync();
-                return new UserCreateResponse
-                {
-                    status = true,
-                    mensage = string.Format("Usuário {0} salvo com sucesso!", userConvert.Email)
-                };
-
-            }
-            catch (Exception ex)
-            {
-                return new UserCreateResponse
-                {
-                    status = false,
-                    mensage = string.Format("Erro ao salvar o estabelecimento {0}!\n Analise o erro: {1}", userSend.Email, ex.Message)
-                };
-            }
-
-        }
+        //}
 
     }
 }

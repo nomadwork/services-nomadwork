@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Nomadwork.ViewObject
+﻿namespace Nomadwork.ViewObject
 {
-    public class UserCreateToUserModelData
+    public class UserToCreate
     {
         public string Name { get; set; }
 

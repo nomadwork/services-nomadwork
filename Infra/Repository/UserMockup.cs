@@ -1,15 +1,12 @@
 ﻿using Nomadwork.Infra.Data.ObjectData;
+using Nomadwork.ViewObject.Shared;
 using System;
 using System.Collections.Generic;
-using static Nomadwork.ViewObject.Shared.Enum;
 
 namespace Nomadwork.Infra.Repository
 {
-    public class UserMockup
+    public static class UserMockup
     {
-        private UserMockup()
-        {
-        }
 
         public static List<UserModelData> Init()
             => new List<UserModelData> 

@@ -46,7 +46,7 @@ namespace Nomadwork.Controllers
             {
                 var repositoy = UserRepository.GetInstance(_context);
                 var userMok =  UserMockup.Init();
-                await repositoy.CreateMultipl(userMok);
+                await repositoy.CreateMultiple(userMok);
 
                 return Ok("Usuarios Criados resetados!!");
 

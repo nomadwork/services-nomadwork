@@ -11,7 +11,6 @@
         public Characteristic Wifi { get; set; }
         public Characteristic Noise { get; set; }
         public Characteristic Plug { get; set; }
-
     }
 
 }

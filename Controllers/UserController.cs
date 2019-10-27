@@ -1,201 +1,120 @@
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Nomadwork.Controllers.ViewObject;
+using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
-using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.Repository;
-using Nomadwork.Infra.Token;
+using Nomadwork.Infra.TokenGenerate;
+using Nomadwork.Validate;
 using Nomadwork.ViewObject;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Nomadwork.Controllers
 {
-    [Route("api/user")]
-    [Authorize("Bearer")]
-    [ApiController]
-
+    [ApiController, Route("api/user"), Authorize("Bearer")]
     public class UserController : ControllerBase
     {
         private readonly NomadworkDbContext _context;
 
         public UserController(NomadworkDbContext context)
+
         {
-
             _context = context;
-
         }
 
-        [HttpGet("{email}")]
-        [AllowAnonymous]
-        public ActionResult<Json> Get(string email)
+        [AllowAnonymous, HttpGet("{email}")]
+        public Json Get(string email)
         {
-            Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
-
-            if (rg.IsMatch(email))
+            if (email.IsEmail())
             {
                 var repositoy = UserRepository.GetInstance(_context);
-                var user = repositoy.GetByEmail(email);
-                if (user != null)
+
+                if (repositoy.EmailValidation(email))
                 {
-                    return Ok(Json.Create("TRUE", 200, true));
+                    return Json.Ok("Email validado!", true);
                 }
+
+                return Json.NotFound("Email não está cadastrado!", false);
             }
 
-
-            return NotFound(Json.Create("FALSE", 404, false));
-
-
+            return Json.BadRequest("Email inválido!", email);
         }
 
 
-
-        [AllowAnonymous]
-        [HttpPost("login")]
-        public ActionResult<Json> PostLogin([FromBody] UserToSelect userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
+        private async Task<LoginToResponse> Login(UserToLogin userLogin, SigningConfigurations signingConfigurations, TokenConfiguration tokenConfigurations)
         {
-
-            var UserGet = UserRepository.GetInstance(_context).GetUser(userSend.Email, userSend.Password);
-            bool credenciaisValidas = false;
-            if (userSend != null && !string.IsNullOrEmpty(userSend.Email) && !string.IsNullOrEmpty(userSend.Password))
+            if (userLogin.Email.IsEmail() && !string.IsNullOrEmpty(userLogin.Password))
             {
-                credenciaisValidas = (UserGet != null && UserGet.Id != 0);
+                var repository = UserRepository.GetInstance(_context);
+
+                var user = await repository.GetUserLogin(userLogin.Email, userLogin.Password);
+
+                if (user != null)
+                {
+                    var token = GenerateToken.TokenGenerate(user.Email, signingConfigurations, tokenConfigurations);
+
+                    return LoginToResponse.Create(user.ToDisplay(), token);
+                }
+
             }
+            return null;
+        }
 
-            if (credenciaisValidas)
+
+        [AllowAnonymous, HttpPost("login")]
+        public async Task<Json> PostLogin([FromBody] UserToLogin userLogin, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
+        {
+            var user = await Login(userLogin, signingConfigurations, tokenConfigurations);
+
+            if (user != null)
             {
-                ClaimsIdentity identity = new ClaimsIdentity(
-                    new GenericIdentity(userSend.Email, "Login"),
-                    new[] {
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, userSend.Email)
-                    }
-                );
 
-                DateTime dataCriacao = DateTime.Now;
-                DateTime dataExpiracao = dataCriacao +
-                    TimeSpan.FromSeconds(tokenConfigurations.Seconds);
+                var userResponse = LoginToResponse.Create(user.User, user.Token);
 
-                var handler = new JwtSecurityTokenHandler();
-                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-                {
-                    Issuer = tokenConfigurations.Issuer,
-                    Audience = tokenConfigurations.Audience,
-                    SigningCredentials = signingConfigurations.SigningCredentials,
-                    Subject = identity,
-                    NotBefore = dataCriacao,
-                    Expires = dataExpiracao
-                });
-                var token = handler.WriteToken(securityToken);
-                var userFinal = new UserModelDataToUser
-                {
-
-                    Name = UserGet.Name,
-                    Email = UserGet.Email,
-                    Dateborn = UserGet.Dateborn,
-                    Gender = UserGet.Gender
-
-                };
-
-                var tokenFinal = new TokenCreateGetUser(new
-                {
-                    authenticated = true,
-                    created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    accessToken = string.Format("{0} {1}", "Bearer", token)
-
-                }, userFinal);
-
-                return Ok(Json.Create("Token Criado.", 200, tokenFinal));
+                return Json.Ok("Usuário Validado e autenticado!.", userResponse);
 
             }
             else
             {
 
-                return NotFound(Json.Create("Falha ao autenticar", 404, false));
+                if (Get(userLogin.Email).StatusCode.Value.Equals(200))
+                {
+                    return Json.NotFound("Senha inválida", false);
+                }
+               
+                    return Json.NotFound("Usuário não cadastrado!", false);
+               
 
             }
         }
 
-        [AllowAnonymous]
-        [HttpPost("create")]
-        public async Task<ActionResult<Json>> PostCreateAsync([FromBody] UserCreateToUserModelData userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
+
+        [AllowAnonymous, HttpPost("create")]
+        public async Task<Json> PostCreateAsync([FromBody] UserToCreate userSend, [FromServices]SigningConfigurations signingConfigurations, [FromServices]TokenConfiguration tokenConfigurations)
         {
-            if (userSend.Password.Length < 5
-                || !userSend.Email.Contains("@"))
-            {
-                return BadRequest(Json.Create("Falha ao criar usuário", 500, userSend));
-            }
             var repositoy = UserRepository.GetInstance(_context);
 
+            var userCreate = await repositoy.Create(userSend.ToUser());
 
-
-            var userCreate = await repositoy.CreateUser(userSend);
-
-            if (userCreate.status)
+            if (userCreate.Erro)
             {
-
-                ClaimsIdentity identity = new ClaimsIdentity(
-                        new GenericIdentity(userSend.Email, "Login"),
-                        new[] {
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, userSend.Email)
-                        }
-                    );
-
-                DateTime dataCriacao = DateTime.Now;
-                DateTime dataExpiracao = dataCriacao +
-                        TimeSpan.FromSeconds(tokenConfigurations.Seconds);
-
-                var handler = new JwtSecurityTokenHandler();
-
-                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-                {
-                    Issuer = tokenConfigurations.Issuer,
-                    Audience = tokenConfigurations.Audience,
-                    SigningCredentials = signingConfigurations.SigningCredentials,
-                    Subject = identity,
-                    NotBefore = dataCriacao,
-                    Expires = dataExpiracao
-                });
-
-                var token = handler.WriteToken(securityToken);
-
-                var UserGet = UserRepository.GetInstance(_context).GetByEmail(userSend.Email);
-                var userFinal = new UserModelDataToUser
-                {
-
-                    Name = UserGet.Name,
-                    Email = UserGet.Email,
-                    Dateborn = UserGet.Dateborn,
-                    Gender = UserGet.Gender
-
-                };
-
-                var tokenFinal = new TokenCreateGetUser(new
-                {
-                    authenticated = true,
-                    created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    accessToken = token,
-
-                }, userFinal);
-
-                return Ok(Json.Create("Token Criado.", 200, tokenFinal));
-
+                return Json.BadRequest("Falha ao criar usuário!", userCreate.Description);
             }
 
-            return BadRequest(Json.Create("Falha ao criar usuário", 500, userSend));
+            var userLogin = UserToLogin.Create(userSend.Email, userSend.Password);
+
+            var login = await Login(userLogin, signingConfigurations, tokenConfigurations);
+
+            if (login == null)
+            {
+                return Json.BadRequest("Falha ao criar usuário", userSend);
+            }
+
+            var userResponse = LoginToResponse.Create(login.User, login.Token);
+
+            return Json.Ok("Ususário criado com sucesso!", userResponse);
 
         }
-
-
-
     }
+
 }
