@@ -41,20 +41,20 @@ namespace Nomadwork.Domain.User
         {
             var ok = true;
 
-            if ((dateborn.Year - DateTime.Now.Year) < 18)
+            if ((DateTime.Now.Year - dateborn.Year) < 18)
             {
                 AddErro("Apenas para maiores de idade!");
                 ok = false;
             }
 
-            if ((dateborn.Year - DateTime.Now.Year).Equals(18)
+            if ((DateTime.Now.Year - dateborn.Year).Equals(18)
                 && (dateborn.Month < DateTime.Now.Month))
             {
                 AddErro("Apenas para maiores de idade!");
                 ok = false;
             }
 
-            if ((dateborn.Year - DateTime.Now.Year).Equals(18)
+            if ((DateTime.Now.Year - dateborn.Year).Equals(18)
                 && (dateborn.Month >= DateTime.Now.Month)
                 && dateborn.Day < DateTime.Now.Day)
             {
@@ -125,13 +125,13 @@ namespace Nomadwork.Domain.User
             var password = args[2];
             var ok = true;
 
-            if (CheckEntryOkName(name))
+            if (!CheckEntryOkName(name))
             {
                 AddErro("Informe um nome válido!");
                 ok = false;
             }
 
-            if (CheckEntryOkEmail(email))
+            if (!CheckEntryOkEmail(email))
             {
                 AddErro("Informe um email válido!");
                 ok = false;

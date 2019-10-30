@@ -47,6 +47,8 @@ namespace Nomadwork.Controllers
             {
                 var repository = UserRepository.GetInstance(_context);
 
+
+
                 var user = await repository.GetUserLogin(userLogin.Email, userLogin.Password);
 
                 if (user != null)

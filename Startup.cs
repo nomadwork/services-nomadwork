@@ -31,7 +31,9 @@ namespace Nomadwork
                 options.Filters.Add(new CustomAuthorizeFilter(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build()));
             
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.AddResponseCompression();
+            
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
                                                    Configuration.GetConnectionString("DbConnectionProd")));
@@ -54,6 +56,7 @@ namespace Nomadwork
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
             }).AddJwtBearer(bearerOptions =>
             {
                 var paramsValidation = bearerOptions.TokenValidationParameters;
@@ -109,7 +112,9 @@ namespace Nomadwork
             app.UseMvc();
 
             app.UseResponseCompression();
+
             app.UseSwagger();
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "");

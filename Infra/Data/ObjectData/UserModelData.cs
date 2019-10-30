@@ -16,6 +16,8 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required, Column(TypeName = "varchar(100)")]
         public string Password { get; set; }
 
+       // public bool Admin { get; set; }
+
         [Column(TypeName = "Date")]
         public DateTime Dateborn { get; set; }
 

@@ -12,6 +12,7 @@ namespace Nomadwork.Infra.Converts
             var year = int.Parse(split[2]);
             return new DateTime(year, month, day);
         }
+
         public static DateTime ToUtc(this DateTime date)
             => date;//TimeZoneInfo.ConvertTime(date, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 

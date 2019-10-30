@@ -17,7 +17,7 @@ namespace Nomadwork.Domain.Shared
         /// </summary>
         /// <typeparam name="string"></typeparam>
         /// <returns></returns>S
-        public string Erros { get => string.Join("\nerro: ", _erros); }
+        public string Erros { get =>  string.Join("\nerro: ", _erros); }
 
         /// <summary>
         /// **Adiciona um erro de validação a este objeto.**

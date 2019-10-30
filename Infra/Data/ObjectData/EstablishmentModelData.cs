@@ -26,19 +26,26 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Column(TypeName = "char(5)")]
         public string TimeClose { get; set; }
 
+
         [Required]
         public short Wifi { get;  set; }
+
 
         [Required]
         public short Noise { get;  set; }
 
+
         [Required]
         public short Plug { get;  set; }
 
+        
         public List<PhotoModelData> Photos { get; set; }
 
 
         [Required]
         public AddressModelData Address { get; set; }
+
+
+     //   public UserModelData User { get; set; }
     }
 }
