@@ -31,7 +31,7 @@ namespace Nomadwork.Infra.TokenGenerate
                 NotBefore = DateTime.Now.ToUtc(),
                 Expires = (DateTime.Now.ToUtc() + TimeSpan.FromSeconds(tokenConfigurations.Seconds)).ToUtc()
             });
-            var token = handler.WriteToken(securityToken);
+            var token = string.Format("{0} {1}", "Bearer", handler.WriteToken(securityToken));
             return Token.Create(tokenConfigurations.Seconds,token);
         }
     }
