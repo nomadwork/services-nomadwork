@@ -9,8 +9,8 @@ namespace Nomadwork.ViewObject.User
         public Token(bool authenticated, int expirationInSeconds, string accessToken)
         {
             Authenticated = authenticated;
-            Created = DateTime.Now.ToUtc().ToString("yyyy-MM-dd HH:mm:ss");
-            Expiration = (DateTime.Now.ToUtc() + TimeSpan.FromSeconds(expirationInSeconds)).ToString("yyyy-MM-dd HH:mm:ss");
+            Created = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Expiration = (DateTime.Now + TimeSpan.FromSeconds(expirationInSeconds)).ToString("yyyy-MM-dd HH:mm:ss");
             AccessToken = accessToken;
         }
 

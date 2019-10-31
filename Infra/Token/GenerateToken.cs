@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using Nomadwork.Infra.Converts;
 using Nomadwork.ViewObject.User;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,10 +27,12 @@ namespace Nomadwork.Infra.TokenGenerate
                 Audience = tokenConfigurations.Audience,
                 SigningCredentials = signingConfigurations.SigningCredentials,
                 Subject = identity,
-                NotBefore = DateTime.Now.ToUtc(),
-                Expires = (DateTime.Now.ToUtc() + TimeSpan.FromSeconds(tokenConfigurations.Seconds)).ToUtc()
+                NotBefore = DateTime.Now,
+                Expires = DateTime.Now + TimeSpan.FromSeconds(tokenConfigurations.Seconds)
             });
+
             var token = string.Format("{0} {1}", "Bearer", handler.WriteToken(securityToken));
+
             return Token.Create(tokenConfigurations.Seconds,token);
         }
     }

@@ -24,16 +24,21 @@ namespace Nomadwork
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services )
+        public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => 
+            services.AddMvc(
+                options =>
             {
-                options.Filters.Add(new CustomAuthorizeFilter(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build()));
-            
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                options.Filters.Add(new CustomAuthorizeFilter(new AuthorizationPolicyBuilder()
+                           .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                           .RequireAuthenticatedUser()
+                           .Build()));
+
+            }
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddResponseCompression();
-            
+
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
                                                    Configuration.GetConnectionString("DbConnectionProd")));
@@ -42,49 +47,45 @@ namespace Nomadwork
             services.AddScoped<EstablishmmentModelData>();
 
             var signingConfigurations = new SigningConfigurations();
+
             services.AddSingleton(signingConfigurations);
 
-            var tokenConfigurations = new TokenConfiguration();
+            var tokenConfiguration = new TokenConfiguration();
 
             new ConfigureFromConfigurationOptions<TokenConfiguration>(
                 Configuration.GetSection("TokenConfigurations"))
-                    .Configure(tokenConfigurations);
+                    .Configure(tokenConfiguration);
 
-            services.AddSingleton(tokenConfigurations);
+            services.AddSingleton(tokenConfiguration);
 
             services.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-
+               
             }).AddJwtBearer(bearerOptions =>
             {
                 var paramsValidation = bearerOptions.TokenValidationParameters;
                 paramsValidation.IssuerSigningKey = signingConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfigurations.Audience;
-                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
-
-             
-                // Valida a assinatura de um token recebido
+                paramsValidation.ValidAudience = tokenConfiguration.Audience;
+                paramsValidation.ValidIssuer = tokenConfiguration.Issuer;
                 paramsValidation.ValidateIssuerSigningKey = true;
-
-                // Verifica se um token recebido ainda é válido
                 paramsValidation.ValidateLifetime = true;
-
-                // Tempo de tolerância para a expiração de um token (utilizado
-                // caso haja problemas de sincronismo de horário entre diferentes
-                // computadores envolvidos no processo de comunicação)
                 paramsValidation.ClockSkew = TimeSpan.FromMinutes(1);
             });
 
-            // Ativa o uso do token como forma de autorizar o acesso
-            // a recursos deste projeto
             services.AddAuthorization(auth =>
-            {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder() 
-                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
-                    .RequireAuthenticatedUser().Build());
-            });
+                   {
+                       auth.AddPolicy("Bearer",
+                           new AuthorizationPolicyBuilder()
+                           .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                           .RequireAuthenticatedUser()
+                           .Build()
+                           );
+                      
+                   });
+
+                    
 
             services.AddSwaggerGen(x =>
             {
@@ -109,13 +110,16 @@ namespace Nomadwork
             }
 
             app.UseHttpsRedirection();
+
+           
             app.UseMvc();
 
             app.UseResponseCompression();
 
-            app.UseSwagger();
+            app.UseAuthentication();
 
-            app.UseSwaggerUI(c =>
+            app.UseSwagger()
+                .UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "");
                 c.RoutePrefix = string.Empty;
