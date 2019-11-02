@@ -28,7 +28,7 @@ namespace Nomadwork
         {
 
 #if !DEBUG
-            var teste = new AuthorizationPolicyBuilder()
+            var policy = new AuthorizationPolicyBuilder()
                              .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
                              .RequireAuthenticatedUser()
                              .Build(); 
@@ -38,7 +38,7 @@ namespace Nomadwork
 #if !DEBUG
               options =>
             {
-                options.Filters.Add(new CustomAuthorizeFilter(teste));
+                options.Filters.Add(new CustomAuthorizeFilter(policy));
 
             } 
 #endif
@@ -46,9 +46,15 @@ namespace Nomadwork
 
             services.AddResponseCompression();
 
+#if DEBUG
+            services.AddDbContext<NomadworkDbContext>(options =>
+                                                      options.UseMySql(
+                                                      Configuration.GetConnectionString("DbConnectionLocal")));
+#else
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
                                                    Configuration.GetConnectionString("DbConnectionProd")));
+#endif
 #if !DEBUG
 
             services.AddScoped<UserModelData>();
@@ -84,7 +90,7 @@ namespace Nomadwork
 
             services.AddAuthorization(auth =>
                    {
-                       auth.AddPolicy("Bearer", teste);
+                       auth.AddPolicy("Bearer", policy);
 
                    }); 
 #endif

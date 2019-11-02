@@ -58,6 +58,24 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Address");
                 });
 
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.BusinessModelData", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<DateTime>("LastUpdate");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("User_Establishmment");
+                });
+
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
                 {
                     b.Property<long>("Id")
@@ -66,6 +84,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<bool>("Active");
 
                     b.Property<long>("AddressId");
+
+                    b.Property<long?>("BusinessModelDataId");
 
                     b.Property<string>("Email")
                         .HasColumnType("varchar(200)");
@@ -94,6 +114,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId");
+
+                    b.HasIndex("BusinessModelDataId");
 
                     b.ToTable("Establishment");
                 });
@@ -194,12 +216,24 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.BusinessModelData", b =>
+                {
+                    b.HasOne("Nomadwork.Infra.Data.ObjectData.UserModelData", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.EstablishmmentModelData", b =>
                 {
                     b.HasOne("Nomadwork.Infra.Data.ObjectData.AddressModelData", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Nomadwork.Infra.Data.ObjectData.BusinessModelData")
+                        .WithMany("Establishmments")
+                        .HasForeignKey("BusinessModelDataId");
                 });
 
             modelBuilder.Entity("Nomadwork.Infra.Data.ObjectData.PhotoModelData", b =>
