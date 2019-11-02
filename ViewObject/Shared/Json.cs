@@ -15,7 +15,9 @@ namespace Nomadwork.ViewObject
             var json = CustomResult.Create(message, (int)code, result);
             return new Json(json)
             {
-                StatusCode = (int)code,
+                StatusCode = (int)code ,
+                
+
             };
         }
 

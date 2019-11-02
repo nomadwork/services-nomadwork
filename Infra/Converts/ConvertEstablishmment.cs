@@ -3,8 +3,6 @@ using Nomadwork.Domain.Location;
 using Nomadwork.Infra.Converts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
-using Nomadwork.ViewObject.Shared;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -53,7 +51,7 @@ namespace Nomadwork.Infra
             return validate;
         }
 
-       
+
 
         public static EstablishmmentById ToEstablishmmentById(this EstablishmmentModelData data)
         {
@@ -65,6 +63,8 @@ namespace Nomadwork.Infra
                                 data.Phone,
                                 data.TimeOpen,
                                 data.TimeClose);
+
+
 
             var desWifi = "";
 

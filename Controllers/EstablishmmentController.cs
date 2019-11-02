@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Infra;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
@@ -10,8 +9,6 @@ using System.Threading.Tasks;
 namespace Nomadwork.Controllers
 {
     [Route("api/establishmment")]
-    [ApiController]
-    [Authorize("Bearer")]
     public class EstablishmmentController : ControllerBase
     {
         private readonly NomadworkDbContext _context;
@@ -74,7 +71,7 @@ namespace Nomadwork.Controllers
 
             if (select != null)
             {
-               
+
                 return Json.Ok("Estabelecimento Selecionado", select.ToEstablishmmentById());
             }
 
@@ -90,7 +87,7 @@ namespace Nomadwork.Controllers
             var list = repositoy.GetByFilter(term);
 
             if (list.Any())
-            {              
+            {
                 return Json.Ok(string.Format("{0} Estabelecimentos encontrados", list.Count()), list.ToEstablishmmentNameLocationIdList());
             }
 

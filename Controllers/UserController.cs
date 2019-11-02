@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Nomadwork.Controllers
 {
-    [ApiController, Route("api/user"), Authorize("Bearer")]
+    [ApiController, Route("api/user")]
     public class UserController : ControllerBase
     {
         private readonly NomadworkDbContext _context;

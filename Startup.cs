@@ -26,15 +26,22 @@ namespace Nomadwork
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(
-                options =>
-            {
-                options.Filters.Add(new CustomAuthorizeFilter(new AuthorizationPolicyBuilder()
-                           .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
-                           .RequireAuthenticatedUser()
-                           .Build()));
 
-            }
+#if !DEBUG
+            var teste = new AuthorizationPolicyBuilder()
+                             .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                             .RequireAuthenticatedUser()
+                             .Build(); 
+#endif
+
+            services.AddMvc(
+#if !DEBUG
+              options =>
+            {
+                options.Filters.Add(new CustomAuthorizeFilter(teste));
+
+            } 
+#endif
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddResponseCompression();
@@ -42,6 +49,7 @@ namespace Nomadwork
             services.AddDbContext<NomadworkDbContext>(options =>
                                                    options.UseMySql(
                                                    Configuration.GetConnectionString("DbConnectionProd")));
+#if !DEBUG
 
             services.AddScoped<UserModelData>();
             services.AddScoped<EstablishmmentModelData>();
@@ -59,33 +67,27 @@ namespace Nomadwork
             services.AddSingleton(tokenConfiguration);
 
             services.AddAuthentication(authOptions =>
-            {
-                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-               
-            }).AddJwtBearer(bearerOptions =>
-            {
-                var paramsValidation = bearerOptions.TokenValidationParameters;
-                paramsValidation.IssuerSigningKey = signingConfigurations.Key;
-                paramsValidation.ValidAudience = tokenConfiguration.Audience;
-                paramsValidation.ValidIssuer = tokenConfiguration.Issuer;
-                paramsValidation.ValidateIssuerSigningKey = true;
-                paramsValidation.ValidateLifetime = true;
-                paramsValidation.ClockSkew = TimeSpan.FromMinutes(1);
-            });
+              {
+                  authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                  authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+              }).AddJwtBearer(bearerOptions =>
+              {
+                  var paramsValidation = bearerOptions.TokenValidationParameters;
+                  paramsValidation.IssuerSigningKey = signingConfigurations.Key;
+                  paramsValidation.ValidAudience = tokenConfiguration.Audience;
+                  paramsValidation.ValidIssuer = tokenConfiguration.Issuer;
+                  paramsValidation.ValidateIssuerSigningKey = true;
+                  paramsValidation.ValidateLifetime = true;
+                  paramsValidation.ClockSkew = TimeSpan.FromMinutes(1);
+              });
 
             services.AddAuthorization(auth =>
                    {
-                       auth.AddPolicy("Bearer",
-                           new AuthorizationPolicyBuilder()
-                           .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
-                           .RequireAuthenticatedUser()
-                           .Build()
-                           );
-                      
-                   });
+                       auth.AddPolicy("Bearer", teste);
 
-                    
+                   }); 
+#endif
 
             services.AddSwaggerGen(x =>
             {
@@ -116,7 +118,9 @@ namespace Nomadwork
 
             app.UseResponseCompression();
 
-            app.UseAuthentication();
+#if !DEBUG
+            app.UseAuthentication(); 
+#endif
 
             app.UseSwagger()
                 .UseSwaggerUI(c =>
