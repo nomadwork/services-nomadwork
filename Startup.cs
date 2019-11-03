@@ -8,9 +8,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.TokenGenerate;
+
+using Nomadwork.Repository;
+using Nomadwork.ViewObject.Shared;
 using System;
 
 namespace Nomadwork
@@ -90,6 +94,17 @@ namespace Nomadwork
                     Version = "v1",
                 });
             });
+            services.Configure<MongoSettings>(
+                options =>
+                {
+                    options.ConnectionString = Configuration.GetSection("MongoDb:ConnectionString").Value;
+                    options.Database = Configuration.GetSection("MongoDb:Database").Value;
+                });
+            services.AddSingleton<IMongoClient, MongoClient>(
+               _ => new MongoClient(Configuration.GetSection("MongoDb:ConnectionString").Value));
+
+            services.AddTransient<NomadworkMongoDbContext>();
+            services.AddTransient<LogRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
