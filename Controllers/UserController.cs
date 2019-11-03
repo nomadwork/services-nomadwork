@@ -179,9 +179,25 @@ namespace Nomadwork.Controllers
 
         }
 
+        //[AllowAnonymous,HttpDelete("jerson")]
+        //public async Task Jerson() 
+        //{
+        //    var repo = UserRepository.GetInstance(_context);
+
+        //    var user = await repo.GetById(13);
+        //     user.Admin = true;
+
+        //   _ =await repo.Update(user);
+            
+        
+        //}
+
+
         [HttpPut("turnadmin/{id:long}")]
         public async Task<Json> TurnUserAdmin(long id, [FromBody] UserToUpdate user) 
         {
+             
+
             user.Admin = true;
 
             return await Update(id,user);

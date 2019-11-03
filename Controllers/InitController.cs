@@ -48,17 +48,17 @@ namespace Nomadwork.Controllers
 
             if (code.Equals("090787"))
             {
-                for (long i = 1; i < 13; i++)
+                for (long i = 1; i < 5; i++)
                 {
                    
                     var repository = EstablishmmentRepository.GetInstance(_context);
 
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
-                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), i);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
+                    await repository.TurnUserAdminToEstablishmmnet(rand.Next(1, 490), 13);
                 }
 
                 return Ok("Estabelecimentos resetados!!");
