@@ -9,8 +9,8 @@ using Nomadwork.Infra.Data.Contexts;
 namespace Nomadwork.Infra.Data.Migrations
 {
     [DbContext(typeof(NomadworkDbContext))]
-    [Migration("20191019172204_Login")]
-    partial class Login
+    [Migration("20191102205710_Remodelagem")]
+    partial class Remodelagem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,6 +91,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<string>("TimeOpen")
                         .HasColumnType("char(5)");
 
+                    b.Property<long>("UserAdminId");
+
                     b.Property<short>("Wifi");
 
                     b.HasKey("Id");
@@ -133,6 +135,8 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<DateTime>("TimeOpen");
 
+                    b.Property<long>("UserSugestedId");
+
                     b.Property<short>("Wifi");
 
                     b.HasKey("Id");
@@ -171,6 +175,8 @@ namespace Nomadwork.Infra.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
+
+                    b.Property<bool>("Admin");
 
                     b.Property<DateTime>("Dateborn")
                         .HasColumnType("Date");

@@ -1,5 +1,6 @@
 ﻿using Nomadwork.ViewObject.Shared;
 using System;
+using System.Collections.Generic;
 
 namespace Nomadwork.ViewObject
 {
@@ -14,5 +15,9 @@ namespace Nomadwork.ViewObject
         public DateTime Dateborn { get; set; }
 
         public Gender Gender { get; set; }
+
+        public bool Admin { get; set; }
+
+        public List<EstablishmmentToListDisplay> Establishmments { get; set; } = new List<EstablishmmentToListDisplay>();
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nomadwork.Infra.Data.ObjectData
 {
+    [Table("Users")]
     public class UserModelData : AEntity
     {
         [Required, Column(TypeName = "varchar(50)")]
@@ -16,11 +17,13 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required, Column(TypeName = "varchar(100)")]
         public string Password { get; set; }
 
-       // public bool Admin { get; set; }
 
         [Column(TypeName = "Date")]
         public DateTime Dateborn { get; set; }
 
         public Gender Gender { get; set; }
+
+        public bool Admin { get; set; }
+      
     }
 }

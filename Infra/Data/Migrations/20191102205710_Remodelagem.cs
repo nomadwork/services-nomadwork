@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Nomadwork.Infra.Data.Migrations
 {
-    public partial class Login : Migration
+    public partial class Remodelagem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,7 +48,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     Noise = table.Column<short>(nullable: false),
                     Plug = table.Column<short>(nullable: false),
                     Latitude = table.Column<decimal>(type: "decimal(12,9)", nullable: false),
-                    Longitude = table.Column<decimal>(type: "decimal(12,9)", nullable: false)
+                    Longitude = table.Column<decimal>(type: "decimal(12,9)", nullable: false),
+                    UserSugestedId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,7 +68,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     Email = table.Column<string>(type: "varchar(50)", nullable: false),
                     Password = table.Column<string>(type: "varchar(100)", nullable: false),
                     Dateborn = table.Column<DateTime>(type: "Date", nullable: false),
-                    Gender = table.Column<int>(nullable: false)
+                    Gender = table.Column<int>(nullable: false),
+                    Admin = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,7 +92,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     Wifi = table.Column<short>(nullable: false),
                     Noise = table.Column<short>(nullable: false),
                     Plug = table.Column<short>(nullable: false),
-                    AddressId = table.Column<long>(nullable: false)
+                    AddressId = table.Column<long>(nullable: false),
+                    UserAdminId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -1,8 +1,8 @@
-﻿namespace Nomadwork.ViewObject.Establishmment
+﻿namespace Nomadwork.ViewObject
 {
     public class EstablishmmentToListDisplay
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
     }
 }

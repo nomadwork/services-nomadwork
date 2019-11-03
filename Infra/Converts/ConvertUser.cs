@@ -4,7 +4,7 @@ using Nomadwork.ViewObject;
 using Nomadwork.ViewObject.Shared;
 using Nomadwork.ViewObject.User;
 
-namespace Nomadwork.Infra.Converts
+namespace Nomadwork
 {
     public static class ConvertUser
     {
@@ -19,7 +19,8 @@ namespace Nomadwork.Infra.Converts
                 Name = user.Name,
                 Email = user.Email,
                 Dateborn = user.Dateborn,
-                Gender = user.Gender
+                Gender = user.Gender,
+                Admin = user.Admin
             };
 
         public static UserModelData ToUserData(this UserToUpdate user)
@@ -41,7 +42,8 @@ namespace Nomadwork.Infra.Converts
                 Email = userToCreate.Email,
                 Password = userToCreate.Password,
                 Dateborn = userToCreate.Dateborn.ToDate(),
-                Gender = userToCreate.Gender.ToGender()
+                Gender = userToCreate.Gender.ToGender(),
+                Admin = userToCreate.Admin
             };
 
 

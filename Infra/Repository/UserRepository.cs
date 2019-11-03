@@ -29,7 +29,18 @@ namespace Nomadwork.Infra.Repository
 
 
         internal async Task<UserModelData> GetById(long id)
-        => await _context.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            => await _context.Users.FirstOrDefaultAsync(x => x.Id.Equals(id));
+
+      
+
+        internal async Task<ReturnRepository> TurnUserAdminById(long id)
+        {
+            var user = await GetById(id);
+
+            user.Admin = true;
+
+            return await Update(user);
+        }
 
 
         internal async Task<ReturnRepository> CreateMultiple(List<UserModelData> users)
@@ -67,6 +78,8 @@ namespace Nomadwork.Infra.Repository
             }
 
         }
+
+
 
         internal async Task<ReturnRepository> Update(UserModelData user)
         {

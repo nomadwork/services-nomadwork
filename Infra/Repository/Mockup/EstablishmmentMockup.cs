@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Nomadwork.Infra.Repository
 {
-    public class EstablishmmentMockup
+    public static class EstablishmmentMockup
     {
-        public List<EstablishmmentModelData> Init()
+        public static List<EstablishmmentModelData> Init()
         => new List<EstablishmmentModelData>
         {
              Create("Lala Café & Kitchen Affective","R. Amélia, 470 - Graças, Recife","52011-050",-8.044724M,-34.89951M),
@@ -502,7 +502,7 @@ namespace Nomadwork.Infra.Repository
         };
 
 
-        private EstablishmmentModelData Create(string name, string adress, string cep, decimal latitude, decimal longitude)
+        private static EstablishmmentModelData Create(string name, string adress, string cep, decimal latitude, decimal longitude)
         {
             var listPhoto = new List<PhotoModelData>
             {

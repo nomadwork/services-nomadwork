@@ -1,6 +1,6 @@
 ﻿namespace Nomadwork.ViewObject
 {
-    public class EstablishmmentCreate
+    public class EstablishmmentToCreate
     {
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -11,6 +11,7 @@
         public Characteristic Wifi { get; set; }
         public Characteristic Noise { get; set; }
         public Characteristic Plug { get; set; }
+        public long IdUser { get; set; }
     }
 
 }

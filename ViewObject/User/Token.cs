@@ -1,5 +1,4 @@
-﻿using Nomadwork.Infra.Converts;
-using System;
+﻿using System;
 
 namespace Nomadwork.ViewObject.User
 {
