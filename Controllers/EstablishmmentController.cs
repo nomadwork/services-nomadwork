@@ -4,6 +4,7 @@ using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using Nomadwork.ViewObject;
 using Nomadwork.ViewObject.Business;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -84,15 +85,17 @@ namespace Nomadwork.Controllers
             var t = new Teste
             {
                 Id = id,
-                Sex = new Sex
-                {
-                    Female = 42,
-                    Male = 13,
-                    Others = 20
+                Sex = new List<Sexs>
+{                   new Sexs{ Name = "Female", Value = 60},
+                    new Sexs{ Name = "Male", Value = 50},
+                    new Sexs{ Name = "Others", Value = 40}
+
                 },
-                Age = new Age
+                Age = new List<Ages>
                 {
-                    Ages = new string[,] { { "1995", "30" },{ "1970","14"} }
+                    new Ages{Name = 1999, Value = 30},
+                    new Ages{Name = 1988, Value = 20},
+                    new Ages{Name = 2000, Value = 10}
 
                 }
 
@@ -102,21 +105,22 @@ namespace Nomadwork.Controllers
             return Json.Ok("teste", t);
         }
 
-         class Teste
+        class Teste
         {
             public long Id { get; set; }
-            public Sex Sex { get; set; }
-            public Age Age { get; set; }
+            public List<Sexs> Sex { get; set; }
+            public List<Ages> Age { get; set; }
         }
-         class Sex
+        class Sexs
         {
-            public int Male { get; set; }
-            public int Female { get; set; }
-            public int Others { get; set; }
+            public string Name { get; set; }
+            public int Value { get; set; }
+
         }
-         class Age
+        class Ages
         {
-            public string[,] Ages { get; set; }
+            public int Name { get; set; }
+            public int Value { get; set; }
         }
 
 
@@ -147,7 +151,7 @@ namespace Nomadwork.Controllers
         [HttpPut]
         public async Task<Json> Put([FromBody] BusinessToAdmin business)
         {
-            if (business.EstablishmmentId <= 0 || business.UserId <=0 )
+            if (business.EstablishmmentId <= 0 || business.UserId <= 0)
             {
                 return Json.BadRequest("Selecione um estabelecioemnto e um usuário válidos", business);
             }
@@ -171,14 +175,14 @@ namespace Nomadwork.Controllers
 
             if (!user.Admin)
             {
-                _= await repositoryUser.TurnUserAdminById(user.Id);
+                _ = await repositoryUser.TurnUserAdminById(user.Id);
             }
 
-            var status = await repositoryEstablishmment.TurnUserAdminToEstablishmmnet(establishmmnet.Id,user.Id);
+            var status = await repositoryEstablishmment.TurnUserAdminToEstablishmmnet(establishmmnet.Id, user.Id);
 
             if (status.Erro)
             {
-                return Json.BadRequest(status.Description,business);
+                return Json.BadRequest(status.Description, business);
             }
 
             return Json.Ok(status.Description, business);
