@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Repository;
 using System;
@@ -18,7 +19,7 @@ namespace Nomadwork.Controllers
             _context = context;
         }
 
-        [HttpDelete("estab/{code}")]
+        [AllowAnonymous, HttpDelete("estab/{code}")]
         public async Task<ActionResult> ResetDatabase(string code)
         {
             if (code.Equals("090787"))
@@ -40,7 +41,7 @@ namespace Nomadwork.Controllers
 
         }
 
-        [HttpDelete("business/{code}")]
+        [AllowAnonymous, HttpDelete("business/{code}")]
         public async Task<ActionResult> SetUserAdmin(string code)
         {
             var rand = new Random();
@@ -66,7 +67,7 @@ namespace Nomadwork.Controllers
             return BadRequest("Código errado");
         }
 
-        [HttpDelete("user/{code}")]
+        [AllowAnonymous, HttpDelete("user/{code}")]
         public async Task<ActionResult> ResetUser(string code)
         {
             if (code.Equals("090787"))
