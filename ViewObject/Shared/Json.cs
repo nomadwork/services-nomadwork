@@ -15,7 +15,9 @@ namespace Nomadwork.ViewObject
             var json = CustomResult.Create(message, (int)code, result);
             return new Json(json)
             {
-                StatusCode = (int)code,
+                StatusCode = (int)code ,
+                
+
             };
         }
 
@@ -37,6 +39,9 @@ namespace Nomadwork.ViewObject
 
         internal static Json BadRequest(string message, object value)
             => Create(message, HttpStatusCode.NotFound, value);
+         
+        internal static Json Conflit(string message, object value)
+            => Create(message, HttpStatusCode.Conflict, value);
 
 
         struct CustomResult

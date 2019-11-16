@@ -43,11 +43,19 @@ namespace Nomadwork.Infra.Repository
                         .ToList();
 
 
+        internal IEnumerable<EstablishmmentModelData> GetByAdmin(long idAdmin)
+            => _context.Establishments
+                        .Where(x => x.Active 
+                                 && x.UserAdminId.Equals(idAdmin))
+                        .ToList();
+
+
         internal EstablishmmentModelData GetById(long id)
              => _context.Establishments
                                     .Include(x => x.Address)
                                     .Include(x => x.Photos)
                                     .FirstOrDefault(establisshment => establisshment.Id.Equals(id) && establisshment.Active);
+
 
         internal IEnumerable<EstablishmmentModelData> GetAll()
             => _context.Establishments.ToList();
@@ -66,19 +74,14 @@ namespace Nomadwork.Infra.Repository
         }
 
 
-        internal async Task<ReturnRepository> CreateSingle(EstablishmmentSugestionModelData establishmentModelData)
+        internal async Task<ReturnRepository> TurnUserAdminToEstablishmmnet(long idEstablishment, long idUser)
         {
-            try
-            {
-                _context.EstablishmentSugestions.Add(establishmentModelData);
-                await _context.SaveChangesAsync();
-                return ReturnRepository.Create(false, string.Format("Estabelecimento {0} salvo com sucesso!", establishmentModelData.Name));
-            }
-            catch (DbUpdateException ex)
-            {
-                return ReturnRepository.Create(true, string.Format("Erro ao salvar o estabelecimento {0}! Analise o erro: {1}", establishmentModelData.Name, ex.InnerException));
-            }
+            var establishment = GetById(idEstablishment);
 
+            establishment.UserAdminId = idUser;
+
+           return await Update(establishment);
+        
         }
 
         internal async Task<ReturnRepository> Update(EstablishmmentModelData establishmentModelData)
@@ -98,8 +101,6 @@ namespace Nomadwork.Infra.Repository
                 return ReturnRepository.Create(true, string.Format("ERRO: Este Estabelecimento não existe: {0}", ex.Message));
 
             }
-
-
         }
 
 
@@ -116,7 +117,7 @@ namespace Nomadwork.Infra.Repository
             return _context.Establishments.Any(e => e.Id == id);
         }
 
-        //mok
+       
         internal async Task<ReturnRepository> CreateMok(List<EstablishmmentModelData> establishmentModelData)
         {
             try

@@ -32,6 +32,20 @@
     <Compile Remove="Infra\Data\Migrations\20191005211225_TesteLocation3.Designer.cs" />
     <Compile Remove="Infra\Data\Migrations\20191019154714_Login.cs" />
     <Compile Remove="Infra\Data\Migrations\20191019154714_Login.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191019172204_Login.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191019172204_Login.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102174456_Remodel.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102174456_Remodel.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102175248_business.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102175248_business.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102185914_business-Admin.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102185914_business-Admin.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102204739_Remodelagem.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102204739_Remodelagem.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102204953_Remodelagem.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102204953_Remodelagem.Designer.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102205210_Remodelagem.cs" />
+    <Compile Remove="Infra\Data\Migrations\20191102205210_Remodelagem.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

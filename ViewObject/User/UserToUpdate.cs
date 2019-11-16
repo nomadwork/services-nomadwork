@@ -12,5 +12,7 @@
         public string Dateborn { get; set; }
 
         public int Gender { get; set; }
+
+        public bool Admin { get; set; }
     }
 }

@@ -89,6 +89,8 @@ namespace Nomadwork.Infra.Data.Migrations
                     b.Property<string>("TimeOpen")
                         .HasColumnType("char(5)");
 
+                    b.Property<long>("UserAdminId");
+
                     b.Property<short>("Wifi");
 
                     b.HasKey("Id");
@@ -131,6 +133,8 @@ namespace Nomadwork.Infra.Data.Migrations
 
                     b.Property<DateTime>("TimeOpen");
 
+                    b.Property<long>("UserSugestedId");
+
                     b.Property<short>("Wifi");
 
                     b.HasKey("Id");
@@ -169,6 +173,8 @@ namespace Nomadwork.Infra.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
+
+                    b.Property<bool>("Admin");
 
                     b.Property<DateTime>("Dateborn")
                         .HasColumnType("Date");

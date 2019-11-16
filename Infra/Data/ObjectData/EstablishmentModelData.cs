@@ -45,7 +45,7 @@ namespace Nomadwork.Infra.Data.ObjectData
         [Required]
         public AddressModelData Address { get; set; }
 
-
-     //   public UserModelData User { get; set; }
+        [ForeignKey("Users")]
+        public long UserAdminId { get; set; }
     }
 }

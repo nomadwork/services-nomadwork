@@ -1,10 +1,7 @@
 ﻿using Nomadwork.Domain.Business;
 using Nomadwork.Domain.Location;
-using Nomadwork.Infra.Converts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.ViewObject;
-using Nomadwork.ViewObject.Shared;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,7 +39,7 @@ namespace Nomadwork.Infra
             return listEstablishment;
         }
 
-        public static Establishmment ToEstablishmment(this EstablishmmentCreate establishmment)
+        public static Establishmment ToEstablishmment(this EstablishmmentToCreate establishmment)
         {
             var validate = Establishmment.Create(establishmment.Name.Trim(), establishmment.Email.Trim(), establishmment.Phone.Trim(), establishmment.Schedule.Open.ToSchedule(), establishmment.Schedule.Close.ToSchedule(), establishmment.Wifi.Rate, establishmment.Noise.Rate, establishmment.Plug.Rate);
 
@@ -53,7 +50,18 @@ namespace Nomadwork.Infra
             return validate;
         }
 
-       
+        internal static EstablishmmentToListDisplay ToDisplay(this EstablishmmentModelData data)
+            => new EstablishmmentToListDisplay
+            {
+                Id = data.Id,
+                Name = data.Name
+            };
+
+
+        internal static List<EstablishmmentToListDisplay> ToDisplay(this IEnumerable<EstablishmmentModelData> data)
+            => data.Select(x => x.ToDisplay()).ToList();
+
+
 
         public static EstablishmmentById ToEstablishmmentById(this EstablishmmentModelData data)
         {

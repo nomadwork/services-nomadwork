@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nomadwork.Infra.Converts
+namespace Nomadwork
 {
     public static class ConvertGeneral
     {
