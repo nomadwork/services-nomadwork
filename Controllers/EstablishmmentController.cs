@@ -82,47 +82,25 @@ namespace Nomadwork.Controllers
         [HttpGet("details/{id:long}")]
         public Json GetDetails(long id)
         {
-            var t = new Teste
-            {
-                Id = id,
-                Sex = new List<Sexs>
-{                   new Sexs{ Name = "Female", Value = 60},
-                    new Sexs{ Name = "Male", Value = 50},
-                    new Sexs{ Name = "Others", Value = 40}
-
+            object teste = new 
+            { 
+                id, 
+                sex = new[] 
+                { 
+                    new { name = "Female", value = 60 },
+                    new { name = "Male", value = 50},
+                    new { name = "Others", value = 40}
                 },
-                Age = new List<Ages>
-                {
-                    new Ages{Name = 1999, Value = 30},
-                    new Ages{Name = 1988, Value = 20},
-                    new Ages{Name = 2000, Value = 10}
-
+                age = new[] 
+                { 
+                    new { name = 1999, value = 30},
+                    new { name = 1988, value = 20},
+                    new { name = 2000, value = 10},
                 }
+           };
 
-            };
-
-
-            return Json.Ok("teste", t);
+            return Json.Ok("teste", teste);
         }
-
-        class Teste
-        {
-            public long Id { get; set; }
-            public List<Sexs> Sex { get; set; }
-            public List<Ages> Age { get; set; }
-        }
-        class Sexs
-        {
-            public string Name { get; set; }
-            public int Value { get; set; }
-
-        }
-        class Ages
-        {
-            public int Name { get; set; }
-            public int Value { get; set; }
-        }
-
 
 
         [HttpPost]
