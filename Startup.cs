@@ -132,7 +132,7 @@ namespace Nomadwork
                 .UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "");
-                c.RoutePrefix = string.Empty;
+                c.RoutePrefix = "api";
             });
         }
     }
