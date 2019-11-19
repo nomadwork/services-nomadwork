@@ -2,16 +2,20 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Nomadwork.Infra.Data.Contexts;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.TokenGenerate;
 using System;
+using System.IO;
 
 namespace Nomadwork
 {
@@ -43,6 +47,11 @@ namespace Nomadwork
             } 
 #endif
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            });
 
             services.AddResponseCompression();
 
@@ -118,9 +127,27 @@ namespace Nomadwork
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
 
-           
-            app.UseMvc();
+            app.UseMvc(
+            //    routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "",
+            //        template: "{controller}/{action=Index}/{id?}");
+            //}
+            );
+
+            app.UseStaticFiles(); // For the wwwroot folder
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
+                "ClientApp", @"dist\nomadwork")),
+                RequestPath = new PathString("")
+            });
+
 
             app.UseResponseCompression();
 
