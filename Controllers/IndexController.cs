@@ -16,7 +16,7 @@ namespace Nomadwork.Controllers
         {
 
             var file = Path.Combine(Directory.GetCurrentDirectory(),
-                "ClientApp", @"dist\nomadwork\index.html");
+                "ClientApp", @"dist","nomadwork","index.html");
 
             return PhysicalFile(file,"text/html");
 

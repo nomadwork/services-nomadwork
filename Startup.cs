@@ -144,7 +144,7 @@ namespace Nomadwork
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
-                "ClientApp", @"dist\nomadwork")),
+                "ClientApp", "dist","nomadwork")),
                 RequestPath = new PathString("")
             });
 
