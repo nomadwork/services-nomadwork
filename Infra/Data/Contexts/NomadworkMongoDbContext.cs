@@ -1,13 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-
-using Nomadwork.Infra.Data.ObjectData;
+using Nomadwork.Infra.Data.ObjectData.Schemes;
 using Nomadwork.ViewObject.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace Nomadwork.Infra.Data.Contexts
 {
@@ -24,7 +18,7 @@ namespace Nomadwork.Infra.Data.Contexts
                 _db = client.GetDatabase(options.Value.Database);
             }
 
-            public IMongoCollection<GameModelData> Games => _db.GetCollection<GameModelData>("Games");
+            public IMongoCollection<EstablishmmentDetailsScheme> Establishmentcollection => _db.GetCollection<EstablishmmentDetailsScheme>("Establishmentcollection");
         
     }
 }

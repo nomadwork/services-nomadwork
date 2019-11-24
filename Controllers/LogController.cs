@@ -1,79 +1,54 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 using Nomadwork.Infra.Data.ObjectData;
+using Nomadwork.Infra.Data.ObjectData.Schemes;
 using Nomadwork.Repository;
 
 namespace Nomadwork.Controllers
 {
-    [Produces("application/json")]
-    [AllowAnonymous, Route("api/Game")]
+    [AllowAnonymous, Route("api/log")]
     public class GameController : Controller
     {
-        private readonly LogRepository _gameRepository;
+        private readonly LogRepository _logRepository;
 
-        public GameController(LogRepository gameRepository)
+        public GameController(LogRepository logRepository)
         {
-            _gameRepository = gameRepository;
+            _logRepository = logRepository;
         }
 
         // GET: api/Game
-        [HttpGet]
+        [HttpGet("establishmments")]
         public async Task<IActionResult> Get()
         {
-            return new ObjectResult(await _gameRepository.GetAllGames());
+            return new ObjectResult(await _logRepository.GetAllEstablishmmentDetails());
         }
 
         // GET: api/Game/name
-        [HttpGet("{name}", Name = "Get")]
-        public async Task<IActionResult> Get(string name)
+        [HttpGet("establishmments/{id}")]
+        public async Task<IActionResult> Get(long id)
         {
-            var game = await _gameRepository.GetGame(name);
+            var establishmments = await _logRepository.GetEstablishmmentDetail(id);
 
-            if (game == null)
+            if (establishmments == null)
                 return new NotFoundResult();
 
-            return new ObjectResult(game);
+
+            
+
+            return new ObjectResult(establishmments);
         }
 
         // POST: api/Game
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody]GameModelData game)
+        [HttpPost("establishmments/logcreate")]
+        public async Task<IActionResult> Post([FromBody]List<EstablishmmentDetailsScheme> establishmment)
         {
-            await _gameRepository.Create(game);
-            return new OkObjectResult(game);
+            await _logRepository.CreateEstablishimmentLog(establishmment);
+            return new OkObjectResult(establishmment);
         }
 
-        // PUT: api/Game/5
-        [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name, [FromBody]GameModelData game)
-        {
-            var gameFromDb = await _gameRepository.GetGame(name);
-
-            if (gameFromDb == null)
-                return new NotFoundResult();
-
-            game.Id = gameFromDb.Id;
-
-            await _gameRepository.Update(game);
-
-            return new OkObjectResult(game);
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> Delete(string name)
-        {
-            var gameFromDb = await _gameRepository.GetGame(name);
-
-            if (gameFromDb == null)
-                return new NotFoundResult();
-
-            await _gameRepository.Delete(name);
-
-            return new OkResult();
-        }
     }
 }
