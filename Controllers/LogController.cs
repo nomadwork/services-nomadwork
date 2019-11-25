@@ -7,15 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Nomadwork.Infra.Data.ObjectData;
 using Nomadwork.Infra.Data.ObjectData.Schemes;
 using Nomadwork.Repository;
+using Nomadwork.ViewObject;
 
 namespace Nomadwork.Controllers
 {
     [AllowAnonymous, Route("api/log")]
-    public class GameController : Controller
+    public class LogController : ControllerBase
     {
         private readonly LogRepository _logRepository;
 
-        public GameController(LogRepository logRepository)
+        public LogController(LogRepository logRepository)
         {
             _logRepository = logRepository;
         }
@@ -24,7 +25,15 @@ namespace Nomadwork.Controllers
         [HttpGet("establishmments")]
         public async Task<IActionResult> Get()
         {
-            return new ObjectResult(await _logRepository.GetAllEstablishmmentDetails());
+            var establishmments = await _logRepository.GetAllEstablishmmentDetails();
+
+            
+
+
+            return Json.Ok("Todos os Detalhamentos", establishmments);
+
+
+           
         }
 
         // GET: api/Game/name
@@ -37,9 +46,9 @@ namespace Nomadwork.Controllers
                 return new NotFoundResult();
 
 
-            
 
-            return new ObjectResult(establishmments);
+            return Json.Ok("Detalhes do Estabelecimento", establishmments);
+            
         }
 
         // POST: api/Game
